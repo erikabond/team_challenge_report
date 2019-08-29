@@ -1,0 +1,16 @@
+\section{Software} 
+\tocless \subsection{Schema structure} \label{schema_struct}
+
+Given the choice of a relational database, the schema had to be fixed. For the \gls{mvp}, the schema was designed to contain the following columns: 
+\begin{itemize}
+    \item \texttt{id} -- an autoincrementing integer, the number of the stored measurement;
+    \item \texttt{device\_id} -- an integer signifying the main unit used for the measurement;
+    \item \texttt{datetime} -- date and time of the in-field measurement;
+    \item \texttt{gps\_lat} -- latitude recorded by the GPS unit;
+    \item \texttt{gps\_lng} -- longitude recorded by the GPS unit;
+    \item \texttt{nitrate} -- the nitrate concentration recorded in the field;
+    \item \texttt{ph} -- pH recorded in the field;
+    \item \texttt{moisture\_retention} -- moisture retention single value recorded in the field;
+    \item \texttt{co2} -- CO$_2$ content obtained from the lab, added manually by the user later;
+    \item \texttt{carbon} -- organic carbon content obtained from the lab, added manually by the user later.
+\end{itemize}

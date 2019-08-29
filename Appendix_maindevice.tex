@@ -1,0 +1,120 @@
+
+\section{Hardware}
+\tocless \subsection{Feasibility studies for soil organic matter determination in soil}
+Soil organic carbon (\gls{SOC}), a product of on-site biological decomposition of plant, bacterial and animal residues, is a highly important indicator of overall soil quality \cite{Gregorich, Haynes, WanderDrinkwater}. Its composition and breakdown rate affect chemical, physical and biological properties of the soil, such as nutrient availability, biodiversity, and biological activity as well as the soil structure and porosity, thus water holding capacities and water infiltration rate. 
+
+The methods of evaluating \gls{SOC} are based on \textit{ex situ} measurements carried out under controlled conditions in a laboratory setting, resulting in a multiple day process from sample collection to data availability. Being able to monitor \gls{SOC} in field would allow an immediate overview over several parameters of the soil while allowing appropriate actions in real time and would decrease the amount of data handling necessary. Thus \gls{SOC} is one of the main parameters that were listed from end users as tool of need for in field soil monitoring. 
+
+\subsubsection{Standard method -- Loss on ignition (LOI)} \label{StandardmethodsLOI}
+The standard procedure to determine the amount of \gls{SOC} is the \textbf{\gls{LOI}} test which determines the weight loss of a dried soil sample (here dried at \SI{70}{\celsius} for 17 hours)  after combustion of the organic material by exposing it to \SI{500}{\celsius} for 8 hours. The amount of mass lost after the \gls{LOI} treatment is equal to the \gls{SOC} amount of the sample. \gls{LOI} is an easy, cheap and highly reliable method. Due to its implementation requiring a high precision mass balance, a drying oven, a temperature controlled muffle furnace and preheated crucibles next to the soil sample of interest, this procedure is not modifiable for in field use. 
+
+A more accurate method is the \textbf{dry oxidation} of soil for which an automated carbon analyser is used to measure the \gls{CO2} amount that has evolved. The application of high temperature oxidises the organic matter present in soil and is manifested as a loss in the mass of the soil sample. Estimation of \gls{SOC} by wet oxidation of soil is also accepted as a standard procedure. It involves chemical treatment of soils samples with strong oxidising agents like dichromates in an acidic medium at \SI{175}{\celsius}. Any organic content present in the sample is converted to $CO_{2}$. $Cr^{6+}$ in $Cr_{2}O_{7}$; on the other hand is reduced to $Cr^{3+}$, which is associated with a sharp colour change from orange to green. The amount of carbon can be calculated by quantifying the change in optical absorbance corresponding to the generated $Cr^{3+}$ or by titrating the residual $Cr^{6+}$. It is also assumed that the average valence of the carbon present in soil is zero. The method of wet chemical oxidation has been modified over the years to account for the interference caused by ions, including $Fe^{2+}$, $Cl^{-}$, and $Mn^{3+}$/$Mn^{4+}$.\cite{Chatterjee2009} 
+
+%All the \textit{ex situ} measurement techniques described above are robust and often considered as the standard. However, they require sample preparation, have quite involved measurement protocols or require a long turnaround time (up to 5 days). 
+Besides chromate based chemical test kits, which cause a safety hazard to the environment and individuals no \gls{SOC} tests are readily available for in field usage. %Due to \gls{SOC}
+
+
+
+\subsubsection{Feasibility study -- Spectroscopy }\label{SOC_feasibility}
+Techniques based on spectroscopy and remote sensing often present a low-cost and easy-to-use solution. \gls{IR} spectroscopy has proven to be a powerful candidate for proximal measurement of soil carbon and soil health monitoring in general. The frequency ranges used for this purpose are the \SI{400}{nm} to \SI{2500}{nm} (\gls{NIR}) and the \SI{2500}{nm} to \SI{25000}{nm} (\gls{MIR}).\cite{Chatterjee2009, Bellon-Maurel2011, ViscarraRossel2015} \gls{IR} spectroscopy is usually implemented in a diffused reflectance mode or an \gls{ATR}. In the first, light reflected in all directions by rough surfaces of the sample is analysed; \gls{ATR}, on the other hand, depends on total internal reflection at the interface of a crystal and the sample. This produces an evanescent field into the sample, which bears the useful information about material composition. The absorbance in the \gls{MIR} region is attributed to the characteristic molecular vibrations of the chemical compounds present in the sample; whereas the \gls{NIR} region corresponds to overtones and combinations of the fundamental bands making the absorbance (extinction coefficients) lower than the former. It is also sensitive to physical structure and other external factors.\cite{Bellon-Maurel2011} The \gls{IR} spectra of soil cannot be directly correlated with the \gls{SOC}. This is because the spectra gives information about the nature of chemical bonds at the molecular level and does not quantify \gls{SOC} as a whole. Quantitative \gls{SOC} values are hence obtained by correlating the spectral information with known measurements of reference samples. This is performed by various statistical methods that establish empirical relations between the target attribute, i.e. \gls{SOC} and absorbance values at selected wavelengths. Commercial spectroscopes include elaborate optics for accurate performance, which make them bulky and unsuitable for deploying in the field. Portable \gls{MEMS} technology based ones are available, but they are expensive. With these problems in mind, there have been recent efforts in developing low-cost open-source spectrometers at the expense of a limited spectral range.\cite{oursci_blog} The hand-held device works at few discrete frequencies between \SI{365}{nm} and \SI{1800}{nm} and connects to a smart-phone application for data analysis.
+
+As described earlier, since the spectral response depends on various physical factors, its correlation to meaningful \gls{SOC} values changes with the soil type. For example, excellent agreement ($R^{2}$ = 0.961) is observed if all calibration samples have similar particle size distribution; while it becomes worse for samples with heterogeneous particle sizes.\cite{Russel2003} These suggests that calibration is largely location specific. Apart from that, water, a prime component of soil, absorbs strongly in the \gls{NIR} range. Hence, drying the samples prior to spectroscopic analysis is essential to get rid of the interference from water molecules. Such additional sample processing steps, in many occasions, inhibit the reliable use of \gls{IR} spectroscopy in the field. In view of these practical difficulties, determination of \gls{SOC} through IR spectroscopy was considered unfeasible and abandoned. 
+
+\input{CO2sensor.tex}
+
+\tocless \subsection{Base unit}
+\subsubsection{GPS accuracy testing}\label{section:gps_accuracy}
+%Author: Sagnik
+ \begin{figure}[ht]
+		    \centering
+	   \includegraphics[width=\linewidth]{Pictures/Hardware/gps_accuracy.jpg}
+			\caption{Visual representation of the different co-ordinates reported by the GPS for the same position (on Google Maps).}
+			\label{gps_accuracy}
+    	\end{figure}
+UBlox Neo 6-M \gls{gps} modules were chosen based on their affordability and ease of availability. Moreover, being very common among hobbyists, plenty of documentation and troubleshooting is available for reference. Geo-tagging is considered an important part of the sensing exercise for tracking the quality of soil at a location over a period of time. Hence, the co-ordinates of the same position reported by the \gls{gps} over one hour was analysed as a test of its accuracy. \Cref{gps_accuracy} shows the spatial spread of 10 representative co-ordinates thus measured. Statistical analysis suggested that the location accuracy is \SI{12.76}{m}. This is acceptable for our purpose as soil quality is expected to change only over larger distances. 
+
+\subsubsection{Process flow of the base unit firmware}\label{appendix:processflow}
+
+The base unit houses different hardware sub-units of different latency. The need to schedule them carefully have given rise to the process flow shown in \cref{firmware_flowchart}. On start-up, the \gls{gps} and SD card are initialised since they are the compulsory requirements. Powering the \gls{gps} from the very beginning has its consequences on the battery life, but is helpful as it allows enough time to lock. After the sensing operation is executed, the date, time, and location data are read from the \gls{gps}. This is performed in a loop until the data is valid or the timer is exceeded, whichever is earlier. If the geo-tagging is successful, sensor data along with the date-time and location are logged into a \gls{csv} file in the SD card. Otherwise, the user is intimated, and the entire sensing process and acquired data are abandoned. Even if multiple sensor measurements are taken at the same location, data from each sensing exercise, are logged as separate rows in the \gls{csv} file. Although non-intuitive, this simplifies the data logging process from the firmware perspective. Thus, measurements from different sensors may bear slightly different co-ordinates depending on the \gls{gps} accuracy. This is taken care of during data post-processing; for example, by limiting the significant digits of the co-ordinates. This is complemented by adding unique device and sensor IDs corresponding to each measurement.
+
+\subsubsection{Battery life} 
+%Author: James
+The battery life was measured using the state-of-the-art Keithley battery measurement setup~\cite{JM_batTestSetup}. A battery characteristic for the specific 1850 cell used in the device was measured using the experimental setup shown in ~\cref{Figure:JM_smutest}. The battery characteristic was then uploaded to the battery simulator, and the battery life of the device was measured using the experimental setup shown in \cref{Figure:JM_batsim}. 
+
+\Cref{Figure:JM_esrsoc} shows the discharge curve of one of the 18650 cells used to power the device. The discharge curve was obtained using a Keithley 2450~\cite{JM_2450SMU}. The device shuts off at \SI{2.88}{V} leaving 1.72 \% of the battery capacity unused. This could be improved by redesigning the regulator to work down to a lower voltage. It can also be seen that the equivalent series resistance of the cell rises sharply as it approaches the fully discharged state. \Cref{Figure:JM_dist} shows a plot where the battery characteristic obtained using the 2450 was uploaded to the Keithley 2281S battery simulator~\cite{JM_2281} which was used to power the device. The base unit was configured with the LCD back-light on, the most power hungry peripheral sensors connected, and with the GPS and RFID reader active. This caused the device to draw the maximum possible current leading to the minimum possible battery life. The device worked for 16 hours and 12 minutes, so it follows that two cells will power it for 32 hours and 24 minutes. The voltage and current plot highlights that the supply is extremely noisy with nominal \SI{15}{mV} voltage noise and current oscillations of \SI{24}{mA}. The voltage oscillated with a amplitude of \SI{132}{mV} which is worrying. This should be investigated and rectified with filtering in future designs. The voltage across the terminals of the base unit is consistently lower than that across the output of the battery simulator due to the burden voltage of the ammeter~\cite{JM_burden}.
+
+
+    
+    
+\begin{figure}
+	    \centering
+	    \includegraphics[width = 200pt]{Pictures/Hardware/JM_smutest.pdf}
+	    \captionsetup{justification = centering}
+		\caption{Experimental setup for the battery drain test on the source measurement unit.}
+		\label{Figure:JM_smutest}
+	\end{figure} 
+	
+\begin{figure}
+	    \centering
+	    \includegraphics[width = 200pt]{Pictures/Hardware/JM_batsim.pdf}
+	    \captionsetup{justification = centering}
+		\caption{Experimental setup for the battery simulator test to determine the minimum battery life of the base unit.}
+		\label{Figure:JM_batsim}
+	\end{figure} 
+	
+	\begin{figure}
+	    \centering
+	    \includegraphics[width = 300pt]{Pictures/Hardware/JM_dist.pdf}
+	    \captionsetup{justification = centering}
+		\caption{Voltage and current curves obtained from powering the base unit from the battery simulator until the regulator drops out.}
+		\label{Figure:JM_dist}
+	\end{figure}
+
+   
+\begin{figure}
+		    \centering
+		    \includegraphics[height=400pt]{Pictures/Hardware/esrsoc.eps}
+		    \captionsetup{justification = centering}
+			\caption{Plot of the battery stage of charge and ESR vs voltage, it can be seen that the ESR increases as the battery voltage drops. The battery is mostly discharge when the voltage reaches x volts and the supply drops out.}
+			\label{Figure:JM_esrsoc}
+    	\end{figure}
+    	
+\subsubsection{Troubleshooting} 
+%Author:  - James + Sagnik
+The probability of receiving a \gls{pcb}, soldering on the components, programming the microcontroller and observing it do exactly what was intended is extremely small. It is significantly more likely that the device will not work the first time around. It is therefore important to first determine whether the issue is with the hardware or the software. If the issue is in software, then print statements can be used to quickly determine where the system fails. If the issue is with hardware, first voltages should be checked to identify any power supply issues, and then connections should be checked using a multi-meter (with the circuit disconnected from the power). Finally, an oscilloscope should be used to asses the signal integrity of communications, and then a logic analyser used as a last resort to interrogate the bits being sent between devices. Extensive troubleshooting was required to get the hardware designed in the project working. Troubleshooting of an intermittent problem with the \gls{gps} resulted in the addition of an external antenna. The close proximity of the antenna to metal objects with the case caused the intermittency as described in~\cite{JM_antenna}. 
+    	
+
+\subsubsection{OOPI}
+\label{sec:OOPI_Appendix}
+
+The OOPI software boasts three primary features of interest, namely: the robust, atomic communication protocol underlying the OOPI API, the formulation of a general sensor model to facilitate the development of a generic, sensor non-specific base unit and the use of the object oriented coding paradigm to develop an abstracted model of the sensor with which the base unit can interface polymorphically. These are discussed in more detail below.
+
+\paragraph{Transactions}
+\label{sec:OOPI_Transactions}
+The SPI communications standard is somewhat loosely defined, and allows for synchronous communication between Master and Slave. The Master may, at any time, simultaneously send and receive data provided that the Slave has been given sufficient time to load data into a transmit register and store data from a receive register. The fundamental problem being that, the Slave cannot initiate transactions, making it difficult for Slave modules to dictate the flow of a measurement procedure. In order to facilitate this, OOPI implements an atomic transaction protocol, with a guaranteed series of events which allows for complex message passing between Master and Slave. The flow of control of an OOPI atomic transaction is shown in \cref{fig:OOPI_Transaction}, consisting of: an initial handshaking exercise to verify proper functioning of the hardware; followed by a request made by the Master of the Slave; and concluded by a reply made by the Slave to the Master. The utility of this protocol is that the requests and replies are universally defined structures, namely mCmd and sCmd, which contain instances of an enumerated instruction set with string, integer and float parameters. This allows the Master to issue human-readable commands to the Slave as per usual, as well as for the Master the request the Slave to issue commands to the Master itself, such as display an instruction to the user. The Slave may also reply with an identity structure or compound data structure to convey measurement data of arbitrary form. 
+
+\paragraph{General sensor modelling}
+\label{sec:OOPI_General_Sensor}
+Sensors of the type which are of interest to this project can generally be modelled as requiring the enactment of a measurement procedure, which may require participation by the user. In particular, measurement procedures are thought of as a set of steps, at each step the sensor is entitled to issue an instruction to the Master, the user, or both; and may require the user to confirm conformance to the instruction via the Master. The control flow of the current implementation is given in \cref{fig:OOPI_Measurement}. When the user requests a measurement to be enacted, the Master will request the total number of steps/instructions in that sensor's measurement cycle. The Master will then loop through that cycle, carrying out the instructions issued by the sensor at each stage, which include display messages to the user, waiting for user input, and pausing the program. The sensor firmware itself requires a slightly greater complexity due to its allowed flexibility; transactions initiated by the Master trigger an interrupt routine in the Slave, which parses the request made by the Master, alters the global state of the Slave and replies appropriately. In the main loop, the sensor will progress though its measurement cycle in response to changes in state, thus allowing the sensor to dictate the measurement procedure from within a hardware architecture whereby only the Master can initiate transactions. Furthermore, this modelling exercise allows the same firmware to be utilised for any sensor connected to the Master module.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.85\textwidth]{Pictures/Hardware/OOPI_Measurement_Reduced.png}
+        \caption{Activity diagram illustrating the flow of control within the OOPI framework for a measurement instance. Red arrows indicate synchronised communication events, blue arrows indicate the flow of information, black arrows indicate the flow of control and green arrow indicate Actor influence. }
+        \label{fig:OOPI_Measurement}
+    \end{figure}%
+    
+
+\paragraph{Object oriented sensors}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{Pictures/Hardware/OOPI_Class_Diagram.png}
+    \caption{Class Diagram of the sensor abstraction used by the Master Module}
+    \label{fig:OOPI_Class_Diagram}
+\end{figure}
+
+In order to enforce non-specificity of the Master code, the \gls{OOP} has been adopted to encapsulate the communications protocol and provide an interface, which enforces the model envisioned in \cref{sec:OOPI_General_Sensor}. The encapsulation provided by the \gls{OOP} coding allows the firmware and the library to become maximally decoupled, which in turn, allows the implementation of OOPI to be maintained and updated without interfering with the function or form of any implemented firmware. An additional feature of OOP is inheritance, which allows for polymorphic code. In this instance, functional main code can pass the sensor object as a parameter to functions accepting instances of one of the base classes; the sensor object will then be trimmed, allowing that function access to only the portion of the interface provided by said base class. This strengthens the modelling paradigm and enforces a separation of concerns as functions cannot stray from their designated responsibility by accessing methods beyond said responsibility. 
+
+In particular, a sensor is modelled as an entity that can provide data, has an identity which can be queried, issue and be issued commands. Each aspects of the complete abstracted sensor model are modelled by each of the base classes. In addition, each base class contains a communicative object, which encapsulated the atomic OOPI transaction protocol described in \cref{sec:OOPI_Transactions}.
+%\includepdf[pages=-]{Pictures/Hardware/OOPI_Hyperlinked.pdf} 

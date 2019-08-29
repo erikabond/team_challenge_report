@@ -1,0 +1,364 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.2 (30/3/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[11pt,a4paper,fleqn, oneside]{book} % Default font size and left-justified equations
+
+% jh2109 moved this here to define xcolor options before other packages load it internally without options
+\usepackage[table,xcdraw]{xcolor} 
+
+
+\usepackage{booktabs} % used for generating scientific looking tables
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{array}
+\usepackage{gensymb}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+%----------------------------------------------------------------------------------------
+\usepackage{enumitem}
+\newlist{arrowlist}{itemize}{1}
+\setlist[arrowlist]{label=$\Rightarrow$}
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\input{glossaries.tex}
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+
+\input{title_page.tex}
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{Pictures/title_page/tableofcontents.jpg} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+%\listoftodos
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\clearpage
+
+\chapterimage{Pictures/chapter_heads/dictionary.png}
+\printglossaries
+%\todo{There wasn't a print glossary command; I added one here. Feel free to move -jh2109}
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+%\part{Part One}
+%\usechapterimagefalse
+\chapterimage{Pictures/title_page/teamphoto.jpg} 
+
+    \chapter*{Executive Summary}
+    \setcounter{page}{1}
+    \vspace{-1cm}
+    \input{executive_summary.tex}
+    
+\chapterimage{Pictures/title_page/ceb_acknowledgements.jpg} 
+    \chapter*{Acknowledgements}
+        \vspace{-1cm}
+    \input{acknowledgements.tex}
+%\usechapterimagetrue
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1 - project outline
+%----------------------------------------------------------------------------------------
+
+\chapterimage{Pictures/title_page/portstjohns_rivermouth.jpg} % Chapter heading image
+
+\chapter{Project Outline}
+    \setcounter{page}{4}
+
+\iffalse % comment out our instructions
+%Jan
+We can add editorial notes and TODOs with the \texttt{\textbackslash{}todo\{\}} command, and they show up in the margins as well as giving us a list of all TODOs still open in the document.\\
+
+%Erika
+If you would like to use an abbreviation and are not sure if it has ever been used in the report before, for convenience I've added a glossaries package. To use it, you should use command \texttt{\textbackslash{}gls\{\}}, and then the acronym will be defined if it has never been used before, and will be used as an abbreviation in all subsequent instances. To define a new acronym please go to the \texttt{glossaries.tex} file. For example, if I type \texttt{\textbackslash{}gls\{api\}}, the LaTeX would display \textbf{\gls{api}}.
+
+For capitalised version in the beginning of a sentence, please use \texttt{\textbackslash{}Gls\{\}}. Example: \textbf{\Gls{gis}}.
+
+For further info refer to \url{https://texblog.org/2014/01/15/glossary-and-list-of-acronyms-with-latex/}\\
+
+%Erika
+If you would like to use a number with a unit, please use command \texttt{\textbackslash{}SI\{\}\{\}}. For example, if I would like to say five joules, I would type in \texttt{\textbackslash{}SI\{5\}\{\textbackslash joule\}} and LaTeX would display \SI{5}{\joule}. You can also type in \texttt{\textbackslash{}SI\{5\}\{J\}} for the same result.
+
+Read more here \url{http://mirror.ox.ac.uk/sites/ctan.org/macros/latex/contrib/siunitx/siunitx.pdf}.
+\textbf{Check page 9 for unit macros - a list of units and how they can be called.}\\
+
+%Erika
+If you would like to insert a hyperlink, you can either use commands \texttt{\textbackslash{}url\{\}} or \texttt{\textbackslash{}href\{\}\{\}}. First inserts a clickable link, and second inserts a clickable defined string which will forward you to a link (first define link, then the clickable string).
+
+Read more here: \url{https://www.latex-tutorial.com/tutorials/hyperlinks/}\\
+
+%Doug
+For referencing figures, tables, sections or anything with \textit{\textbackslash{}label\{...\}} the cleveref package is great! Normally, to reference a figure, say, one would type something like "fig.\textbackslash{}ref\{\textit{FigureLabel}\}". Instead, type: "\textbackslash{}cref\{\textit{FigureLabel}\}" and to reference multiple figures: "\textbackslash{}cref\{FigureLabel1,FigureLabel2,...\}". To capitalise the first letter of the of "fig." use a captial 'C', like: "\textbackslash{Cref\{...\}}". Remember that you can use this to refer to anything which has a \textbackslash{label\{\}} command added below it/in its environment. The package is hosted at \url{https://www.ctan.org/pkg/cleveref} and there is a little tutorial at \url{https://texblog.org/2013/05/06/cleveref-a-clever-way-to-reference-in-latex/}
+
+\fi
+    \vspace{-0.5cm}
+
+\input{project_outline}
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2 - Science and technology
+%----------------------------------------------------------------------------------------
+
+\chapterimage{Pictures/chapter_heads/hardware_heading.jpeg} % Chapter heading image for hardware
+
+\chapter{Science and Technology -- Hardware}
+  \setcounter{page}{9}
+
+\vspace{-1.5cm}
+\input{hardware}
+\clearpage
+\input{hardware_C-3NpH.tex}
+
+
+\chapterimage{Pictures/software/software_chapter.jpg} % chapter heading image for software
+\input{software}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3 - Citizen engagement and outreach
+%----------------------------------------------------------------------------------------
+
+\chapterimage{Pictures/chapter_heads/solicamb_outreach.jpg} % Chapter heading image
+
+\chapter{Citizen Engagement and Outreach}
+
+\input{citizen_engagement_and_outreach}
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4 - Future plans
+%----------------------------------------------------------------------------------------
+\chapterimage{Pictures/chapter_heads/future_plans.jpeg} % Chapter heading image
+
+\chapter{Future Plans}
+
+\input{future_plans}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4 - Conclusions
+%----------------------------------------------------------------------------------------
+
+\chapterimage{Pictures/title_page/Conclusion.jpg} % Chapter heading image
+
+\chapter{Conclusions} %500 words MAXXXX
+
+%WHat was the problem
+
+%What have we done
+
+%What have we learnt
+
+
+\input{conclusions}
+
+\chapterimage{Pictures/title_page/teamphoto.jpg}
+\chapter{Report Contributions}
+
+\begin{table}[h]
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Author} & \textbf{Chapters/sections} \\ \hline
+T. Baissas &  
+\begin{tabular}[c]{@{}l@{}}
+        \textbf{Science and Technology -- Hardware}: Moisture Retention\\ 
+        \textbf{Future Plans}: Moisture Retention, Outreach
+    \end{tabular}
+\\ \hline
+C. Barberio & 
+\begin{tabular}[c]{@{}l@{}}
+\textbf{Introduction}: Soil Health\\ 
+ \textbf{Citizen Engagement and Outreach}: Online Public Engagement, \\ Social Media Platforms, Radio and TV Feature, Make-a-thon\\
+  \textbf{Future Plans}: Outreach
+\end{tabular}
+\\ \hline
+S. L. Barron &  
+  \begin{tabular}[c]{@{}l@{}}
+        \textbf{Introduction}: User requirements\\ 
+        \textbf{Citizen Engagement and Outreach}: Importance of citizen engagement, \\
+        Website and Newsletter, Traditional methods for advertisement,\\ Overall insights\\ 
+        \textbf{Future Plans}: Outreach
+    \end{tabular}
+\\ \hline
+E. Bondareva &  
+    \begin{tabular}[c]{@{}l@{}}
+        \textbf{Project Outline}: Project management, Project progression\\ 
+        \textbf{Science and Technology -- Software}\\ 
+        \textbf{Future Plans}: Software
+    \end{tabular}
+\\ \hline
+C. W. Chung &  
+    \begin{tabular}[c]{@{}l@{}}
+        Executive Summary, Acknowledgements \\ 
+        \textbf{Project Outline}: Allocation of tasks (\cref{sec:Task_allocation})\\ \textbf{Science and Technology -- Hardware -- C-3NpH}: \\
+        %Introduction (\cref{sec:current_C3nph}): Current detection approaches and C-3NpH; \\
+        %Aims \& Objectives (\cref{sec:aimobj_c3nph}); \\
+        %Design Decisions (\cref{sec:cs_c3nph}): Colour sensor, Test strips, 3D printed enclosure; \\
+        %Results \& Discussion (\cref{phresults_c3nph}): pH;  \\ %: Introduction, Aims \& Objectives, Design Decisions, Results \& Discussions \\
+        \textbf{Future Plans -- C-3NpH} (\cref{future_nutrients_c3nph})
+        %: Measurements of other soil nutrients \\
+        %\textbf{Appendices}: C-3NpH \\
+    \end{tabular}
+\\ \hline
+K. Gibson &  
+\begin{tabular}[c]{@{}l@{}}
+        \textbf{Project Outline}: User Requirements, Aims and Objectives \\
+        \textbf{Citizen Engagement}: Soil Sampling Sites, TV and Radio Feature, \\
+        Outreach and Public engagement \\
+        \textbf{Science and Technology - Hardware}: C-3NpH \\
+        \textbf{Conclusions} \\
+        \textbf{Future Plans}: C-3NpH \\
+    \end{tabular}
+\\ \hline
+J. Heck &  
+\begin{tabular}[c]{@{}l@{}}
+\textbf{Science and Technology -- Hardware}: Moisture Retention Probe:\\
+Background and Idea, Measurement Protocol (Author)\\ 
+\textbf{Citizen Engagement and Outreach}: Hackathon (Editing),\\
+Make-a-Thon (Editing)\\
+\textbf{Future Plans}: Moisture Retention Probe (Author)\\
+\textbf{Appendix}: Moisture Retention: Probe Design Evolution (Author)
+\end{tabular}
+\\ \hline
+J. T. Meech &  
+\\ \hline
+S. Middya &
+\begin{tabular}[c]{@{}l@{}}
+        \textbf{Introduction}: User requirements\\
+        \textbf{Science and Technology -- Hardware}: Main device concept,\\ Device firmware\\ 
+        \end{tabular}
+\\ \hline
+S. Pavagada &  
+\begin{tabular}[c]{@{}l@{}}
+        \textbf{Science and Technology -- Hardware}: C-3NpH \\
+        \textbf{Future Plans: C-3NpH} \\ 
+        \end{tabular}
+\\ \hline
+E. Sch{\"a}fer & 
+\begin{tabular}[c]{@{}l@{}}
+    \textbf{Science and Technology -- Hardware} : \gls{CO2} sensor\\
+    \textbf{Citizen Engagement and Outreach}: Professional collaborators\\
+    \textbf{Citizen Engagement and Outreach}: Agri-Tech East Hack-a-thon\\
+\end{tabular}
+\\ \hline
+X. Tan &  
+\begin{tabular}[c]{@{}l@{}}
+        \textbf{Science and Technology -- Hardware}: C-3NpH (Prediction Models) \\
+        \end{tabular} 
+\\ \hline
+D. C. van Niekerk & \begin{tabular}[c]{@{}l@{}}
+        \textbf{Science and Technology -- Hardware}: Design Concept,\\ 
+        Moisture Retention - Simulation and Analytical Treatment\\
+        \end{tabular} 
+\\ \hline
+B. Woodington &  
+\begin{tabular}[c]{@{}l@{}}
+        \textbf{Science and Technology -- Hardware}: Moisture Retention\\ 
+        \textbf{Citizen Engagement and Outreach}: Immerse Education Workshop\\ 
+        \textbf{Conclusions}\\ 
+        \end{tabular}
+\\ \hline
+Y. Wu &  
+\begin{tabular}[c]{@{}l@{}}
+        \textbf{Citizen Engagement and Outreach}: Agri-Tech East Hack-a-thon \\
+        \end{tabular} 
+\\ \hline
+\end{tabular}
+\end{table}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\chapterimage{Pictures/chapter_heads/bibliography.jpg}
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+\tocless \section*{Books}
+%\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+\tocless \section*{Articles}
+%\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%----------------------------------------------------------------------------------------
+%	Appendices
+\chapterimage{Pictures/title_page/Appendice.jpg}
+\chapter{Appendices}
+%We could use the appendices package to typeset the appendices as not another chapter
+\input{Appendices.tex}
+
+
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+\printindex
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

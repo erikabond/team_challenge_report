@@ -1,0 +1,629 @@
+\section{C-3NpH}
+\subsection{Background and idea}
+\subsubsection{Importance of soil nitrates and pH}
+%%SURAJ%%
+%Nitrogen is a vital nutrient for plant growth: it is a major part of chlorophyll (crucial for photosynthesis) and a key building block of proteins. It is also often the main limiting nutrient in soil, hence is supplemented by applying fertiliser.
+Nitrates, a naturally occurring form of nitrogen in soil, are created from nitrification, i.e. conversion from ammonium. They are used as food by plants for growth and production. Soil nitrate levels vary widely, depending on soil type, climate conditions, rainfall, and fertilising practices (\cref{fig:soilnitrates}). In unfertilised or commercial crop soil, background nitrate levels range from \SI{5}-\SI{50}{ppm}; nitrates at \SI{20}-\SI{50}{ppm} are considered sufficient for growing plants in vegetable gardens. However, variation with moisture means that nitrate fluctuations exist depending on soil osmosis. Once nitrates levels are measured, the end user can decide on the amount of fertiliser to apply to the soil, based on recommended guidelines \cite{laqua}.
+
+
+%begin{wrapfigure}{r}{7cm}
+%	\centering
+%	\includegraphics[width=\linewidth]{Pictures/C-3NpH/nitrates_1.png}
+%	\caption{Nitrates chart \cite{Pattison2010}}
+%	\label{fig:nitratechart}
+%\end{wrapfigure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{Pictures/C-3NpH/nitratechart.png}
+	\captionsetup{justification = centering}
+	\caption{Understanding the impact of soil nitrates.}
+	\label{fig:soilnitrates}
+\end{figure}
+
+Soil pH is another common measurement to evaluate soil chemical properties. It determines the availability of essential nutrients to the soil, and helps estimate the toxicity of other elements based on their known relationship to pH. Soil pH is affected by many factors, e.g. nature and type of inorganic and organic matter, amount and type of exchangeable ions, soil-solution ratio, salt or electrolyte content, and CO$_2$ content. Moreover, it influences the solubility of various compounds, the relative ionic bonding to exchange sites, and microbial activities. Soil pH may be used as a relative indicator of base saturation, depending on the predominant clay type. Optimal pH ranges differ between crop types; therefore, its routine monitoring is important for crop productivity and yield\cite{soilph}.
+
+\subsubsection{Current detection approaches and C-3NpH} \label{sec:current_C3nph}
+
+In a laboratory, nitrate testing is conducted by performing a colorimetric nitrate-reduction reaction, for spectrophotometer analysis (\cref{subfig:HACH}). Although the most accurate, its associated equipment is non-portable and expensive (\textsterling67/test \cite{hach}), and spent cuvettes require careful disposal (due to 2,6-dimethylphenol used). Hence, simpler test strips or \gls{ISE}-based probes are used instead for field testing. Nitrate test strips (\cref{subfig:DCSstrips}) are cheap (\textsterling0.16/test \cite{DCSnit}) and widely available. Typically quantified by eye against a colour chart, there is inherent subjectivity, especially when deciding between close shades. \gls{ISE}-based probes range widely in price and quality. They work by measuring the potential difference between an electrode specific to the desired detection species (i.e. nitrates), and a reference electrode. At the lower end of ISE probes, electrode corrosion is the prevailing issue. %, with a longevity of two weeks in the soil for \textit{in situ} monitoring. 
+Those at the higher end (e.g. LAQUATwin, Horiba as shown in \cref{subfig:laqua}) cost hundreds of pounds, and typically require calibration against a known solution (e.g. distilled water) before each measurement.\cite{laqua} 
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+		\centering
+		\includegraphics[height=4cm]{Pictures/C-3NpH/Intro_HACH.png}
+		\caption{HACH spectrophotometer}
+		\label{subfig:HACH}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.27\linewidth}
+		\centering
+		\includegraphics[height=4cm]{Pictures/C-3NpH/Intro_DCSnitratestrips.png}
+		\caption{Nitrate test strips}
+		\label{subfig:DCSstrips}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.27\linewidth}
+	\centering
+		\includegraphics[height=4cm]{Pictures/C-3NpH/Intro_laquatwin.png}
+		\caption{ISE probes}
+		\label{subfig:laqua}
+	\end{subfigure}
+	\captionsetup{justification = centering}
+	\caption{Conventional methods of nitrate sensing including (a) laboratory-based method of spectrophotometer (HACH DR3900) \cite{hach}, (b) simple test strips \cite{DCSnit}, and (c) \gls{ISE} probes \cite{laqua}}.
+	\label{fig:nitmethods}
+\end{figure}   	
+
+
+Based on the principle of ISEs, pH meters are the most commonly used equipment for pH measurements. They require calibration in buffer solutions before each use, careful handling, and a reasonable amount of sample liquid ($\sim$\SI{10}{\ml}). Hence, test strips are a good alternative, due to their simpler protocol and low cost. 
+
+C-3NpH provides quantification of colour strips, which allows for measurement of soil pH, nitrate concentration (and other parameters limited only by strip availability). %When connected to the base unit, it provides geo- and time-stamping, highly valuable for field testing. 
+The simple dipping procedure only requires a small volume of liquid sample ($\sim$\SI{2}{\ml}), and gives rapid results. Taking into consideration advice from the \gls{UCPP} for affordable and single-point measurement sensors, the design of C-3NpH couples the use of cheap and commercially-available test strips, and a colour sensor for their quantification. This is achieved by creating mathematical models that map out the colour gradients of the strips. The final reading is delivered to the user via the base unit as a single digital reading. 
+
+%------------------------------------------------
+
+\subsubsection{Aims \& objectives} \label{sec:aimobj_c3nph}
+%Chyi
+C-3NpH aims to reduce the subjectivity found in conventional visual inspection of test strips. The device was developed as a low-cost, simple, and portable field sensor for nitrate detection. pH detection with C-3NpH was presented as an educational tool for aspiring engineers. Moreover, as soil sampling is required in the usage of C-3NpH, developing a set of protocols is essential for ensuring successful translation from laboratory to field. A hand-held centrifuge, \gls{WG}, was additionally investigated to eliminate settling variability across soils, in addition to allowing the user to expedite soil-supernatant separation process. \\
+
+\textbf{Objectives for C-3NpH}
+\begin{itemize}
+    \item Construct and validate mathematical models based on standard solutions.
+    \item Assess the precision of C-3NpH under the models.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[c]{0.45\textwidth}
+	\begin{tcolorbox}[width=\textwidth]
+ 	\noindent \textbf{Nitrates model}
+        \begin{itemize}
+            \item Develop field testing protocols.
+            \item Perform field testing.
+        \end{itemize}
+        \end{tcolorbox}
+	\end{minipage}
+		\begin{minipage}[c]{0.45\textwidth}
+		\begin{tcolorbox}[width=\textwidth]
+	\noindent \textbf{pH model}
+        \begin{itemize}
+            \item Develop an educational tool.
+            \item Assess sensor variability.
+        \end{itemize}
+        \end{tcolorbox}
+	\end{minipage}
+	\end{figure}
+
+
+
+%------------------------------------------------
+\clearpage
+\subsection{Design decisions}
+
+A detailed methodology for experiments can be found in \cref{C3nph_meth}. This section highlights the key decisions made when developing C-3NpH.
+
+\subsubsection{Colour sensor (TCS34725 by Adafruit)} \label{sec:cs_c3nph}
+%%CHYI%%
+
+The colour sensing element consists of a photodiode array, with either red, green, blue (RGB), or clear filters, and a white LED. Raw frequency outputs from the RGB and clear channels are recorded using an external microprocessor. Initially, the TCS3200 model (manufactured by DFRobot) was tested; even though it excelled in distinguishing between primary colours, its sensitivity was too low for gradients of the same colour. The TCS34725 (Adafruit, \cref{fig:tcsada}), equipped with an infrared filter provided more meaningful and reproducible results; hence, it was adopted for the final design.\cite{ada}
+
+\begin{figure}[h!]
+	% \begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\linewidth]{Pictures/C-3NpH/tcsada.png}
+	\captionsetup{justification = centering}
+	\caption{Colour Sensor (TCS34725) by Adafruit. \cite{ada}}
+	\label{fig:tcsada}
+	%\end{figure}
+\end{figure}
+
+\subsubsection{Test strips} \label{sec:ts_c3nph}
+
+%%CHYI%%
+Theoretically, C-3NpH is capable of quantifying any colour strip. For the initial proof of concept, nitrate (\cref{subfig:no3strips}) and pH strips (\cref{subfig:pHstrips}) were chosen based on strip dimensions, significance for soil health, and availability. Different strips were investigated, but excluded from further analysis (\cref{tab:strips}). 
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.6\linewidth} 
+		\centering
+		\includegraphics[height=3cm]{Pictures/C-3NpH/no3strips_strips.png}
+		\caption{Nitrates (DCS Products, UK)} 
+		\label{subfig:no3strips}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.35\linewidth}
+	\centering
+		\includegraphics[height=3cm]{Pictures/C-3NpH/pH_strips.png}
+		\caption{pH (Cole-Parmer, USA)} 
+		\label{subfig:pHstrips}
+	\end{subfigure}
+	\captionsetup{justification = centering}
+	\caption{Nitrate test strips were dipped in increasing concentration (ppm) of nitrate standard solutions, while pH test strips were dipped in different pH standard solutions}
+	\label{fig:teststrips}
+\end{figure}  
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ l  c  c  c  c } 
+			\hline
+			%\multicolumn{4}{c}{pH} \\
+			Test strips & High cost & Colour saturation* & Thick colour pad** & Plastic sheeting*** \\ 
+			\hline
+			Ammonium & & $\diamond$ & & \\ 
+			
+			Phosphates & & $\diamond$ & $\diamond$ & $\diamond$\\
+			
+			pH & & $\diamond$ & $\diamond$ &\\
+			
+			Potassium & $\diamond$ & & &\\
+			\hline
+		\end{tabular}
+		\captionsetup{justification = centering}
+		\caption{Evaluation of test strips investigated (all were purchased from DCS Products, UK). \small [N.B. *Equilibriates to the same colour, no longer giving a true representation; **Too thick for the slot geometry in the current box design; ***Causes reflectance and uneven dye distribution was observed]}
+		\label{tab:strips}
+	\end{table}
+
+
+\subsubsection{3D-printed enclosure}  \label{sec:enclosure_c3nph}
+The RGB colour sensor is extremely sensitive to environmental variations (e.g. lighting conditions). Initial experiments, conducted with the sensor under ambient conditions, failed to achieve reproducible results. After a series of makeshift enclosures (\cref{fig:boxevo}), a 3D-printed black enclosure was designed (\cref{fig:3Dbox}). This facilitates consistent sensor-test strip interaction within a constant lighting environment; a constrained pathway additionally ensured the strip is held at a fixed height above the sensor.\\
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.55\linewidth} 
+		\centering
+		\includegraphics[height=3.5cm]{Pictures/C-3NpH/cup.png}
+		\caption{First prototype -- paper cup model.}
+		\label{subfig:proto1_cup}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+	\centering
+		\includegraphics[height=3.5cm]{Pictures/C-3NpH/tunnel.jpeg}
+		\caption{Second prototype -- black tunnel model.}
+		\label{subfig:proto2_tunnel}
+	\end{subfigure}
+	\captionsetup{justification = centering}
+	\caption{Initial prototypes of enclosure for C-3NpH.}
+	\label{fig:boxevo}
+\end{figure}   	
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{Pictures/C-3NpH/DesignDecisions_3DBox.png}
+	\captionsetup{justification = centering}
+	\caption{Final 3D-printed enclosure and its CAD drawing.}
+	\label{fig:3Dbox}
+\end{figure}
+%move to discussion
+%This is compatible with the ubiquitous Fused Filament Fabrication (\gls{FFF}) method (based on the extrusion of molten material), the primary limitation of which is the inability to construct parts which are comprised of unsupported segments.
+ %this required in conjunction with the FFF method limitations motivated the use of the multi-part design shown in \cref{fig:3Dbox}.
+%The fixed distance between sensor and test strip was substantiated for by the fact that the distance influences only signal intensity and not the information gained therein. 
+%The essentially arbitrary distance to which the distance is set will therefore be compensated within the coefficients of any regression model trained with data collected at that distance.
+
+\clearpage
+\subsubsection{Prediction models}
+For the nitrate test strips, a \gls{PR} model was applied. This describes the non-linear relationship between the independent and dependent variable, as an n$^{th}$ degree polynomial. In this work, a third-order polynomial was employed. 
+
+\begin{figure}[h!]
+	\centering 
+	\includegraphics[width=0.55\linewidth]{Pictures/C-3NpH/pH_rgb.png}
+	\captionsetup{justification = centering}
+	\caption{Non-linear distribution of RGB of pH strips.\cite{Shen2012}}
+	\label{fig:pHvar}
+\end{figure}
+
+For pH strips, polynomial regression was unsuitable due to complexity in establishing a clear trend between RGB and pH. This finding aligns with previous work by Shen \textit{et al.} \cite{Shen2012} (\cref{fig:pHvar}). Therefore, the \gls{KNN} model was used, where the average of \gls{KNN} to the input value is used to define the output, by matching input-output pairs from a stored database. %This is a common statistical model for classification and regression tasks. The 
+
+\subsubsection{Soil sampling and separation}
+A main challenge in developing in-field sampling protocol was analyte extraction from soil. A plethora of sampling protocols exist; moreover, sampling depth is commonly tailored to the crop of interest. Typical protocols involve digging to a depth of \SI{20}{cm} (\SI{8}{inches}) \cite{Mitchell2013}, and performing recommended analysis within \SI{24}{hours} of collection \cite{NaturalResourcesConservationService}. An important part of the project was to bridge highly precise laboratory results with fit-for-purpose field testing. Most laboratory procedures utilise air-dried soil and simply measure the moisture content prior to, and post-drying, to report a moisture corrected analyte concentration.\cite{ASTM1993}  However, previous studies have shown that air-dried and field-moist samples produce comparable results.\cite{Schmidhalter2005}  Therefore, field-moist samples were used to simplify the protocol in this work. When dipped in soil supernatant, staining of the test strip may occur. This could skew readings, which can be minimised by an optimised sampling protocol. % is required to minimise the effect. 
+
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[t]{0.4\textwidth}
+	\centering
+	\includegraphics[height=4.7cm]{Pictures/C-3NpH/Whirligig.jpg}
+	\captionsetup{justification = centering}
+	\caption{3D-printed Whirligig.}
+	\label{fig:whirli}
+ 	\end{minipage}
+  	\begin{minipage}[t]{0.55\textwidth}
+  	\centering
+\includegraphics[height=4.7cm]{Pictures/C-3NpH/eppen_ratio_1.png}
+\captionsetup{justification = centering}
+	\caption{Soil-solvent ratio (i.e. 1:1-1:9) affects separation.}
+	\label{fig:eppen_ratio1}
+	\end{minipage}
+	\end{figure}
+
+ Byagathavalli \textit{et al.} \cite{Byagathvalli2019} detailed a 3D-fuge as a low-cost and field-appropriate method of centrifugation for DNA extraction and purification, reporting a maximum rotational frequency of \SI{6000}{rpm}. This concept was extrapolated for quick soil separation. The WG  (\cref{fig:whirli}) potentially provides a method to eliminate variability in, and hasten, soil sedimentation. In order to translate from laboratory to field, a large number of parameters for soil separation required investigation; primarily the effect of the WG against the laboratory standard of a \gls{BC} or settling. %The preferred solvent for extracting nitrate or pH vary considerably, however this work aimed to determine a common solvent. 
+
+The low extraction efficiency of soluble salt can be overcome by using dilute salt solutions during extraction, e.g. CaCl$_2$ or KCl (instead of distilled water), which is a popular method for masking seasonal variation in soil pH. Conventional laboratory pH measurements are conducted with either \gls{UHP} or CaCl$_2$ (\SI{0.01}{M})\cite{VanLierop1981}. Conversely, the solvent of choice for nitrates is KCl (\SI{2}{M}).\cite{Pare1995} Given the chemical similarity between NaCl and KCl, in addition to the availability and ease of disposal of NaCl, this was selected as the common solvent. 
+
+For optimal soil sampling, mixing time, and the impact of solvent choice and concentration was investigated. For nitrates, a 1:1 ratio had to be implemented so readings obtained fell within the detectable range of the strips (i.e. \SI{10}-\SI{250}{ppm}), despite difficulty in achieving a clear supernatant.
+
+%For soil pH measurements, literature cited multiple options with varied factors of dilutions ranging from \SI{1:1} to \SI{1:9} (\cref{fig:eppen_ratio1}). \todo{(REFERENCE KG/Suraj)} An increase in soil-water ratio (or the presence of salts) generally decreases soil pH. 
+
+%soil sedimentation variability thereby facilitating a common protocol regardless of location or soil type; in addition to allowing the user expedite soil:supernatant separation. 
+
+
+%Initial research revealed a vast number of variables with a propensity to influence the accuracy of results. 
+%Crucially, the sampling protocol should extract the desired analyte in a representative manner; in addition to this, the observed colour change must only depend on the analyte (and not interfering factors).
+%Either; the sampling protocol may not correctly extract the analyte of interest in a representative manner (e.g. dry vs moist soil) or inefficient separation may give a coloured supernatant therefore obviously influencing the ability of C-3NpH to detect the 'correct' colour change. 
+%Thus, there were queries surrounding the best method for the extraction of analyte from soil, whether nitrate or exchangeable protons (pH). 
+
+
+ %It was supposed that disposal of NaCl or water would be simpler, and thus preferred. %Additionally, initial experiments indicated the faster and more efficient separation of soil supernatant with NaCl in comparison to water, and for the combination of these reasons NaCl was the solvent of choice. 
+
+%The ratio of soil to solvent was also considered. 
+
+% detection limits of colour strips dictated that a 1:1 ratio was employed despite this being the most difficult to separate into a clear supernatant and pellet. Experiments were therefore carried by settling, which prolonged the separation time but resulted in a clear supernatant suitable for dipping strips.
+
+
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+
+\subsection{Testing and validation -- Nitrates}
+
+\subsubsection{Validating the accuracy of the PR model}
+\noindent A colour map of the RGB values corresponding to the nitrate strips was produced by dipping test strips in increasing concentrations of standard solutions (\cref{fig:RGB_nitrates}). The values from triplicate strips indicated high variability in the raw output; this is believed to arise from the sensitivity of the sensor to strip placement. Despite C-3NpH’s bespoke 3D-printed enclosure, minor alteration in the placement of strips, and the angle at which they are placed (i.e. slightly bent strips), were potential sources of noise observed (shift in raw RGB measurements). As stated in (\cref{ratio}), to correct for this fluctuation, a more stable ratio of $R/(R+G)$ was introduced.
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth, trim = {0 0 0 1cm}, clip]{Pictures/C-3NpH/Results_RGB_nitrates.png}
+	\captionsetup{justification = centering}
+	\caption{Raw RGB output for triplicate nitrate strips tested on standard solutions of 10-250 ppm.}
+	\label{fig:RGB_nitrates}
+\end{figure}	
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.48\linewidth} 
+		\centering
+		\includegraphics[width=\linewidth]{Pictures/C-3NpH/Results_ratio_nitrates.png}
+		\caption{Effectiveness of defined ratio.}
+		\label{subfig:RGB_nitrates}
+	\end{subfigure}
+	%\vfill
+	\begin{subfigure}[b]{0.48\linewidth}
+		\includegraphics[width=\linewidth]{Pictures/C-3NpH/Results_PRmodel_nitrates.png}
+		\caption{Validation of PR model}
+		\label{subfig:pr_nitrates}
+	\end{subfigure}
+	\captionsetup{justification = centering}
+	\caption{Construction and validation of the mathematical model for nitrate strips.}
+	\label{fig:nitrates_valid}
+\end{figure}  
+
+A plot of the ratio with nitrate concentrations (\cref{subfig:RGB_nitrates}) depicted a good polynomial curve with minimal variability. Hence, this was used to build a model based on a third-order polynomial regression, to predict nitrate concentrations. \Cref{subfig:pr_nitrates} demonstrates the accuracy of the developed model to predict nitrate concentration based on strip colour.
+
+\subsubsection{In laboratory testing of soil}
+\paragraph{Precision testing for nitrates} 
+To demonstrate %C-3NpH 
+precision, 3 soil samples were prepared, %for nitrate testing, 
+10 nitrate strips dipped in each, and nitrate concentration measured by C-3NpH as per the protocol outlined in \cref{Nitrateproto}. % Strips were left for \SI{3}{min} to develop before insertion into C-3NpH.
+%\Cref{fig:precision_nitrates} illustrates the 10 strips dipped in Sample 1, after they have been left to develop. 
+The similarity in colour between all strips from sample 1 was confirmed by the quantitative measurements of C-3NpH (\cref{fig:precision_nitrates}). These results show an average variation of \SI{0.2}{ppm} between the 3 samples, confirming the high precision of C-3NpH in quantifying nitrate strip colour. 
+
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		%Table
+		%\begin{table}
+		\begin{tabular} {l c c}
+			\toprule
+			\textbf{Sample} & \textbf{C-3NpH (ppm)} & \textbf{\% error} \\
+			\midrule
+			1 & $13.3$ & 1.5 \\ 
+			2 & $12.7$ & 1.6 \\ 
+			3 & $13.3$ & 1.5 \\ 
+			\midrule
+			Average & $13.1$ & 1.5\\ 
+			\bottomrule
+		\end{tabular} 
+		\label{table:nitrates_precision} 
+	\end{minipage} 
+	\begin{minipage}[c]{0.40\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pictures/C-3NpH/Results_precision_nitrates.png} \end{minipage}
+			\captionsetup{justification = centering}
+			\caption{Precision test with nitrate strips \small [N.B. \% error was calculated based on a minimum of 10 replicates.]} \label{fig:precision_nitrates}
+\end{figure}
+
+\paragraph{Testing different solvents}
+Different solvents were tested for nitrate extraction from soil. Whilst industry extraction uses \SI{2}{M} KCl; here, NaCl was investigated in conjunction. Different solvents resulted in only a minor difference of \SI{2.2}{ppm} in the measured concentration (\cref{fig:diffsolv_nitrate}). The HACH spectrophotometer was used to further confirm NaCl suitability for extracting soil nitrates. The results showed a very high correlation between the values with only a \SI{0.2}{ppm} difference in measurements. The coloured rows in \cref{fig:diffsolv_nitrate} depict different nitrate bands used to choose remediation methods (e.g. quantity of fertiliser to apply). As shown, the values of nitrate obtained for both solvents, measured by C-3NpH and the HACH spectrophotometer, fell within the same nitrate band. Based on these results, \SI{2}{M} NaCl was chosen as the extractant to measure soil nitrate in field testing.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Pictures/C-3NpH/Results_differentsolvent_nitrates.png}
+		\captionsetup{justification = centering}
+	\caption{C-3NpH readings for nitrates from Wolfson College soil extracted with different solvents (i.e. \SI{2}{M} NaCl and KCl). Nitrate level bandings taken from \cite{Pattison2010}.}
+	\label{fig:diffsolv_nitrate}
+\end{figure}
+
+\paragraph{Testing different soils and composts} 
+The next step in the validation of C-3NpH involved testing nitrates in soil from a variety of sources. The goal of the experiment was to test the ability of C-3NpH to produce an accurate representation of nitrate levels in different crop soils.
+%, based on its comparison with the industrial standard spectrophotometer (HACH kit). 
+Soil samples were obtained from sites in Cherry Hinton, Wolfson College, and Churchill College; they were tested for nitrate using C-3NpH and the HACH spectrophotometer. Results indicated only a minor difference between C-3NpH and the industrial standard, as follows: \SI{2.2}{ppm} (Cherry Hinton), \SI{5.3}{ppm} (Wolfson College), \SI{4.5}{ppm} (Churchill College). \Cref{fig:soilcomp} shows that the preliminary trend obtained by C-3NpH measurement was consistent to that from the HACH spectrophotometer. 
+Another goal of this experiment was to validate the measurement range of C-3NpH, using different soil types (i.e. \SI{<25}{ppm}) and nitrate-rich compost; \cref{fig:soilcomp} demonstrated that compost was distinguished from crop soils as expected.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Pictures/C-3NpH/Results_differentsoilscompost_nitrates.png}
+	\captionsetup{justification = centering}
+	\caption{C-3NpH readings for nitrates in different soils and compost. The soils tested (highlighted in blue dotted box) were additionally compared to readings from the HACH spectrophotometer.}
+	\label{fig:soilcomp}
+\end{figure}
+
+It was observed that C-3NpH values were consistent to those from the HACH spectrophotometer; where Cherry Hinton, Wolfson and Churchill College soils fell within the expected nitrate range (\cref{fig:soilcomp}). However, for nitrate-rich compost (\SI{>250}{ppm}), measurements from C-3NpH differed from the HACH spectrophotometer. This could be attributed to the fact that the regression model for C-3NpH was optimised using typical soil sample concentrations (\SI{<250}{ppm}). Another potential reason for the lack of correlation was heterogeneity in compost samples, as illustrated by the wide error bars. Samples are usually sieved prior to analysis so as to avoid this issue \cite{ISO2006}, and should be implemented in future work.  
+
+
+
+\newpage
+\subsubsection{Field testing}
+
+%\begin{wrapfigure}{r}{10cm}
+%	\centering
+%	\includegraphics[width=\linewidth]{Pictures/C-3NpH/fieldtesting_nitr.pdf}
+%	\caption{Field testing data (triplicate measurement for all of three sites were taken at each field) }
+%	\label{fig:field_nit}
+%\end{wrapfigure} 
+
+Field testing for nitrates was conducted in Anglesey Abbey and at Radwell Grange Farm with two main objectives: C-3NpH required validation in a real-life setting (encompassing sample collection, preparation and measurement); and to assess end-user interactions for informing future designs
+(further discussion is available in \cref{Sample Sites}).
+
+C-3NpH was able to detect the significantly higher nitrate level in Anglesey Abbey nursery soil (\cref{table:nitratetesting}) than in the Dahlia garden. Also at Radwell Grange Farm, \cref{table:nitratetesting} considerably higher nitrate values were measured at the allotment (\SI{79.1}{ppm}), compared to the untended site (\SI{7.6}{ppm}). This was expected as the allotment is used to grow leguminous plants, associated with nitrogen-fixing bacteria. It was also noted that higher nitrate readings incurred larger variability. This could be a consequence of heterogeneous pad colour, arising from the sampling procedure; and requires further optimisation. 
+
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[c]{0.45\textwidth}
+	\centering
+        \begin{tabular}{l c}
+            \toprule
+            \textbf{Anglesey Abbey} & Nitrates (in ppm) \\
+            \midrule
+            Dahlia garden &  $12.0 \pm 2.0$ \\
+            Carbon-rich soil &  $18.0 \pm 0.8$ \\
+            Nursery &  $38.0 \pm 4.0$ \\
+            \bottomrule
+        \end{tabular}
+      %  \subcaption{}
+ 	\end{minipage}
+ 		\begin{minipage}[c]{0.45\textwidth}
+	%\textbf{Radwell Grange Farm}
+     \resizebox{\textwidth}{!}{
+     \begin{tabular}{l c}
+     \toprule
+          \textbf{Radwell Grange Farm} & Nitrates (in ppm) \\
+         \midrule
+            Rapeseed &  $9.6 \pm 0.4$ \\
+            Untended &  $7.6 \pm 0.8$ \\
+            Wheat &  $12.1 \pm 1.2$ \\
+            Allotment &  $85.6 \pm 12.6$ \\
+            \bottomrule
+        \end{tabular}
+      %  \subcaption{}
+        }
+        \end{minipage}
+        \captionsetup{justification = centering}
+        \captionof{table}{C-3NpH readings from field testing in Anglesey Abbey and Radwell Grange Farm. \small [N.B. Standard error was calculated based on a minimum of 6 replicates.]}
+        \label{table:nitratetesting}
+	\end{figure}
+	
+%moved the following to outreach : At Anglesey Abbey, the citizen scientist had previous experience of horticultural training, and was especially interested in pH testing and being able to conduct the tests themselves on site. This contrasted to previous conversations with an arable farmer, who showed interest in obtaining the results, but not in performing the tests. Current field testing protocols were easy-to-follow, however, settling time (observed as \SI{20-30}{min} on the day) was cumbersome. Therefore, developments with the WG are proposed to be beneficial to the end user by reducing sampling time. Concerns raised by the citizen scientist at Anglesey Abbey pertained to cross-contamination between inserted strips inserted, and the expected long settling time incurred with water extraction.
+
+\clearpage
+\subsection{Testing and validation -- pH} \label{phresults_c3nph}
+ 
+\subsubsection{Constructing and validating the k-NN model}
+RGB values for pH strips dipped in standard solutions (\cref{subfig:RGB_pH}) did not follow as clear a trend as observed previously with the nitrate strips (\cref{subfig:RGB_nitrates}). This warranted fitting to a k-NN model, which gave a good correspondence when the model was re-validated with tested pH solutions (\cref{subfig:kNN_pH}). Initially, a range of pH {3}-\SI{9} was tested. However, the model failed to distinguish below pH {4} due to the similarity in hue between those strips. C-3NpH has a resolution of pH {0.5} (i.e. corresponding to interval of pH solutions tested); this is primarily limited by the test strip colour gradient, which has a resolution of pH 1. To improve this, narrow range strips can be used. The possibility of using these was investigated, but not pursued further as their pH ranges (i.e. pH {4.8}-\SI{6.2}) did not cover the spectrum of soil pH (i.e. pH {3}-\SI{9}).
+
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{\linewidth} 
+		\centering
+		\includegraphics[height=7cm]{Pictures/C-3NpH/Results_RGB_pH.png}
+		\caption{Raw RGB output from C-3NpH.}
+		\label{subfig:RGB_pH}
+	\end{subfigure}
+	%\vfill
+	\begin{subfigure}[b]{\linewidth}
+	\centering
+		\includegraphics[height=7cm]{Pictures/C-3NpH/Results_kNNmodel_pH.png}
+		\caption{Validation of k-NN model.}
+		\label{subfig:kNN_pH}
+	\end{subfigure}
+	\captionsetup{justification = centering}
+	\caption{Construction and validation of the mathematical model for pH measurements.}
+	\label{fig:knn}
+\end{figure}   	
+
+\newpage
+\subsubsection{In laboratory testing of soil}
+
+\paragraph{Precision testing for pH}
+A similar precision test (to that carried out for nitrate strips) was repeated. The consistent pH readings by C-3NpH across three samples of 10
+strips, and from by-eye comparison of the strips (\cref{fig:precision_pH}) highlighted the precision of C-3NpH.
+
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		%Table
+		%\begin{table}
+		\begin{tabular} {l c c}
+			\toprule
+			\textbf{Sample} & \textbf{pH from C-3NpH} & \textbf{\% error} \\
+			\midrule
+			1 & $5.2$ & 0 \\
+			2 & $5.2$ & 0 \\
+			3 & $5.6$ & 3.6 \\
+			\midrule
+			Average & $5.4$ & 1.9\\
+			\bottomrule
+		\end{tabular}
+		\label{table:pH_precision}
+		%\end{table}
+	\end{minipage}
+	\begin{minipage}[c]{0.4\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{Pictures/C-3NpH/Results_precision_pH.png}
+	\end{minipage}
+	\captionsetup{justification = centering}
+	\caption{Precision test with pH. \small [N.B. \% error was calculated based on a minimum of 6 replicates.]}
+	
+	\label{fig:precision_pH}
+\end{figure}
+
+\paragraph{Spiking experiment}
+
+To investigate the sensitivity of C-3NpH, soil supernatant was spiked with solutions of different pH to induce an artificial pH range. This was successfully detected by C-3NpH, and further validated by the matching colour pad gradient observed (\cref{fig:pHspike}). It was observed that the resulting supernatants were at a higher pH than spiking solutions; this was to be expected as spiking solutions were inherently diluted. The experiment could be repeated with spiking solutions of lower pH to determine the sensitivity of C-3NpH over a wider range. 
+Moreover, this simple experiment was still inadequate to determine soil staining effects (as the dipping supernatant was never clear, but a yellowish liquid), on the pH reading. A method of mitigating the effect of brownness is by dipping two strips in each sample: one with, and the other without pad chemistry. Hence, true reading of a stained colour pad can be calculated by subtracting the purely-stained RGB values (i.e. no pad chemistry) from the total (i.e. normal test strip). 
+
+	\begin{figure}[h!]
+		\centering
+	\includegraphics[height=8.5cm]{Pictures/C-3NpH/Results_pHspiking.png}
+	\captionsetup{justification = centering}
+	\caption{C-3NpH is capable of detecting the tested pH range in soil.}
+	\label{fig:pHspike}
+	\end{figure}
+
+\subsubsection{Applicability of pH model across different C-3NpH devices} \label{para:immerse}
+C-3NpH was brought to the Immerse Cambridge Summer School. All students were able to assemble C-3NpH with ease, which highlighted the simplicity of the enclosure design. Results from pH measurements of household solutions are given in \cref{fig:summerdata}. The greater variability in by-eye measurements compared to those by C-3NpH further affirms its purpose in facilitating objective readings. This was especially evident for close shades of colour. Main errors from C-3NpH readings were due to not following protocol (e.g. inserting the strip the wrong side in, waiting too long before insertion).
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=7.5cm, trim={0 0 0 1cm}, clip]{Pictures/C-3NpH/Discussions_data.png}
+	\captionsetup{justification = centering}
+	\caption{C-3NpH pH readings are more consistent than by-eye when tested on household solutions by summer school students.}  	
+	\label{fig:summerdata}
+\end{figure}
+
+\clearpage
+\subsection{Testing and validation -- Soil separation}
+%The primary objective for the pH model was to use C-3NpH as an educational tool. However, due to the versatility of pH strips, they were used to investigate the benefits of the WG against settling as a separation method.
+
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[width=0.5\linewidth]{Pictures/C-3NpH/Results_whirlivssettling.pdf}
+%	\caption{RGB values are similar for Lolworth Soil 2 when Whirligig or settled}
+%	\label{fig:whirlivssettling}
+%\end{figure}
+
+
+\subsubsection{Solvent choice}
+Four key solvents were used, i.e. NaCl, \gls{UHP}, CaCl$_2$ and KCl. Comparison of the WG to settling using \SI{2}{M} concentrations of each solvent was investigated, and compared by visual inspection of the colour strips in triplicates and the degree of sample separation. Inspection of the WG separated samples (\cref{subfig:solvent_settling}) showed acceptable separation for all solvents except \gls{UHP}. Comparison of the WG to settling illustrated the superiority of the latter in producing a colourless supernatant (\cref{subfig:solvent_WG}). Interestingly, whilst the RGB data collected by C-3NpH showed variability, smoothing from the k-NN model consistently predicted pH {5.2}. This value corresponds to readings from the settling counterparts. When \gls{UHP} was used for settling, the measurement was marginally higher at %pH 5.22 (WG) 
+pH {5.3}.
+
+%Figure  illustrates the variation in strip colour between each solvent with water for both methods separating the mixture the most poorly. 
+%Comparison of the WG to settling reveals that settling was superior at producing a colourless supernatant. 
+%Interestingly once read with C-3NpH, the value returned for all WG samples in each solvent was consistently 5.2, as was the measurement for all solvents when measured after settling for 20-30 minutes. 
+%Except for \gls{UHP} which was marginally higher on average across three strips dipped in one sample, where again the comparision between WG and settling was minimal given the resolution of C-3NpH and the predictive model used.(pH 5.22 vs 5.33) . It is therefore proposed that the 'brownness' of the WG samples did not affect the final pH value of the supernatant and could be considered negligible (as raw values did change but once processed with the pH model, returned a value of 5.2).
+
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{\linewidth} 
+		\centering
+		\includegraphics[height=4cm]{Pictures/C-3NpH/solventchoice_WG.png}
+		\caption{Separation achieved by using WG.}
+		\label{subfig:solvent_WG}
+	\end{subfigure}
+	%\vfill
+	\begin{subfigure}[b]{\linewidth}
+	\centering
+		\includegraphics[height=4cm]{Pictures/C-3NpH/solventchoice_settling.png}
+		\caption{Separation achieved by settling.}
+		\label{subfig:solvent_settling}
+	\end{subfigure}
+	\captionsetup{justification = centering}
+	\caption{Comparison of \SI{2}{M} solvents separated following different approaches.}
+	\label{fig:solventchoice}
+\end{figure}   	
+
+\subsubsection{NaCl concentration}
+
+It was of interest to determine the effect of salt concentration on the strip colour post-extraction. Hence, three concentrations of NaCl (i.e. \SI{0.5}, \SI{1} and \SI{2}{M}) were investigated; and compared to \gls{UHP}-extracted soil as seen in \cref{fig:solventmolarity}. The samples were bench-top centrifuged to ensure optimal separation; this should distinguish between differences in strip colour from incomplete separation to those that arose from changes intrinsic to NaCl concentration. A negligible difference in the separation achieved at each concentration was observed, all of which C-3NpH reported as pH {5.2}. The industrial standard solvent for soil pH measurements is CaCl$_2$ (\SI{0.01}{M}). Comparative experiments were conducted between NaCl and CaCl$_2$ to validate the choice of using NaCl (see \cref{c3nph:nacl}). 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=3.5cm]{Pictures/C-3NpH/solventmolarity.png}
+	\captionsetup{justification = centering}
+    	\caption{Comparison of the separation ability using different concentrations of NaCl ranging from \SI{0.5}-\SI{2}{M} by a \gls{BC}}
+	\label{fig:solventmolarity}
+	%\vspace{1em}
+\end{figure}
+
+As the WG was investigated as an alternative to settling, experiments were performed to compare the range of centrifuge speed required to achieve efficient separation, using a \gls{BC}. At \SI{6000}{rpm}, NaCl was shown to form a pellet at \SI{15}{s}, but the equivalent with \gls{UHP} required \SI{1}{min} (\cref{subfig:WGBC}). This provided impetus to choose NaCl as the extractant.
+
+
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth} 
+		\centering
+		\includegraphics[height=3.5cm]{Pictures/C-3NpH/speed.png}
+		\captionsetup{justification = centering}
+		\caption{For the \gls{BC} at \SI{6000}{rpm}, NaCl solvent forms separates at \SI{15}{s}.}
+		\label{subfig:speed}
+	\end{subfigure}
+	%\vfill
+	\begin{subfigure}[b]{0.50\linewidth}
+	\centering
+		\includegraphics[height=3.5cm]{Pictures/C-3NpH/WGBC.png}
+		\captionsetup{justification = centering}
+		\caption{For the \gls{BC} at \SI{6000}{rpm}, \gls{UHP} solvent forms separates at \SI{1}{min}.}
+		\label{subfig:WGBC}
+	\end{subfigure}
+	\captionsetup{justification = centering}
+	\caption{Separation efficiency of the \gls{BC} at a range of rotational frequency between \SI{2000}-\SI{6000}{rpm} using \SI{0.5}{M} NaCl solvent gave supernatants of the same clarity.}
+	\label{fig:WGBC}
+\end{figure}   	
+ 
+\subsubsection{Mixing time}
+
+Preliminary investigations of soil-solvent mixing times were performed by manually shaking the mixture for 2 minutes, which was followed by the separation method of choice. Initial results showed minimal change in colour of the pH strips over \SI{24}{hours} of mixing when judged by eye. However, the exact effects of mixing time on pH were inconclusive. This is potentially due to factors involving the quantity of soil sampled, the effect of dilution factor (1:9), and the heterogeneity of soil samples (see \cref{c3nph:mixing}). Literature is varied: from mixing times for pH measurements of \SI{2}{hours} \cite{Mitchell2013}, to early studies reporting minimal mixing time (\SI{5}{min}) followed by overnight standing \cite{Farr1972}. Yet Schmidhalter \cite{Schmidhalter2005} highlighted a number of sampling protocols that could be used for nitrate extraction, where a minimum of \SI{3}{min} manual mixing time is required for moist samples across a range of soil types.
+
+Alternative approaches for soil sampling that are to be explored in the future are listed in \cref{appen:alter}.
+
+
+%The mixing time of the reported protocol (\SI{2}{min}) is considerably shorter than industrial standards, which state times ranging from \SI{15}{min}-\SI{24}{hours}. Literature is varied, with mixing times for pH measurements of \SI{2}{hours} \cite{Mitchell2013}, with early studies reporting minimal mixing time (\SI{5}{min}) followed by overnight standing \cite{Farr1972}. For this reason, preliminary investigations were performed based on \SI{2}{min} of manual shaking, followed by the separation method of choice. 
+%Mixing time experiments were conducted, and initial experiments showed no visual change of pH strip colour over \SI{24}{hours}. However, the exact effects of mixing time on pH were inconclusive for various reasons. Further investigations using a larger mass of soil, a more appropriate dilution factor and homogeneous mixing will be required. It was found that extended mixing times made WG separation more difficult, due to improved homogeneity. Schmidhalter \cite{Schmidhalter2005} highlighted a number of sampling protocols that could be used for nitrate extraction. Namely for the \gls{QNT} soil sampling: a minimum of \SI{3}{min} manual mixing time is required for moist samples across a range of soil types, which is contrary to previous literature reports. \todo{KATIE- reference} 
+
+
+
+
+
+%------------------------------------------------
+
+
+%\subsubsection{General Discussions}
+
+%\paragraph{Soil sampling protocol}
+%\begin{itemize}[leftmargin=*,label={}]
+%\item\textit{\textbf{{Whirligig}}}
+%%KATIE%%
+%Eppendorf holders
+%\item\textit{\textbf{{Optimisation of pH extraction needed}}}
+%\end{itemize}
+
+% General Discussion 1: Answer Oliver's Questions - 
+
+% General Discussion 2: Add the potential to correlate nutrients with moisture content to provide a 'holistic' picture of soil health. 
+%%Chyi to add to conclusion. 
+
+% General Discussion 3: Rehabilitation of soil based on Nutrient measurements
+
+
+
+%protocol was easy-to-follow
+%%%keen to understand pH 
+	%%% enthusiasm from Head Gardener: target market
+%staining of the strip
+	% contamination
+%water as solvent; aware of long settling time
+%%%20-30 min settling time: a bit long
+	%%% justification for WG
+

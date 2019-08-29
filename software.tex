@@ -1,0 +1,293 @@
+\chapter{Science and Technology -- Software}\index{Software}
+ \setcounter{page}{44}
+\section{General requirements}\index{General requirements}
+
+%Importance of requirements
+%How were the requirements gathered
+
+The requirements for the final product had to be gathered to make several important decisions in regards to the software \gls{mvp}.\\
+
+%Talk about user requirements:
+%Functional
+    %All the data stored together, no individual user accounts
+    %Ability to upload the collected data
+    %Visualisation of the data on a map
+    %Downloading the CSV file with all the measurements
+    
+\textbf{Functional} requirements\footnote{Functional requirements define what the system should be able to do.}:
+\begin{itemize}
+    \item ability to upload the field data collected in a \gls{csv} file format;
+    \item ability to enter certain parameters later (e.g. organic carbon content or CO$_{2}$ content -- the parameters that were obtained in the laboratory);
+    \item visualisation of collected data on a map;
+    \item data storage on a remote database;
+    \item data download from the remote database as a \gls{csv} file;
+    \item password protected website;
+    \item no individual user accounts -- all the data stored together, and all the data visualised together.
+\end{itemize} \text{} \\
+
+%Non-functional
+    %Free for the end-user 
+    %User-friendly
+    %Non-GIS map solution: the user might or might not be able to use GIS
+
+
+\textbf{Non-functional} requirements\footnote{Non-functional requirements are the quality attributes.}:
+\begin{itemize}
+    \item free for the end user;
+    \item user-friendly, given a potential user-base from a wide variety of backgrounds;
+    \item the map solution has to include an option for users unable to use \gls{gis}.
+\end{itemize}
+
+%------------------------------------------------
+\section{Application type selection}\index{Application type selection}
+
+Various application types were considered for this project, and the web application was considered to be the optimal solution given the requirements of this project.
+
+%Web application (CHOSEN)​
+%Pros: multi-platform, ease of updates (always up to date)​
+%Cons: internet connection required, can be slower than native apps​
+
+\paragraph{Web application}\index{Web application}
+
+The main advantage of a web application is it being a multi-platform solution, always up to date. The main disadvantage of a web app is the required reliable internet connection. A web application might be slower than a native app, however, given the specifications of the application to be developed, speed differences would be negligible. Hence, it was decided to develop a web application.
+
+%Program on user's computer​
+%Pros: free, does not require internet connection​
+%Cons: depends on computer specifications, user required to have Geographic Information System (GIS)​
+
+\paragraph{Local application on user's computer}
+
+The decision was made to avoid writing software which would run locally on the user's computer. Although this solution would be free for the end user and the development team, and would not require internet connection, the disadvantages outweighed the positives. Firstly, data visualisation would be problematic, unless the user had installed a \gls{gis} application. Even assuming the user could install an open-source \gls{gis} application, such as QGIS \cite{qgis}, it is still a complicated application which requires specialist training. Moreover, internet connection would still be required for data to be uploaded to the database. The performance of the program would also rely on user's computer specifications.
+
+%Native phone application​
+%Pros: easy front end with available SDKs, compatibility with phone's hardware​
+%Cons: triple work – development for Android + iOS + Windows Mobile, for iOS X-Code is required, pass App Store regulations, developer costs, data transfer from the main device to the phone app?​
+
+\paragraph{Native phone application}
+
+An estimated 2.5 billion people in the world own smartphones, with 76\% of the population in developed countries owning at least one.\cite{taylor_silver_2019} However, that percentage drops to only 45\% in emerging economies.
+
+A native phone application would be compatible with the phone's hardware, eliminating the need for a \gls{gps} receiver. The phone camera could be used for scanning a \gls{qr} sticker on the bag with the soil sample collected from the field (instead of the \gls{rfid} tag and reader combination). Another obvious advantage would be the ease of developing the front-end of the application, making it user-friendly and intuitive, achievable with the available \glspl{sdk}. 
+
+Nonetheless, for this project, the disadvantages of this solution outweighed the benefits. Firstly, nowadays all mobile platforms use different native programming language. Due to this, the application would require development for both Android and iOS, to reach the majority of smartphone users. iOS development comes with added complexities: an integrated development environment Xcode is required, which runs exclusively on macOS. Furthermore, it is necessary to join the Apple Developer Program \cite{apple} to distribute the application. Most importantly, data transfer would remain an issue, if the base unit records data on an SD card. Majority of modern smartphones do not support SD cards, which would mean there is no way of easily uploading the data from the base unit to the database. However, it could be a promising avenue to explore in the future if the decision was made to transition from the SD card to wireless data transmission, e.g. Bluetooth.
+
+
+
+%------------------------------------------------
+\section{Full stack web development}\index{Full stack web development}
+%Explain concepts of back end and front end
+Web development consists of front-end development (client-side), and back-end development (server-side). 
+
+\textbf{Front-end} is sometimes referred to as ``web design'', and is the part of the website that the user directly interacts with, and the client usually refers to the web browser that the user is using to view the website.
+
+\textbf{Back-end} is what happens ``behind the scenes'', and is responsible for the functionality of the website. It could be thought of as an enabler of the front-end web experience. The back-end of a website is a combination of server, app, and a database.
+
+In this section, various approaches for back-end and front-end development are discussed and the decisions made justified. A high-level details of the code are also provided.
+
+%------------------------------------------------
+\subsection{Back-end development}\index{Back-end development}
+
+Available options for back-end development were carefully considered. The back-end was developed using Node.js given the relatively small number of disadvantages it presents and its increasing popularity over PHP.
+
+%Talk about available options:
+    %PHP
+    %Node.js
+    %Other options
+%PHP​
+%Pros: mature and well-established, designed specifically for web, powerful codebase​
+%Cons: only works in the backend (still need JS for client-side), slower than Node.js, becoming less popular than Node.js​
+
+%\textbf{PHP} is an old and well-established programming language, created specifically for web development. It is mature and has a powerful codebase, and is the language of choice for the back-end for such well-known companies as Facebook, Wikipedia, and Slack. However, it comes with some disadvantages -- it works only in the back-end, and JavaScript is still needed for the client-side; it is slower compared to other alternatives, such as Node.js, and in general, its popularity has gone downhill since the emergence of other back-end solutions.
+
+%Node.js​
+%Pros: JSON works better than with PHP, better for dynamic applications, better for real-time data, JS used for both client-side and server-side​
+%Cons: dependencies, not ideal for heavy algorithms (but we are not using any)​
+\textbf{Node.js} is a cross-platform JavaScript run-time environment, which executes JavaScript on the server-side. First of all, it allows the programmer to use JavaScript for both server-side and client-side. Node.js is more efficient in working with \gls{json} format files, compared to PHP. It is well-suited for dynamic applications, as well as for real-time data. The only caveat is that Node.js comes with an issue of dependencies. While a large number of libraries can seem at first as an advantage, potentially simplifying the development, it also comes with the downside of having to ensure that all the libraries are installed and licensed correctly.
+
+%Others? (Python/Django, Microsoft's .NET stack, Google's Go Lang, etc.)​
+%Cons: lack of experience on the team​
+
+Other back-end development languages and frameworks have been considered, such as PHP, Python/ Django, Microsoft's .NET stack, Google's Go Lang, etc. However, it was decided against these options due to their disadvantages and/or the lack of experience on the team. 
+
+A flowchart summarising the operation of back-end can be seen in \cref{fig:backend}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm,trim={0 1cm 0 1cm},clip]{Pictures/software/backend.pdf}
+    \captionsetup{justification = centering}
+    \caption{Flowchart explaining how back-end works and enables the front-end experience.}
+    \label{fig:backend}
+\end{figure}
+
+%------------------------------------------------
+\paragraph{Host server}
+%Heroku for pricing and ease
+
+For the host server, a \gls{paas} was used. \Gls{paas} is a public cloud service, which has a simple interface allowing developers to easily deploy their applications.
+
+\textbf{Heroku} is a container-based cloud \gls{paas}. It was chosen due to its user-friendliness and attractive pricing -- the development, as well as user testing, were carried out on free tier\footnote{The only noticeable downside of the free tier is the web app going to ``sleep'', which means that after 30 minutes of inactivity it takes slightly longer to load.}. This is sufficient for the first few users. With a growing user-base, Heroku offers a ``hobby'' plan for only \$7 per dyno\footnote{Dyno in Heroku is an instance of a server containing the source code of the app, the dependencies, as well as the pre-loaded environment variables.} per month. The current estimate is that the ``hobby'' plan should be sufficient for the first year.
+
+%------------------------------------------------
+\paragraph{Database}
+
+%Talk about available options:
+    %NoSQL (MongoDB)
+    %SQL (mySQL)
+    
+Databases come in two varieties: relational, also known as SQL databases (e.g. MySQL), and distributed (non-relational), also known as NoSQL (e.g. MondoDB).
+
+%MySQL (SQL database – relational)​
+%Pros: mature and wide user community, uses well-known structured query language (SQL) for defining and manipulating the data, more powerful queries, better for heavy-duty transactional applications, low-maintenance, low-cost, data security​
+%Cons: fixed schema, schema changes cause migration procedure – slows down​
+
+Relational databases store the data in tables (called schemas), that consist of rows and columns. MySQL is a mature database management system, which uses a well-known \gls{sql} for defining and manipulating the data. It has a wide user community, which makes it an attractive solution due to the support available. It also has more powerful queries than non-relational databases which makes it better for heavy-duty transactional applications (which would be useful in the future, if the switch is made to real-time data upload). Finally, it is low maintenance, low-cost, and ensures data security. The disadvantages of this solution include migration procedures induced by changes to the schema.
+    
+%MongoDB (NoSQL database – distributed)​
+%Pros: well suited for large dataset, easily composable queries (JSON), good for unstructured data, unstable schema​
+%Cons: lack of experience on the team​
+
+MongoDB is a NoSQL database with easily composable queries in JSON (which is superior to SQL for dynamic queries). It is well suited for large datasets and is great for unstructured data. A big advantage of a NoSQL database is an unstable schema, meaning that the user or hardware engineer can add any number of new parameters, and the database would not require any additional maintenance from the web developer. However, it is less straightforward to use than the MySQL database management system, and due to the lack of experience on the team it was decided to choose MySQL. 
+
+%database design tool - MySQL Workbench
+MySQL Workbench was chosen as the database design tool, for local database management. JawsDB was chosen as the MySQL database server host -- a Heroku add-on, with sufficient free tier for development and testing, and acceptable prices for the scale-up (\$5 per month for \SI{25}{MB} storage, and \$10 per month for \SI{1}{GB}).
+
+One row of data using the specific schema (defined in \cref{schema_struct}) is approximately \SI{5}{KB}, which means on JawsDB free tier, which offers \SI{5}{MB} storage space, around 1,000 measurements can be stored. Upon scale up to the cheapest paid tier, this number would be increased to 5,000 measurements.
+
+%------------------------------------------------
+\paragraph{App functionality}
+%Talk through code struct
+
+The server-side code provides app functionality and handles the following functions:
+\begin{itemize}
+    \item connection to the remote database;
+    \item basic authentication, requiring the user to type in a username and a password to access the website;
+    \item passing queries to the database, both static and dynamic (for dynamic queries an \texttt{if} loop was implemented to avoid \gls{sql} injections);
+    \item using Bootstrap (covered in more detail in the \textit{Front-end development} section);
+    \item creation of a JSON object with all the data from the database for data visualisation;
+    \item creation of a CSV object with all the data from the database for data download;
+    \item upload of the CSV file by the user, parsing it and passing the data to the database.
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Front-end development}\index{Front-end development}
+% Introduce Bootstrap and jQuery
+%Bespoke solution (write everything ourselves using HTML and CSS)​
+%A lot of work, reinventing the wheel​
+%Steep learning curve for producing a production-grade solution​
+
+%Use Bootstrap (CHOSEN)​
+%Free and open source​
+%Consistent across all the browsers and different devices​
+%Easy to integrate and produce beautiful and attractive websites​
+
+Instead of going for a bespoke solution (developing front-end manually using HTML and CSS), Bootstrap was used, which is an open-source CSS framework for front-end web development. In combination with the Themestr.App for customising Bootstrap, this provided an easy to use framework for the development of a user-friendly, attractive website. It also ensured the consistency of the application across all browsers and devices, which is an inarguable advantage given the time constraint associated with this project.
+
+%Use jQuery (CHOSEN)​
+%Free and open source​
+%Large community and support available​
+
+Furthermore, jQuery was used as a free and open-source JavaScript library, offering a wide variety of functions. This simplified the client-side development significantly thanks to the large community and support available.
+
+A flowchart explaining front-end operation can be seen in \cref{fig:frontend}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm,trim={0 4cm 0 4.5cm},clip]{Pictures/software/frontend.pdf}
+    \captionsetup{justification = centering}
+    \caption{Flowchart explaining front-end operation and its connection with the back-end.}
+    \label{fig:frontend}
+\end{figure}
+
+%------------------------------------------------
+\paragraph{Web design}
+
+The website was designed as a number of HTML pages, with the user being able to choose the page from a menu bar, and the selected page lighting up in a different colour. Every page uses the same template: the SoliCamb logo on the upper left corner, clickable social media icons on the upper right, followed by a menu bar. Under the menu bar, the individual page contents are displayed with explanatory text, and the appropriate functionality (\cref{fig:website_software}).\\
+
+\begin{figure} [H]
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=0.98\linewidth]{Pictures/software/add_data_manually.png}
+        \captionsetup{justification = centering}
+        \caption{Screenshot of the \latinword{\footnotesize{Add data manually}} page.}
+        \label{fig:add_data}
+    \end{subfigure}
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=0.98\linewidth]{Pictures/software/download_csv.png}
+        \captionsetup{justification = centering}
+        \caption{Screenshot of the \latinword{\footnotesize{Download CSV}} page.}
+        \label{fig:dl_csv}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Examples of website's graphical user interface (for larger screenshots please refer to the \textit{Appendix X}).}
+    \label{fig:website_software}
+\end{figure}
+\clearpage
+%------------------------------------------------
+\subsection{Data visualisation}\index{Data visualisation}
+%Different options
+    %Google maps
+    %openMapStreet
+For data visualisation, either an \gls{api} or a locally installed GIS software could be used.
+    
+%​Google Maps API​
+%Pros: familiar and intuitive, supports data layers and overlays​
+%Cons: must pay after 2500th map load per day, difficult to implement elaborate customizations​
+
+\textbf{Google Maps \gls{api}} has a familiar and intuitive interface, which can undoubtedly contribute to the user-friendliness of the solution. It supports data layers and overlays, which are potentially desirable features in the future for drawing more complex maps. Most importantly, it has a large support community available, including numerous tutorials and clear documentation. While Google Maps API is ``paid'', in practice, the first 2,500 map loads per day are free, after which the developer is charged 0.50 USD for each 1,000$^\text{th}$ load. Given the expected user-base for the initial stages of the project, it is not expected to reach the paid tier. The only disadvantage of Google Maps API is the difficulty of implementation for elaborate customisations. While this might be a problem in the future, for the MVP no advanced customisations were foreseen, which led to the choice of Google Maps API for data visualisation on the web app.
+
+% OpenStreetMap API​
+% Pros: completely free, community-driven​
+% Cons: less support available, much more time consuming due to the higher complexity of implementation​
+\textbf{OpenStreetMap \gls{api}} was also considered due to its benefits of being completely free and community-driven. However, due to the significantly higher complexity of implementation as well as a smaller support community, it was decided to use Google Maps API for the \gls{mvp}, with the possibility of switching in the future.
+
+%GIS​
+%Widely used around the world by research institutions, environmental scientists, land-use planners, businesses, etc.​
+%Can easily upload a CSV file to create a layer over an existing project​
+
+\textbf{\gls{gis}} is widely used around the world by research institutions, environmental scientists, businesses, etc. Hence, there was an interest in allowing the user to download the CSV file with all the readings from the database to be able to create a layer in GIS with the collected data over an existing project. This process only involves a few steps, which would take no longer than 2 minutes, and would allow professional users to perform customised calculations (such as area average for various parameters) in GIS.
+
+
+%------------------------------------------------
+\paragraph{Google Maps API}\index{Google Maps API}
+    %What exactly has been done code wise
+
+The data visualisation HTML file defines the map window size and calls the \texttt{map.js} file, wherein JavaScript the client-side code customises the map in the following way:
+\begin{itemize}
+    \item the coordinates of Cambridge are defined, and the map is automatically centred at Cambridge with a predefined zoom level;
+    \item If the user allows location sharing within the browser, the map is re-centred at the user's location;
+    \item marker instances are created with the coordinates obtained from the JSON object from back-end;
+    \item a \texttt{for} loop using jQuery is run through all of the data to create content strings for the infowindow for each of the markers, containing information about the rest of the parameters;
+    \item the parameter values that are \texttt{null} (have not been collected) are replaced with \texttt{unavailable};
+    \item the \texttt{datetime} is reformatted into a user-friendly format;
+    \item a \texttt{for} loop is run through all of the markers to add the associated infowindow with the parameter values collected in that location;
+    \item marker clusters are formed with the marker instances already defined.
+\end{itemize}\text{}\\
+
+    \begin{figure}[H]
+    \begin{subfigure}[t]{.48\textwidth}
+        \centering
+        \includegraphics[width=0.98\linewidth]{Pictures/software/marker_cluster.png}
+        \captionsetup{justification=centering}
+        \caption{The map centered at Cambridge and a cluster with 3 markers.}
+        \label{fig:marker_cluster}
+    \end{subfigure}
+    \begin{subfigure}[t]{.48\textwidth}
+        \centering
+        \includegraphics[width=0.98\linewidth]{Pictures/software/marker_infobox.png}
+        \captionsetup{justification=centering}
+        \caption{Zoomed in map with the individual marker visible, and the infowindow stating the parameters collected in this location.}
+        \label{fig:infowindow}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Examples of the \latinword{\footnotesize{Visualise data}} page (for larger screenshots please refer to the \textit{Appendix X}).}
+\end{figure}
+
+Upon loading the page, the user sees the map in a smaller ``box'' within the rest of the website, but also has an option of opening it full-screen. Marker clusters are displayed, stating the number of markers within the cluster (\cref{fig:marker_cluster}). Upon zooming in, the clusters break up into individual markers. Upon clicking on a cluster, it zooms in automatically to fit the furthest away markers at the edges of the displayed map. Upon clicking on a marker, an infowindow opens, listing the parameters and the values collected in that location (\cref{fig:infowindow}). Multiple infowindows can be opened at the same time.
+
+This map allows the users without any previous training in mapping software to easily visualise collected data and to observe the data collected by other people.
+
+%------------------------------------------------
+\section{User experience test}\index{User experience test}
+%Quotes from people - consider splitting into positive and negative feedback
+A user experience test was performed, with volunteers recruited from outside the SoliCamb team, from a wide variety of backgrounds. While the general comment was that the website is user-friendly and intuitive, there were a few comments for improvements. These are further discussed in \cref{soft_future}. For full quotes from the interview, please refer to \cref{quotes}.

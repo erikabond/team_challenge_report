@@ -1,0 +1,566 @@
+\section{Design concept}\index{Design concept}
+%Talk about the modularity of our approach - Doug
+
+	    \begin{figure}[ht]
+		    \centering
+		    \includegraphics[width=0.4\textwidth]{Pictures/Hardware/System.pdf}
+		    \captionsetup {justification = centering}
+			\caption{Simplified block diagram showing the two proposed peripheral sensors, communicating to the base unit using the \gls{SPI} communication protocol.}
+			\label{fig:JM_System}
+    	\end{figure}
+	    
+
+The complexity and variability of soil are such that a host of sensors is required to fully characterise any one instance of the substance. Different combinations of sensors may be utilised for different soil types or investigations. Incorporating all possible sensors into a single design is a task of prohibitive complexity while also being counter productive, as the system produced would be cumbersome and over-equipped for any one investigative effort. In order to address this, the concepts of flexibility through modularity and separation of concerns have been appropriated by the authors from classical computer science. In particular, the  architecture is one where a generic base unit encapsulates responsibilities common to any scenario, e.g. display, data logging, and \gls{gps} tagging; while interchangeable peripheral sensor modules encapsulate the responsibility of performing a given type of measurement, both in hardware (transduction) and software (processing). By obeying this separation of responsibilities and avoiding interdependent implementations, sensor modules compatible with the framework can be developed \textit{ad infinitum}, yielding a suite of sensors from which one may select a subset to tailor to the research task at hand. 
+
+ Feasibility studies for a range of other approaches were also performed. Specifically, several strategies were reviewed regarding the measurement of \gls{SOC} content, e.g. spectroscopy (\cref{SOC_feasibility}), \gls{CO2} sensing (\cref{CO2sensor}).
+
+The current implementation includes two sensor modules: a capacitive moisture retention probe to measure the penetration of water into the soil, as well as a colour sensor to objectively determine the soil pH and nitrate concentration from colour strips (\cref{fig:JM_System}).
+
+%\subsection{Whole system (high level description) } 
+
+   %% Figure: photo of system (Writer Doug) 
+
+
+ %%Monitoring soil health involve measuring multiple properties of soil. Considering the complex nature of soil itself, there is no limit to the number of parameters that should be targeted for a comprehensive understanding.
+ 
+% In order to get an idea of how erosion-prone the soil is, its capability to retain water was identified as a promising metric. In that direction, a moisture retention probe has been designed that measures the penetration of water into the soil when irrigated. Additionally, since top-soil loss is associated with depletion of soil nutrients, measuring the nitrate content and pH was prioritised. A strip based colorimetric sensor, C-3NpH, has been developed for this purpose. Apart from measuring these parameters, recording them alongside the geographic location and date is essential to track the effects and progress of erosion. Instead of designing a single device for all these capabilities, a modular design concept was followed. This is illustrated in the schematic diagram of Figure \ref{fig:JM_System}. The moisture retention and colour sensors were developed as separate entities which connect to a base unit equipped with the most important functions of geo-tagging and data recording. On one hand, this approach made the device easy to use, portable and extendable to other sensing applications in the future. On the other hand, it also made the device development independent and faster. 
+
+
+%%\subsection{Basic mention of modular system - Doug}
+
+%\subsubsection{Communication between the base unit and peripherals (Writer Sagnik + Doug) }
+
+%The device design was based on the concept of modularity as described earlier. Such a design required a robust communication between the base unit unit and the peripherals. The SPI protocol was chosen due to its simpler implementation and capability to communicate over longer distances. Quite intuitively, the base unit serves as the SPI-master while the sensors are SPI-slaves. The user interacts only with the base unit and therefore, it is the master that directs the connected sensor when to initiate or abort a sensing operation. In SPI communication, all the slaves share the same data and clock lines but have individual slave-selects (SS). Thus, multiple slave means multiple SS which may complicate the hard-wired connections. On the master side, this translates to multiple used up output pins. But in case of our device the sensors connect through the same port one by one. Thus, only one SS connection is shared by all the sensors. Although the lack of parallelism may appear as a limitation, it makes the hardware simpler and above all, easy for the user.
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\textwidth]{Pictures/Hardware/OOPI_Transaction.png}
+        \vspace{5mm}
+        \caption{Activity diagram illustrating the atomic transaction between master and slave. Red arrows indicate synchronised sub-atomic communication events while black arrows indicate the flow of control.}
+        \label{fig:OOPI_Transaction}
+    \end{figure}
+
+\subsection{Object oriented peripheral interface (OOPI)} %Author: Doug 
+
+The conventional approach to modular systems, consisting of a single ``Master'' and multiple ``Slaves'' (peripherals), is for the Master unit to take on the responsibilities of the peripherals, effectively rendering the latter to simple data accessors. The difficulty with this approach is that a strong interdependence (also referred to as coupling) is developed between the Master and the Slave with the proper functioning of both intimately linked to each other. Perhaps more distressing, however, is the generation of an unseemly amount of technical debt. In order to change the behaviour of a single sensor, or add a sensor to the suite of sensors compatible with the base unit, the entire firmware of both the base unit and the peripherals would need to be refactored. The same would be required for all pre-existing sensors due to the aforementioned interdependence. Furthermore, with each additional sensor, the firmware of the base unit would become increasingly monolithic, consuming increasing amounts of on-chip resources in an unsustainable manner. To avoid this, an alternative firmware framework, dubbed \gls{OOPI}, has been developed. This allows the base unit firmware to become independent of the sensor with which it is communicating by delegating all sensor-specific responsibilities to the sensor module itself. The primary value added by this firmware is its intrinsic flexibility, which allows existing sensors to be updated and new ones to be added to the suite, without the need to update the base unit. This supports the modular architecture of the system, and allows community-driven development of new sensors within the open-source context of this project.
+
+There are three primary features within this framework. The first is the novel communications protocol on which the firmware is built. This protocol has been designed to be atomic, and therefore robust to data corruption and timing discrepancies between Master and Slave; the flow of control of a single transaction is shown in \cref{fig:OOPI_Transaction}. Secondly, \gls{OOPI} models sensors as smart entities, which carry out step-wise measurement procedures communicated to the base unit; \gls{OOPI} allows the sensor to issue instructions to the user using the base unit as a proxy, as well as wait for user confirmation. The flow of control for a measurement procedure is given in \cref{fig:OOPI_Measurement}. Finally, the base unit component of OOPI models the sensor as an object with a multiple-inheritance driven polymorphic interface, allowing robust and maintainable code (for additional information, see \cref{sec:OOPI_Appendix}) \footnote{Detailed documentation is hosted on GitHub: \url{https://github.com/solicamb/main/tree/master/object_oriented_peripheral_interphace}}.
+\clearpage
+
+
+
+%------------------------------------------------
+\section{Base unit}\index{base unit}
+
+The base unit was designed with a \gls{gps} and SD card built-in, as these components are indispensable for any soil health monitoring system. Whatever measurements are carried out, whether the ones developed within the scope of the project or any other parameter in the future, the data must be geo-tagged and recorded in memory. As outlined earlier, the samples collected from the field should be tracked; this could be achieved by means of labelling the samples with \gls{rfid}s. Thus, the base unit also has a \gls{rfid} reader. \gls{rfid} was chosen over a bar-code scanner as it is significantly cheaper (\pounds 1.30 vs \pounds 65)~\cite{JM_barcode}. Support for peripheral sensors was added in such a way that any new sensors could be easily integrated with the base unit without requiring any re-design. \Cref{fig:JM_Main} shows a block diagram of the base unit. The user interacts with the touch buttons and observes instructions on the screen; this abstracts away all of the complex operations that are required to take sensor readings and associate them with a timestamp, \gls{gps} location and \gls{rfid} tag. Among these functions, the accuracy of geo-tagging depends on the \gls{gps} module used. This was tested by recording the coordinates of the same location as read by the \gls{gps} over time. Detailed explanation is available in \cref{section:gps_accuracy}. \\
+
+The base unit was designed to have the following features: 
+
+\begin{itemize}
+    \item battery charging via a \gls{USB} cable;
+    \item reverse battery protection;
+    \item fuse protection for all supplies;  
+    \item rugged and waterproof design; 
+    \item support of two peripheral sensors; 
+    \item minimum 32-hour battery life;
+    \item typical 90-hour battery life.
+\end{itemize}
+
+\Cref{fig:JM_Main} shows a schematic diagram of different parts of the base unit, illustrating the communications among them. %\Cref{fig:front_view} depicts an image of the base unit as viewed from the front. 
+\Cref{subfig:labelled_1} and \ref{subfig:labelled_2} show labelled images of the hardware components on the front and reverse side of the base unit. \Cref{subfig:labelled_3} shows the image of the \gls{gps} antenna and \gls{USB} ports on the top.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/Hardware/MainDevice.pdf}
+\captionsetup{justification = centering}
+\caption{Base unit system block diagram, all the modules within the  and the communication links between them are shown.}
+\label{fig:JM_Main}
+\end{figure} 
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[height=7cm]{Pictures/Hardware/JM_FrontLidOn.jpg}
+%\caption{Front view of the base unit.}
+%\label{fig:front_view}
+%\end{figure} 
+
+\begin{figure} [t]
+\centering
+\begin{subfigure}{\linewidth}
+  \centering
+  \includegraphics[width = 0.6\textwidth]{Pictures/Hardware/labelled_device/labelled_front_view.jpg}
+  \captionsetup{justification  = centering}
+  \caption{Image of base unit and the components as seen after removing the front panel. The threaded metal inserts in the case mean that the front panel can be removed many times without the threads stripping.}
+  \label{subfig:labelled_1}
+\end{subfigure}
+\bigskip
+\begin{subfigure}{0.48\linewidth}
+  \centering
+  \includegraphics[width = 0.6\textwidth]{Pictures/Hardware/labelled_device/labelled_back_view.jpg}
+  \captionsetup{justification  = centering}
+  \caption{Image of the reverse side of the base unit showing the RFID reader and the batteries.}
+  \label{subfig:labelled_2}
+\end{subfigure}
+\begin{subfigure}{0.48\linewidth}
+  \centering
+  \includegraphics[width = 0.6\textwidth]{Pictures/Hardware/labelled_device/antenna_view.jpg}
+  \captionsetup{justification  = centering}
+  \caption{Top view of the base unit showing the GPS antenna and waterproof double \gls{USB} port.}
+  \label{subfig:labelled_3}
+\end{subfigure}
+\caption{Images of the main device and its features.}
+\label{fig:pcb}
+\end{figure}
+
+%\todo{jh2109 I have removed all the figure float specifiers ht. This strict placement specification caused them to spill over long into the moisture retention probe section, which is quite confusing. Let's give latex some more freedom and places figures by hand if needed at the end of copyediting}
+
+
+\subsection{Printed circuit board}
+
+Prior to the design of the \gls{pcb}, the spatial layout of the breakout boards was determined by iteratively sketching their locations on a notepad. This approach is faster and more flexible than using a \gls{cad} tool. The PCB was designed with two layers, the bare minimum required for a design of this complexity. Two layer boards are significantly cheaper to manufacture than boards with three layers or more. Confining the design to two layers added significant complexity to the placement of components and routing of traces. Components were grouped and placed in small clusters to allow individual circuit modules to be routed and then connected to form the entire system. The power supply module was routed first by using thick power traces between the connectors, batteries, charging modules, and the regulator. The thick traces prevent large voltage drops across connections, which could cause the circuit to malfunction. Then, the thinner signal traces were routed out in buses to minimise the number of vias\footnote{Vias -- holes in a PCB used to jump a trace from one side of the board to the other.} required. Finally, the top side of the board was flood filled with a \SI{3.3}{V} copper pour to connect the power supplies of all of the breakout boards to \SI{3.3}{V} through relatively thick copper. The same was done for ground on the reverse side of the PCB. These tactics made it possible to integrate a complex circuit into a small form factor. Revision 3 of the PCB can be seen in \cref{fig:pcb}. It should be noted that the PCB design also included careful consideration and selection of every component on the \gls{BOM}~\cite{JM_BOM}.
+
+Revision 4 through hole PCB was designed after the final presentation and supports charging on both \gls{USB}s and also a sensor peripheral on both \gls{USB}s. The re-design was required to make the base unit more user-friendly and easy to assemble independently for citizen scientists. The PCB diagram is available on GitHub \cite{JM_PCB}. Surface mount header was required to allow the traces to run underneath the Blue Pill and battery chargers on the reverse side of the board. It would not have been possible to make the base unit as compact otherwise.
+
+
+\begin{figure}
+\centering
+	\begin{subfigure}[b]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pictures/Hardware/PCB_Front.pdf}
+		\captionsetup{justification = centering}
+		\caption{Front side of the PCB.}
+		\label{fig:JM_PCB_Front}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{Pictures/Hardware/PCB_Back.pdf}
+		\captionsetup{justification = centering}
+		\caption{Back side of the PCB.}
+		\label{fig:JM_PCB_Back}
+	\end{subfigure}
+\caption{Drawings of the \gls{pcb} Revision 3.}
+\end{figure}
+
+
+\subsection{Parts selection and cost} 
+
+In general, the majority of component choices were driven by cost. Only some exceptions, such as the choice of capacitive touch sensors, the \gls{rfid} and \gls{gps} module, as well as the battery charger unit and the regulator breakout boards, were selected in interests of time. A single board design solution is possible, but was not feasible within the scope of the project. The bill of materials \gls{BOM} can be seen in \cref{Table:JM_BillOM}, and can also be found online \cite{JM_BOM}, to allow anyone to to rebuild the base unit.
+
+By purchasing components in bulk or substituting pricey components in future designs, the cost of the device can be reduced further. Custom designing these modules would be another possible way to reduce the cost.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Description} & \textbf{Quantity} & \textbf{Price (£)} & \textbf{Total (£)} \\ \hline
+\rowcolor[HTML]{adffca} 
+100 Ohm Through Hole Resistor      & 2        & 0.06      & 0.12      \\ \hline
+\rowcolor[HTML]{adffca} 
+1k Ohm Through Hole Resistor       & 1        & 0.06      & 0.06      \\ \hline
+\rowcolor[HTML]{adffca} 
+470 Ohm Through Hole Resistor      & 1        & 0.06      & 0.06      \\ \hline
+\rowcolor[HTML]{adffca} 
+10 k Ohm Through Hole Resistor     & 3        & 0.06      & 0.18      \\ \hline
+\rowcolor[HTML]{adffca} 
+Flexible GPS Antenna               & 1        & 3.27      & 3.27      \\ \hline
+\rowcolor[HTML]{adffca} 
+8V 1.5A Re-setable Fuse            & 1        & 0.04      & 0.04      \\ \hline
+\rowcolor[HTML]{adffca} 
+6V 3A Re-setable  Fuse             & 1        & 0.19      & 0.19      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+Micro SD Card                      & 1        & 3.89      & 3.89      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+Momentary Capacitive  Touch Switch & 3        & 4.74      & 14.21     \\ \hline
+\rowcolor[HTML]{adffca} 
+Waterproof Enclosure               & 1        & 6.75      & 6.75      \\ \hline
+\rowcolor[HTML]{adffca} 
+SMD Header                         & 3        & 0.58      & 1.75      \\ \hline
+\rowcolor[HTML]{adffca} 
+PMOSFET                            & 3        & 0.36      & 1.08      \\ \hline
+\rowcolor[HTML]{ff8585} 
+Waterproof Double \gls{USB}              & 1        & 13.00     & 13.00     \\ \hline
+\rowcolor[HTML]{ffd49c} 
+Nokia 5110 LCD                     & 1        & 2.48      & 2.48      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+Battery Charger                    & 2        & 1.00      & 2.00      \\ \hline
+\rowcolor[HTML]{ff8585} 
+Male to Female Jumper Wires        & 1        & 2.21      & 2.21      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+Regulator Module                   & 1        & 6.00      & 6.00      \\ \hline
+\rowcolor[HTML]{adffca} 
+18650 Cell Holder                  & 2        & 1.99      & 3.97      \\ \hline
+\rowcolor[HTML]{adffca} 
+NMOSFET                            & 3        & 0.09      & 0.27      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+Microcontroller                    & 1        & 2.82      & 2.82      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+Micro SD Breakout Board            & 1        & 3.72      & 3.72      \\ \hline
+\rowcolor[HTML]{adffca} 
+Male Header                        & 1        & 0.29      & 0.29      \\ \hline
+\rowcolor[HTML]{adffca} 
+Female Header                      & 5        & 0.19      & 0.93      \\ \hline
+\rowcolor[HTML]{adffca} 
+18650 Cell                         & 2        & 3.24      & 6.48      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+GPS Module                         & 1        & 6.71      & 6.71      \\ \hline
+\rowcolor[HTML]{ffd49c} 
+RFID Breakout                      & 1        & 1.30      & 1.30      \\ \hline
+\rowcolor[HTML]{adffca} 
+Switch                             & 1        & 0.58      & 0.58      \\ \hline
+\rowcolor[HTML]{adffca} 
+Switch Cover                       & 1        & 0.32      & 0.32      \\ \hline
+\rowcolor[HTML]{adffca} 
+47 uF Electrolytic Capacitor       & 2        & 0.05      & 0.10      \\ \hline
+\end{tabular} 
+\captionsetup{justification = centering}
+\caption{\gls{BOM} where components highlighted in green will cost less in volume, in orange can be replaced with lower cost alternative with some design changes and in red should be substituted out of the design for a lower cost alternative.The total cost for a device is £77.74.} 
+\label{Table:JM_BillOM}
+\end{table}
+
+A case study \gls{BOM} to prove that the claimed price reductions can be achieved can be seen in~\cite{JM_antenna}. The £$4.74$ capacitive touch switch cost can be reduced to £$0.96$ in one off quantity and £$0.65$ in 1000 quantity. \Cref{fig:JM_EconOfScale} shows that increasing the volume has diminishing returns for cost reduction. Assuming that all of the components highlighted in orange can be reduced to 14\% of their original cost (as the capacitive touch switch was shown to be) and that the components in red are substituted for components that cost 10\% of the original (as was shown for the capacitive touch buttons, the price for the redesigned  in 1000 quantity would be £$48.50$.
+
+ \begin{figure}
+		    \centering
+		    \includegraphics[width=\linewidth]{Pictures/Hardware/EconOfScale.eps}
+		    \captionsetup{justification = centering}
+			\caption{The diminishing returns of economies of scale for the case study of a momentary capacitive touch switch.}
+			\label{fig:JM_EconOfScale}
+    	\end{figure}
+
+
+\subsection{Base unit firmware}
+
+The base unit and sensor modules are based on STM32 Blue Pill micro-controllers. These devices are compatible with the Arduino \gls{IDE} platform, which was used for developing the  firmware\footnote{The firmware is hosted on Github: \url{https://github.com/solicamb/main/tree/master/Main\%20\%20Code}}. The flowchart shown in \cref{firmware_flowchart} depicts the sequence of functions the Blue Pill runs through after the base unit is switched on. The red boxes indicate the processes that rely on input(s) from the user. A detailed explanation of the selection of different process flows is provided in \cref{appendix:processflow}.
+
+\begin{figure}
+            \centering
+            \includegraphics[height=400pt]{Pictures/Hardware/firmware_flowchart.jpg}
+            \captionsetup{justification = centering}
+            \caption{Flowchart describing the sequence of operations performed by the  after it is started. The red boxes indicate processes that require interactions from the user.}
+            \label{firmware_flowchart}
+        \end{figure}
+
+The base unit combines multiple functionalities, of which some are executed on their own, while others require an input from a user. For example, both geo-tagging by the \gls{gps} module and data logging onto the SD card operate in the background. Once a peripheral sensor is connected, measurements commence only when indicated by the user, due to the required initialisation time of the sensor unit. Since user has to interact with the sensor, the \gls{gui} becomes an indispensable part of the base unit. \Cref{subfig:gui_1,subfig:gui_2} show the starting display and menu. Options for the moisture retention probe and C-3NpH are valid only when those sensors are plugged in. Navigation through the menu options, selecting or cancelling an operation is performed using the touch buttons.
+
+Selecting a sensor results in the connection being checked, after which sensor specific options or instructions are displayed (\cref{subfig:gui_3}). Brief step-wise instructions are meant to support and direct the in field testing procedure and increase the repeatability of the measurements. Representativly \Cref{subfig:gui_4,subfig:gui_5} show a few instructions displayed for colour sensing and moisture retention probing respectively. The way the results are displayed was arranged to achieve an intuitive understanding of the user (\cref{subfig:gui_6}).
+
+As part of our citizen engagement study, suggestions and feedback on the user interface indicated that allowing the user to choose from different sensors is not anticipated to be effective. The concept of a plug-and-measure system is envisioned to first ask whether a specific sensor is required for the analysis or not, instead of providing options to the user in the form of a main menu as discussed earlier. Only when a peripheral sensor is connected, the sensor-specific screen appears displaying the instructions and eventually the results.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.3\linewidth} 
+		\centering
+		\includegraphics[height=3.5cm]{Pictures/Hardware/GUI/gui_1.jpg}
+		\captionsetup{justification = centering}
+		\caption{SoliCamb logo displayed upon starting the device. }
+		\label{subfig:gui_1}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.3\linewidth}
+	\centering
+	\includegraphics[height=3.5cm]{Pictures/Hardware/GUI/gui_2.jpg}
+	\captionsetup{justification = centering}
+		\caption{Main menu displayed after the device is booted.}
+		\label{subfig:gui_2}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.3\linewidth}
+	\centering
+		\includegraphics[height=3.5cm]{Pictures/Hardware/GUI/gui_3.jpg}
+		\captionsetup{justification = centering}
+		\caption{Options provided upon C-3NpH colour sensor connection.}
+		\label{subfig:gui_3}
+	\end{subfigure}
+	
+	\bigskip
+\begin{subfigure}[t]{0.3\linewidth}
+  \centering
+  \includegraphics[height=3.5cm]{Pictures/Hardware/GUI/gui_4.jpg}
+  \captionsetup{justification = centering}
+  \caption{Instruction to inserting a colour strip into the C-3NpH.}
+  \label{subfig:gui_4}
+\end{subfigure}
+\begin{subfigure}[t]{0.3\linewidth}
+  \centering
+  \includegraphics[height=3.5cm]{Pictures/Hardware/GUI/gui_5.jpg}
+  \captionsetup{justification = centering}
+  \caption{Instruction to irrigate nearby soil once the moisture retention probe is inserted into the ground.}\label{subfig:gui_5}
+\end{subfigure}
+\begin{subfigure}[t]{0.3\linewidth}
+  \centering
+  \includegraphics[height=3.5cm]{Pictures/Hardware/GUI/gui_6.jpg}
+  \captionsetup{justification = centering}
+  \caption{Moisture retention scores displayed after the sensing ended.}\label{subfig:gui_6}
+\end{subfigure}
+
+	\captionsetup{justification = centering}
+	\captionsetup{justification = centering}
+	\caption{Pictures of the base unit screen with the GUI.}
+	\label{fig:gui_all}
+\end{figure}   
+
+
+
+
+ 
+%------------------------------------------------
+\clearpage
+\section{Moisture retention probe}\index{Moisture retention probe}
+
+\subsection{Background and idea}% Author: jh2109
+\index{Erosion}
+Consider one of the central issues of low soil health: erosion.\cite{soilvegetationsystemstrudgill1977} Whenever rain falls onto soil, there are naturally two paths it can take: into the ground, or running off along the surface. In the latter case, it will take up and carry along topsoil until it reaches a final destination at some lowest point of the local topology, often a river.\cite{unsaturatedsoilsresearchmancusoetal2012} This is an issue for two reasons. The topsoil it carries away is fertile ground that allows plants to grow. It might also contain recently sprouting plants, which are uprooted before they can establish themselves. This is a negative feedback cycle, as no stable ecosystem can form to improve soil health.
+
+The other concern of soil erosion is that when this fertile topsoil meets a river, the river's ecosystem is also negatively affected by an oversupply of nutrients, as well as creating a mud bed within the river.\index{Water Infiltration} Hence, infiltration of water into the soil is a key indicator of soil health.\cite{soilvegetationsystemstrudgill1977} The soil moisture retention probe measures this quantitatively by sensing infiltration of water into the soil. Specifically, moisture content at three different depths is monitored, and from the time dynamics of these measurements as irrigation occurs either by the efforts of the scientist taking these measurements, or natural rain, the moisture retention probe can sense water infiltration.
+
+\paragraph{Comparison of different sensing methods} %Author: jh2109
+There are several sensing strategies that can be employed to detect soil moisture.\cite{surveymethodssoilschmuggeetal1980} The arguably simplest method of measuring soil moisture is a resistance measurement between two exposed wires acting as electrodes in the ground. Higher water content increases conductivity, hence a simple resistance measurement provides a way to track this parameter. There are key weaknesses to this technique that led to it being rejected for our efforts. Firstly, while moisture content changes resistance, so do many other factors, in particular salinity and soil composition (e.g. rocks will hence change the measurement significantly). Disentangling this compound measurement is unfeasible unless the system is to be restricted to a very uniform soil type, defeating the purpose of a soil health measurement toolkit.\cite{criticalreviewsoilsushalekshmietal2014} Second, exposed wires in moist soil are subject to corrosion. Furthermore, the necessary current sent through them to measure resistance is likely to cause electrolysis. Both these processes deteriorate the electrode, changing its contact resistance, thus giving a significant measurement drift over time.\cite{criteriasoilaggressivenessboothetal1967}
+
+\index{Capacitive Moisture Sensing}
+In comparison, capacitive moisture sensing is a more robust technique to measure moisture content. By assembling a capacitor with significant fringe field (see \gls{FEM} simulations below for a quantitative view), capacitance can be affected by the dielectric properties of the surrounding medium. This measurement does not require the electrodes to be exposed, giving a system with negligible change over time even when left in the ground continuously. Nonetheless, capacitive moisture sensing retains the drawback of also measuring effects of soil composition. Hence, it was decided from the start to work towards a system that can be self-calibrated in the field. This will be described in the sections below.
+
+\index{Time Domain Reflectrometry}
+For completeness, two other common techniques are to be mentioned. One of them is {\gls{TDR}}, where one or more wires led into the ground are driven with a series of electrical signals. The electrical reflections of these pulses can subsequently be analysed with transmission line models.\cite{coaxialmultiplexertimeevett1998}\cite{timedomainreflectrometrypettinellietal2002} It offers the simplicity of the sensing element in the ground (smallest possible footprint), which is merely a series of plain wires embedded in a plastic sheath; as well as direct measurements of depth-resolved moisture profiles by sweeping frequencies and knowledge of their attenuation. Two factors motivated our choice against this technique: the significant complexity of the analysis electronics (spectral analyzer), and the more complex calibration\cite{solutetransportwaterperssonetal2000}\cite{timedomainreflectrometrynicholetal2003}. This means such a system would not have the appeal of an easily \enquote{hackable} system (analog circuit design is generally seen as more intricate than digital), and would be less suited to portable (non-continuous) measurement toolkits.
+
+\index{Neutron probe}
+Perhaps the most advanced techniques to measure soil moisture revolve around the {use of neutron radiation}.\cite{neutronprobesoilhodnett1986} These approaches are able to offer real-time, large scale, volumetric 3D scans of a soil's moisture content as well as other properties.\cite{intraseasonaldynamicssoilhupetetal2002}\cite{influenceaccessholeabeele1979} However, their use of strong radiation sources combined with large and expensive detectors make them unsuitable for a project of our scale.
+
+\subsection{Measurement protocol}
+\label{smeasurementprotocol}
+
+
+%DONE\todo{jh2109 explain how the measurement proceeds from the perspective of the user}
+\index{Irrigation (Moisture Retention Probe)}
+The moisture retention probe is primarily designed to sense and monitor water moving through the soil as opposed to static moisture content (albeit that this measurement is also returned to the user as an added benefit). In this design decision, it departs from commonly available moisture sensors, which aim for long-time (hours) averaging measurements, primarily to support gardeners and farmers in their decision when to artificially irrigate the field.
+
+Consequently, the moisture retention probe relies on irrigation occurring during its measurement period. In most cases, this will be supplied by the field scientist, but it could also be replaced by natural rain in a continuous monitoring solution.
+
+The complete procedure to take a moisture retention measurement is shown in \cref{fmeasurementprotocol}, and consists of four steps. First, at the desired measurement location, the work begins by \textbf{coring} a hole of the same diameter and depth as the probe. In our experiments, a metal rod was driven in either by hand or by using a mallet, depending on the condition of the soil. Additionally, using the same implement or a small shovel, a small well (diameter \SI{5}{cm}, depth \SI{5}{cm}) is made a short distance away (\SI{3}{cm}) from the probe. The lateral distance between the wells is designed to avoid percolation of water directly along the probe. On the other hand, if the secondary well is placed at a large distance away (further than \SI{5}{cm}), the infiltration of water towards the sensors becomes exceedingly slow to retrieve meaningful data regarding percolation rates. The optimal distance therefore depends on the depth of the three sensors on the probe and the type of soil. The value of \SI{3}{cm} was chosen as an acceptable compromise after several tests carried out in different fields. It could however be adjusted if needed simply by monitoring the time needed for water to reach the sensors on the probe.
+
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=\linewidth]{Pictures/moisture_retention/measurement_protocol.pdf}
+    \captionsetup{justification = centering}
+    \caption{Measurement protocol for the moisture retention probe. The user is guided through this process with the base unit's screen. A core is made by a suitable implement, e.g. a metal rod, to the same size as the probe. Next, the probe is inserted, and then returns the soil moisture depth profile. Another small well is made close-by, and kept topped up with water until the  returns a measurement.}
+    \label{fmeasurementprotocol}
+\end{figure}
+
+
+The \textbf{probe is inserted into the ground}, as directed by the base unit's screen. Once the user confirms by press of a button that this step has been completed, the probe can give an indicative reading of the soil moisture depth profile. As discussed above, this measurement cannot be highly accurate without soil-specific calibration, and is therefore intentionally reported to the user as a semi-quantitative classification (\enquote{dry}, \enquote{moist}, \enquote{wet}) to avoid a false impression of higher accuracy. The source code gives the thresholds signal levels for these classifications, and was derived from the entirety of our field testing data. Absolute quantitative moisture measurement was seen as a stretch goal from the start, and would be better achieved with one of the more expensive technologies discussed above. Classification with words, rather than numbers with large associated error, allows us to nonetheless provide this information to the field scientist, while also avoiding misleading citizen scientist users who might not be accustomed to working with associated numerical uncertainty in a scientific context.
+
+After showing this information to the user for a few seconds, the screen instructs the user to \textbf{begin irrigation}. The field scientist fills the well with water, and keeps it topped-up regularly. This gives a fairly constant pressure head of the water being driven into the soil. The original design was to add a fixed amount of water volume, but this was found to not work for all soil types tested. Very absorbent soils wick away the moisture in all directions before enough water can percolate down to allow a definitive measurement. Hence, to avoid the user having to make an a-priori, pre-measurement estimation of how much water to use, a constant pressure (water fill level) solution was chosen. The downside of this choice is an increased user involvement, and an uncertainty associated with topping up at different intervals.
+
+From this point onwards, the user only needs to keep the well topped up, and the remaining measurement details are handled by the probe. Using pre-irrigation data, i.e. when it was inserted into the ground, it calibrates its signal measurements to give a baseline which is independent of the local soil type. Once the topmost probe registers a significant moisture reading (thresholds given in the source code), the measurement timer is started. This avoids the user having to interact with the  while irrigating, reducing potential usage errors.
+
+In this way, the probe \textbf{monitors percolation}, and can give soil moisture velocities from the time differences between its multi-depth sensing elements. These are reported as a \enquote{moisture retention score}, with a value given in \SI{}{\centi\meter\per\minute}. The term \enquote{score} was chosen over the more technical term \enquote{soil moisture velocity}\cite{soilmoisturevelocityogdenetal2017,soilwaterretentionbuitenwerfetal2014} to indicate that higher values imply better soil health, and to avoid the citizen scientists making comparisons to literature values for soil moisture velocity. Since these measurements are usually carried out in a laboratory setting with a standardised set of conditions (pressure, temperature, and soil compaction), they measure the same concept but under different conditions.\cite{soilmoisturevelocityogdenetal2017} Our measurements take into consideration in-the-field conditions that typical soil moisture velocity testing intentionally tries to eliminate, so as to make results comparable between laboratories. These are different approaches, and hence must be differentiated properly; our measurements give a local, in-situ ground truth of how long water takes to move through the ground; laboratory testing of soil moisture velocity gives a well-defined moisture retention value for a given soil composition within a region of interest, which would then need to be corrected for local soil conditions. Both address somewhat different needs, and offer different points of view which must not be confused, hence the choice of the word \enquote{score}. Being open-source, the source code and its comments detail the physical meaning of the scores reported for any user who is interested in delving deeper into the science behind the developed sensor.\footnote{\url{https://github.com/solicamb/main}}
+
+Finally, for very low quality soils, with slow ingress of water into the soil, it was found that the measurement could take over 10 minutes. Because the variability of soil health at the bottom of the spectrum is of less interest -- even visually, it is clear to see that almost all water added to them runs off and causes erosion --, a timeout of five minutes has been added. Measurements not completing within this period are then reported with the lowest possible moisture retention score of $1$. A common case in field testing was to find a quantitative reading for the topsoil (which is generally more porous even for lower quality fields due to shallow-rooting weeds), but encounter the timeout for lower layers of soil (as no deep-rooting plants were present to condition these strata). In this way, a meaningful measurement is still reported to the field scientist, indicating that different layers have different properties.
+
+\subsection{Simulations and Analysis}
+
+\subsubsection{FEM simulations} %Author: Doug
+%\todo{Doug: Would like to include the FEM models to substantiate choice for coil form factor and further illustrate mechanism of operation. To be confirmed with team.}Good with me -jh2109
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pictures/moisture_retention/FEMM_Moisture_Probe_2.png}
+        \captionsetup{justification = centering}
+        \caption{Heat map illustrating the slice finite element modelling voltage field generated by the coil at a steady state voltage.}
+        \label{fig:FEMM_Voltage}
+    \end{subfigure}%
+    \vspace{5mm}
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pictures/moisture_retention/FEMM_Capacitance_2.png}
+        \captionsetup{justification = centering}
+        \caption{Plot of the simulated change in capacitance as a function of horizontal and vertical distance between the simulated coil and a sphere of water.}
+        \label{fig:FEMM_Capacitance}
+    \end{subfigure}
+    \captionsetup{justification = centering}
+    \caption{Illustration of the finite element modelling results using FEMM 4.2 of a reduced version of the coil-form factor capacitor.}
+\end{figure*}
+%\todo{Could we have these in vector, or at least higher resolution? Then we could make them larger, too}
+
+
+The functioning of the coil form-factor capacitive probe was investigated using the finite element modelling software FEMM 4.2. The electric field created by the probe at steady state is shown in \cref{fig:FEMM_Voltage}. This illustrates that the probe's form-factor allows for a pseudo-spherical field, which is more appropriate for measuring the presence of moisture at some radial distance away from the sensor. A high gradient is, however, observed in the field along the horizontal axis. Indeed, by examining the change in capacitance as a function of distance between the \textcolor{red}{sensor} and the water body it can be seen that the probe is more sensitive to moisture variation along its horizontal axis. Furthermore, the change in capacitance with distance appears to be monotonic (increasing for reducing distance) which implies easier interpretability of moisture variation along the horizontal plane. It is, however, also noted that the sensitivity of the \textcolor{red}{probe} is strongly non-linear, becoming highly sensitive at small distances from the sensor.
+
+Finally, from the simulation, it can be shown that, choosing the capacitance of the sensor for an interferer at \si{5}{mm} to be the datum, the capacitance decreases to less than 5\% of the datum (and the sensitivity effectively to zero) when the water interferer is placed \si{40}{mm} from the sensor along the horizontal axis and \si{30}{mm} along the vertical axis. Thus the volume interrogated by the sensor can be approximated to be an ovaloid volume with long and short axes defined by the aforementioned 5\% values. 
+
+%\todo{Could you add an estimate of our sensing region? ... small distances from the sensor, becoming negligible (<5\%)for distances larger than ... or something similar}  
+
+\subsubsection{Extracting Soil Parameters from Probe Output} %Author: Doug
+
+The measurement enacted by the moisture probe is rich in information; using parameters extracted from raw sensor data, the necessary mappings have been derived (\cref{sec:Extracting_Soil_params}) to calculate approximations of the infiltration rates and the hydraulic conductivity of the upper-most layer of the soil.
+
+A simplified model for the infiltration of water into the soil from the water reservoir is that of radial dispersion under the influence of diffusion and gravity. This model is illustrated by \cref{fig:moisture_retention_sketch} and assumes the soil to be homogeneous. By considering the sensors and the reservoir to each be point elements in space, as illustrated in \cref{fig:moisture_retention_schematic}, it becomes clear that the volume of water which causes the primary deflection in each sensor must travel along some radial path with path length $\Delta r_i$ over the time interval $\Delta t_i$. The task is thus to derive the vertical infiltration velocity, $\frac{dy}{dt} \equiv \dot{y}$ as seen by each sensor. In particular, it can be shown that the infiltration rate, which is the vertical component of the velocity of the moisture front, at the depth of the $i^{th}$ sensor, is given by:
+
+\begin{equation}
+ \dot{y}_i \approx \frac{y_i\cdot x^2_{sw}}{\Delta t_i\cdot(x^2_{sw}+y^2_i)}
+ \label{eqn:Infiltration_rate}
+\end{equation}
+where:
+\begin{conditions}
+ \dot{y}_i   &  Infiltration rate at the depth of the $i^{th}$ sensor $[m/s]$ \\
+ y_i  &  Depth of the $i^{th}$ sensor $[m]$\\   
+ x_{sw}    &  Horizontal distance between probe and reservoir $[m]$\\
+ \Delta t_i & Time from the filling of the reservoir to the response of the $i^{th}$ sensor $[s]$
+\end{conditions}
+
+\begin{figure*}[h!]
+\centering
+\begin{subfigure}[b]{.75\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{Pictures/moisture_retention/Moisture_probe_sketch.png}
+  \captionsetup{justification = centering}
+  \caption{Stylised sketch of the moisture retention probe and water reservoir with radial infiltration of water from reservoir into soil.}
+  \label{fig:moisture_retention_sketch}
+\end{subfigure}%
+\vspace{10mm}
+\begin{subfigure}[b]{.75\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{Pictures/moisture_retention/Moisture_probe_Schematic.png}
+  \captionsetup{justification = centering}
+  \caption{Schematic illustrating the geometric relationships between the sensors and water reservoir, all modelled as point entities.}
+  \label{fig:moisture_retention_schematic}
+\end{subfigure}
+\captionsetup{justification = centering}
+\caption{Figures illustrating the simplified radial infiltration model.}
+\label{fig:Moiture_retention_Radial_infiltration}
+\end{figure*}
+
+A comprehensive equation describing the vertical infiltration rate has been proposed by Ogden~\textit{et al.}~\cite{soilmoisturevelocityogdenetal2017} and describes the infiltration rate (approximated by \cref{eqn:Infiltration_rate}) as a function of the unsaturated hydraulic conductivity, $K$, the capillary pressure head, $\Psi$ and the soil water diffusivity, $D$, and is considered to consist of an advection-like term (defined by $K$ as a pre-factor) and a diffusion-like term (defined by $D$ as a prefactor.)
+
+The hydraulic conductivity is a parameter of interest in the soil science community as it measures the ease with which water percolates through the soil and is therefore a reflection of the soil porosity and interconnectedness. 
+
+By assuming that the diffusion-like term can be regarded as negligible relative to the advection-like term, which encapsulates the effect of porosity and gravity~\cite{soilmoisturevelocityogdenetal2017}, and by assuming that the water inflitrates radially, causing an inverse square decay of the capillary pressure head, it can be shown that the inflitration rate can be approximated by:
+
+\begin{align}
+    \dot{y} &\approx -C\cdot \frac{K}{y} + K 
+    \label{eqn:Approx_y_dot}
+\end{align}
+where:
+\begin{conditions}
+ \dot{y}   &  Infiltration rate $[m/s]$ \\
+ y  &  Depth at which the rate is observed $[m]$\\   
+ x_{sw}    &  Horizontal distance between probe and reservoir $[m]$\\
+  K     &  Unsaturated Hydraulic Conductivity $[m/s]$ \\
+  C & Arbitrary constant $[]$
+\end{conditions}
+By making the appropriate approximations in \cref{eqn:Approx_y_dot}, the hydraulic soil conductivity for the soil surrounding the upper-most sensor can be approximated by:
+\begin{align}
+    K_1 &\approx \frac{\dot{y}_1}{\bigg(\frac{C_{Approx}}{y_1}-1\bigg)}\\
+    \intertext{Where,}
+    \begin{cases}
+    C_{Approx} &\approx -(\dot{y}_2 - K_{Average})\frac{y_2}{K_{Average}}\\
+     K_{Average} &\approx \dot{y}_3\\
+     y_i &\equiv \text{\ref{eqn:Infiltration_rate}}
+     \end{cases}
+\end{align}
+Which gives the Hydraulic Conductivity of the top soil layer, $K_1$, by using the deep sensors to estimate the interim parameters. It must, however, be noted, that the capillary head, hydraulic conductivity, and diffusivity are all non-linear functions of the volumetric water content of the soil. Given that the magnitude of the signal generated by the sensors is correlated to this parameter, adjustments to the measuring procedure using different volumes of water could be used to generate the appropriate functions.
+
+%\todo{Doug could you add a figure of the final wire holders from your cad files :) -tb632}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.55\textwidth]{Pictures/moisture_retention/Moisture_probe_Coil_mount.png}
+    \caption{CAD image of the 3D-printed coil mounts used in the final moisture probe design.}
+    \label{fig:moisture_probe_coil_mounts}
+\end{figure}
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=.9\linewidth]{Pictures/moisture_retention/design_evolution.jpg}}
+	\captionsetup{justification = centering}
+	\captionof{figure}{A compilation of all the moisture retention probe designs, from earliest proof-of-concepts (left) to final working prototype (right). See \Cref{smrdesignevolution} for a complete explanation.}
+	\label{fdesignevolution}
+\end{figure}
+%\todo{jh2109 show the different stages the  went through until its final iteration, explaining why different directions of development were taken}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.6\textwidth}
+	\includegraphics[height = 5.5cm]{Pictures/moisture_retention/ProbeCoils.jpeg}
+	\captionsetup{justification = centering}
+	\caption{Moisture retention probe connected to base unit: here the sensors at three different depths were made using different spacings on the 3D-printed sleeves for testing purposes. Each pair of wires soldered onto the readout part of a capacitive moisture probe also can be seen; this would normally sit within the peripheral sensor box.}
+\end{subfigure}
+\begin{subfigure}[t]{0.35\textwidth}
+		\includegraphics[height = 5.5cm]{Pictures/moisture_retention/moisture_complete.jpg}
+	\captionsetup{justification = centering}
+	\caption{Moisture retention probe packaged inside an enclosure, with \gls{USB} to connect to the base unit. In the final version this \gls{USB} socket is also enclosed.}
+\end{subfigure}
+\caption{Pictures of the moisture retention peripheral.}
+	\label{ffieldtest2b}
+\end{figure}
+
+
+\subsection{Testing and Validation}
+Testing and validation of the sensor system was performed in multiple ways. In the early stages of the development, the response was measured within the lab by lowering the probe into a container of water, or by applying a damp sponge to the probe. Once a consistent response was observed, testing of soil analogues and local fields commenced.
+
+During the development of the moisture sensor it was important to view the data output from each probe \enquote{live} during field testing. For this reason, a PC-based application was written. The PC interface allowed the user to monitor the voltage readout of each individual probe while in use (\cref{fmrpcscreenshot}). This allowed to gain an understanding of how \enquote{good} or \enquote{bad} soil responds to irrigation, how iterative design changes affected the data readout, and the degree to which voltage changes could be induced by the introduction of water via irrigation. A test algorithm was written within the PC app to provide the user with a time variable, measured as the time taken for irrigation to reach the various probe depths. An individual sensor registered the presence of irrigation by a defined drop in voltage. This voltage drop was predefined within the source code based on numerous field studies in different soil conditions. Two measurements are yielded by the current algorithm: the top soil result, given as $t_\text{mid sensor} - t_\text{top sensor}$, and the bottom soil result, given as $t_\text{bot sensor} - t_\text{mid sensor}$. This algorithm was later adapted for the base unit.
+
+Unlike other peripheral sensors, benchmarking the moisture probe against a known measurement is difficult. The designed moisture probe is a novel sensor and by extension produces an essential, yet new parameter measurement which cannot be directly compared to anything.
+
+There were several attempts to validate the \textcolor{red}{moisture retention probe}. Firstly, fractionated sand with a known granule size was used. This type of sand is commonly used within earth sciences as a research tool. There were practical limitations in using it as a benchmark within the lab. The main problem was the fact that any sufficiently small glass or plastic container caused a path of low resistance down the sides of the container. This resulted in water flowing preferentially down the sides of the container until reaching the bottom of the vessel and filling from the bottom, triggering a response at the bottom of the probe first. This is of course non-representative of a field test where the surface of the material being tested effectively extends to infinity.
+
+It was decided to move to a less standard validation procedure, where fields with known quality of soil and various levels of management were tested. These sites were farms, National Trust grounds, and from the land surrounding the West Cambridge Campus. In speaking to land managers it was possible to assess to what degree the land had been managed, what had been grown there, how often the ground is watered, and even the last time the area experienced rainfall. Ensuring experimental control, such as the amount of rainfall a site had seen, was impossible, which added another level of difficulty to the validation experiments.
+
+\begin{figure}
+	\centerline{\includegraphics[width=.9\linewidth]{Pictures/moisture_retention/pc_app_screenshot.png}}
+	\captionsetup{justification = centering}
+	\captionof{figure}{A screenshot of the PC interface used during developmental field testing of the moisture probe. Readings from A0 (top sensor), A1 (mid-sensor) and A2 (bottom sensor) probes displayed graphically as three distinct colours with time shown on the X-axis and raw sensor reading (voltage) shown on the y-axis. }
+	\label{fmrpcscreenshot}
+\end{figure}
+
+Once the probe was mechanically robust enough and provided repeatable data, the above functionality was integrated into the slave microcontroller within the moisture retention sensor system. Without the use of the PC interface, the system provides the user with a moisture retention \enquote{score} as described in \cref{smeasurementprotocol}.
+This score is saved to the SD card in the base unit, alongside time and geographical coordinates.
+
+
+\subsubsection{Field Testing} \label{sec:moistureprobe_field}
+%\todo{bw422 - we need to add a bunch of images and plots here}
+%\todo{jh2109 - happy to do the plotting with the python+seaborn I set up for the presentation. Just let me know which csvs to do. I have added the Anglesey Abbey data for now} 
+
+\paragraph{West Cambridge Campus}
+The initial field tests were performed in an area of very low quality soil, which is not professionally managed and not currently used for farming. This acted as a suitable test bed for early versions of the probe. Though poor quality, the grounds became useful for mechanical robustness testing of the probes. The ground was generally very compacted and clay based resulting in difficult test conditions. Only the top and mid-sensors responded due to two factors: poor quality compacted ground resulted in low infiltration rates, and in the soil holding a high volume of water nearly saturating the bottom sensor.
+
+
+\paragraph{Anglesey Abbey}
+Following interest from the National Trust, SoliCamb was invited to test sensor systems in the nursery gardens of Anglesey Abbey. This provided access to extensively managed soil. Two primary sites were tested: a site which had been recently ploughed and ready for planting, and a site that had been left bare for several months. It had rained recently which led to a near-saturated readings as soon as the probe was inserted into the ground. Despite this, it was possible to generate clear readings from both sites and to distinguishing between the fields, generating a filtration rate between all three sensor depths.
+
+\begin{figure}
+	\centerline{\includegraphics[width=.8\linewidth]{Pictures/moisture_retention/anglesey_abbey_recently_ploughed.pdf}}
+	\captionsetup{justification = centering}
+	\captionof{figure}{Anglesey Abbey: good quality soil. A clear, sharp response can be seen at the top sensor (\SIrange{0}{5}{cm}) due to fast infiltration. The mid-sensor (\SIrange{10}{15}{cm}) responds next, providing a time difference for the moisture retention score algorithm. The bottom sensor (\SIrange{20}{25}{cm}) responds last, with a greater time difference, indicating the poorer soil quality and increased moisture saturation at the \SIrange{20}{25}{cm} depth.}
+	\label{fangleseyabbeyrecentlyploughed}
+\end{figure}
+
+\begin{figure}
+	\centerline{\includegraphics[width=.8\linewidth]{Pictures/moisture_retention/anglesey_abbey_field_left_bare.pdf}}
+	\captionsetup{justification = centering}
+	\captionof{figure}{Anglesey Abbey: low quality soil. Signal artefacts at the beginning stem from the user walking across the sampled soil before the actual measurement was begun. The top sensor (\SIrange{0}{5}{cm}) begins to respond following irrigation, middle and bottom sensors (\SIrange{10}{15}{cm}, \SIrange{20}{25}{cm}, respectively) begin to slowly respond after 5-10 minutes. The base unit would report this with the worst possible moisture retention score of 1 to avoid the user being held up for too long.}
+	\label{fangleseyabbeyleftbare}
+\end{figure}
+
+
+\paragraph{Radwell Grange Farm}
+A collaboration that emerged through Cambridge 105 Radio feature led to further field testing of the sensor system on an crop farm which had recently been harvested. The probe was tested in two fields: a recently harvested rapeseed crop, and a barren field of the same soil type, left unmanaged for at least one season. Unfortunately, there had been extensive rainfall two days prior to the test and so the ground was saturated with moisture. All three sensors classified as ``wet'' when inserted into the ground. The top sensor responded reliably in both sites, while the mid-sensor provided a measurable, albeit weak response. The testing highlighted the inherent problems with using a point moisture sensor system in a country which experiences frequent periods of rainfall. However, these field tests did lead to the careful consideration of the application of a remote, constant monitoring probe within agriculture, which is discussed in more detail in \cref{smrpcontinuousmonitoring}.\\
+
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.35\textwidth}
+\centering
+	\includegraphics[height = 6cm]{Pictures/moisture_retention/fieldtest2a.jpg}
+	\captionsetup{justification = centering}
+	\caption{Early field testing showing the probe being implanted into the ground by a user.}
+	\label{ffieldtest2a}
+\end{subfigure}
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+	\includegraphics[height = 6cm]{Pictures/moisture_retention/MoistureRetWell.jpeg}
+	\captionsetup{justification = centering}
+	\caption{Picture of field testing at Baldock Farm showing secondary well being topped up as the water diffuses through the soil in all directions.}
+	\label{ffieldtest2b}
+\end{subfigure}
+\caption{Pictures from in-field testing of the moisture retention system.}
+\end{figure}
+
+
+

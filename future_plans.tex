@@ -1,0 +1,89 @@
+\section{Hardware}
+
+\subsection{Moisture retention probe: Continuous monitoring solution}%Author: jh2109
+\label{smrpcontinuousmonitoring}
+%DONE\todo{jh2109 and probably others. Mentioning single-PCB system integration idea, low-cost mass (medium-scale) manufacture); explain how this could fit into what David Jordan (National Trust) and others have asked for}
+% @others: Please feel free to add or contribute other aspects of this approach
+While a fully portable solution has its benefits (safe from theft, quick to deploy repeatedly at different sampling locations), it also comes with the inherent disadvantage of setup time for every use and very limited, point-wise sampling in time. Many of the experts, especially within the UK, were more interested in a continuous monitoring solution, which had been ruled out early on in the project due to the requirements given by UCPP.
+
+\todo{jh2109 I had to revert most changes made here. The way it had been rewritten was simply untrue, making it sound as though we had done those things already.}
+Throughout the project, multiple approaches to design the moisture retention probe have been tested. From this experience gained, one promising future vision consists of a fully integrated, one-board PCB solution where the coils on the rod of the moisture retention probe are replaced by inter-digitated traces on the PCB. One of the reasons such a solution was disfavoured for the portable in field testing probe were wicking issues. Whenever such a board was inserted into the ground, water would follow the cable's path. For a continuous monitoring solution however,this could be circumvented by embeddeding the probes horizontally at different depths. This was trialled for the initial proof of concept (see \cref{smrdesignevolution}), but discontinued due to the excessive amount of work per hole dug, which would be amortised in time for a continuous monitoring solution.
+
+The appeal of leaving the moisture retention probe in the ground to measure continuously is not only in eliminating the setup time required for each measurement, but in entirely automating the system to become autonomous and not require any human intervention. Natural rainfall would trigger the sensor and replace the manual irrigation required for the portable in-field measurement protocol. The inherently large-scale, high-volume irrigation will improve measurement quality and reliability by eliminating the variation of how the system is irrigated. Furthermore, local weather forecasts or local weather station measurements can be correlated into the measurement algorithm.
+
+Furthermore, unlike the present solution, such a system would have significantly reduced difficulties with variation due to soil compaction (a new equilibrium is established over time), and the PCB integration would allow point-of-measurement analog-to-digital conversion, which would free up the road to a no-added-component capacitance measurement that has been shown to work as part of the Cambridge Makespace Make-a-thon. The idea is that the microcontroller begins to charge the moisture measurement capacitor and thereafter repeatedly samples its voltage over time to find the charging timescale and hence capacitance. This measurement was not possible to implement in the present solution due to the high parasitic and variable (wire movement) capacitance of the wires leading up to the sensing element, but would be feasible for the one-board solution.
+
+Integration of this continuous measurement into a soil health monitoring toolkit would likely be via a solar-powered measurement sub-station communicating to a mains-powered base station, which was explored during the Agri-Tech East Hack-a-thon. Such a remote sensing approach is feasible because the communication distance is only to the main-powered base station in an office, at most a few hundred meters away, rather than kilometres as in the UCPP context. In particular, collaborators at the National Trust have raised interest in such a solution, opening up the opportunity to field-test this approach at a nearby site. 
+
+\subsection{C-3NpH} \label{future:c3nph}
+\paragraph{Measurements of other soil nutrients} \label{future_nutrients_c3nph}
+
+As aforementioned, C-3NpH has the ability to measure other nutrients (\textit{viz.} nitrites, phosphates, ammonia), provided that suitable test strips (i.e. with a mappable colour gradient) can be found. Apart from narrow range test strips to improve resolution, the colour of the illuminating LED (currently white) may be matched to the tested strip colour, i.e. a reddish LED for the nitrates strips to better distinguish between different shades of purple-pink. 
+\paragraph{Comparison of results with commercial laboratory test}
+
+In addition to field testing, soil was collected for lab validation. This was sent to a local industrial soil testing laboratory (ChemTest, see \cref{Chemtest}). The pH results returned were significantly different to those measured by C-3NpH and this was thought to be due to differences in sample preparation. It was concluded that the extraction protocol here was not sufficient for determining a pH measurement. Sample drying, mixing time and sample size are key influencing factors that have differed from protocols conducted in industry. This forms a crucial part of the future plans for developing C-3NpH in order to confirm the validity of results obtained in the field. Elimination of any discrepancies or errors introduced from sampling remain a priority for C-3NpH development.
+
+\paragraph{Moisture-corrected nitrate values}
+
+Soil moisture content, in addition to determining structural properties, inherently affects nutrient availability in the soil. As the test strips are calibrated in ppm of nitrate, it would need to be converted to ppm of nitrate-nitrogen, on a dry soil basis to determine the amount of nitrogen available to the crop \cite{moisturenitrate}.
+Therefore, using C-3NpH in conjunction with the moisture retention probe will then provide the capability to report values of nitrates in dry soil, without having to air dry them overnight. 
+
+		\begin{table}[h!]
+		\centering
+		\begin{tabular} {l c c}
+			\toprule
+			& \multicolumn{2}{c}{\textit{Correction factor}} \\
+			\midrule
+			\textbf{Soil texture} & \textbf{Moist soil} & \textbf{Dry soil} \\
+			\midrule
+			Sand & 2.3 & 2.6 \\
+			Loam & 2.0 & 2.4 \\
+			Clay & 1.7 & 2.2 \\
+			\bottomrule
+			\end{tabular}
+		\label{table:corrfacnit}
+		\caption{Correction factor for soil nitrates \cite{moisturenitrate}}
+		\end{table}
+
+ Hartz \cite{Hartz1994} illustrated for a moisture content range of 6-30$\%$, field-moist sample preparation by displacement (i.e. adding soil to a known volume of solvent until the meniscus has been moved by a set amount, gave an acceptable correlation to those values obtained from laboratory-based extraction (using \SI{2}{M} KCl). He further provided evidence that the semi-quantitative \gls{QNT} negated the need for dried soil, provided conversion factors of moisture content is known \cite{Hartz2010}. \Cref{table:corrfacnit} states a reference chart of correction factors to apply, based on soil type and moisture content. However, further work will need to be conducted to obtain an accurate moisture-corrected report of nitrate, based on values obtained from SoliCamb’s moisture-retention probe.
+ 
+\paragraph {Providing mitigating protocols}
+Knowledge of soil nitrate guides the user to make management decisions to increase yield and decrease production costs. In the case of residual nitrates in agricultural soil, nutrient management practices should be adjusted to decrease leaching into groundwater or prevent their runoff into surface water. C-3NpH could be used for governing soil conservation efforts, by dictating the required amount of fertiliser to add. The three key times where knowing the nitrate concentration would be useful are:
+\begin{itemize}
+\item Before the start of a growing season, to provide a baseline reading for the field. 
+\item Throughout the growing season, before side dressing crops (fertiliser application) as a part of the nutrient management plan. 
+\item Post-harvest, to determine if there is excess nitrate remaining in the soil.
+\end{itemize}
+
+Despite the theoretical benefits discussed above, further work is needed to make this device practically suit the needs of the agricultural community. In addition to this, a knowledge base of conservation practices/mitigating protocols for different levels of soil nitrate (obtained using C-3NpH) at different critical time points throughout the year would have to be formulated.
+
+%\subsection{Spectroscopy for soil carbon (Sagnik)} % Consider to move to appendix? - link from some hardware section
+
+
+
+\section{Software} \label{soft_future}
+%Talk about choosing noSQL database (MongoDB) for unstable schema
+Currently, a relational database is used for data storage. However, towards the end of the project, it was realised that if the system is used by a scientist, there is a possibility of them wanting to add extra columns, e.g. the error associated with a measurement. Further discussions with potential users are required to establish whether the ability to add extra columns would be useful. If it was decided to be essential, then it would be necessary to switch from a relational database (MySQL) to NoSQL (MongoDB). Moreover, if it was decided that dynamic queries are required for more descriptive and user-friendly data visualisation, MongoDB would also be a superior choice.
+
+%Design changes based on already done user experience tests
+Some minor web design changes were suggested by the user experience test volunteers, such as ``add information about what the data means'' and ``should add pictures to make the website more appealing''. These improvements are easy and quick to implement. Also, it could be beneficial to consider implementing the functionality for people to create individual accounts (ideally linked to the social media of their choice) and having an option of storing their collected data privately or sharing it. 
+
+%Map changes: colour maps by specific parameters, timeline management, GPS averaging
+The data visualisation is currently relatively basic, but in the future the next steps would be to:
+\begin{itemize}
+    \item allow the user to select parameter of interest and colour code the map accordingly;
+    \item timeline management requires consideration, whether to have a slider allowing the user to see the history of measurements, or graphs within infowindows showing how each parameter has changed with time;
+    \item GPS averaging might be needed in order to allow the user to record values that have been collected in the same location (yet according to GPS have slightly different coordinates).
+\end{itemize}
+
+%Keep iterating based on user feedback
+Finally, more user experience testing is required and further website iterations based on user feedback would be performed.
+
+
+\section{Outreach}
+To date, SoliCamb's outreach and public engagement has been successful in building a community of professionals and citizen scientists. The team aims to continue running multiple events to take full advantage of the network built over the previous few months. Firstly, SoliCamb has been invited to participate in  Peterborough STEM Festival and at Sensors Day and the Sensors  Showcase in October 2019. The former is a two-day event designed to engage and inspire families and young STEM enthusiasts.  The latter consists of two conferences led by experts from academia and industry highlighting the latest developments in sensor technology.
+
+In order to finance future developments and events, funding applications are currently being considered which include the the Public Engagement Starter Fund and the Cambridge Africa ALBORADA Research Fund, both from the University.\\
+
+Through local outreach events SoliCamb plans to continue engaging with citizen scientists around Cambridge. This has already proven successful for facilitating user testing and field testing, and conversations about extending field testing to multiple National Trust sites have been initiated. If the sensor system sent to Ethiopia generates sufficient interest, an international collaboration could also be considered. Along these lines, a Development i-Teams project will be run in partnership with the \gls{CGE} through Michaelmas Term 2019. The students recruited for the project will be able to help SoliCamb by identifying regions in Africa where this project could be the most valuable and establish useful contacts. The ALBORADA Trust can then further enable Cambridge researchers to engage with African colleagues. This avenue is particularly interesting as the sensors could be highly valuable for conservation efforts. \\
+Make-a-thon-type events in countries such as Ethiopia can be envisaged where the team presents the project and walks through the production of multiple sensors with the local public. The citizen scientists can then collect data which will easily be mapped on the web application developed for this purpose. 

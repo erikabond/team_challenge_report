@@ -1,0 +1,2256 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{none/global/}
+    \entry{saveoursoils}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=122a017bfe428ff86b618da68385c9fa}{%
+           family={SaveOurSoils},
+           family_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{122a017bfe428ff86b618da68385c9fa}
+      \strng{fullhash}{122a017bfe428ff86b618da68385c9fa}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Accessed: 19 Aug 2019]}
+      \field{title}{The soilution}
+      \verb{url}
+      \verb www.saveoursoils.com/soilution.html
+      \endverb
+    \endentry
+    \entry{kibblewhite2007soil}{article}{}
+      \name{author}{3}{}{%
+        {{hash=29a8a08e205a09e1f317b19d83ce1244}{%
+           family={Kibblewhite},
+           family_i={K\bibinitperiod},
+           given={MG},
+           given_i={M\bibinitperiod}}}%
+        {{hash=ba19c42379eac217691d1d2210f90da3}{%
+           family={Ritz},
+           family_i={R\bibinitperiod},
+           given={K},
+           given_i={K\bibinitperiod}}}%
+        {{hash=3caa639cf883a843f03a29ef4321fbb5}{%
+           family={Swift},
+           family_i={S\bibinitperiod},
+           given={MJ},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Royal Society London}%
+      }
+      \strng{namehash}{3a5b9cd2e62bb6e21d7c48b8de5ee976}
+      \strng{fullhash}{3a5b9cd2e62bb6e21d7c48b8de5ee976}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Philosophical Transactions of the Royal Society B: Biological Sciences}
+      \field{number}{1492}
+      \field{title}{Soil health in agricultural systems}
+      \field{volume}{363}
+      \field{year}{2007}
+      \field{pages}{685\bibrangedash 701}
+      \range{pages}{17}
+    \endentry
+    \entry{chaparro2012manipulating}{article}{}
+      \name{author}{4}{}{%
+        {{hash=d989d13f451819d0fa3d6564115eda7e}{%
+           family={Chaparro},
+           family_i={C\bibinitperiod},
+           given={Jacqueline\bibnamedelima M},
+           given_i={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=617c9f08404d453315a2cd433bab0ec5}{%
+           family={Sheflin},
+           family_i={S\bibinitperiod},
+           given={Amy\bibnamedelima M},
+           given_i={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=daa9a216bf273b4c547a605ff3e65910}{%
+           family={Manter},
+           family_i={M\bibinitperiod},
+           given={Daniel\bibnamedelima K},
+           given_i={D\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=179a3158eb85257004794f9f0dfcad2b}{%
+           family={Vivanco},
+           family_i={V\bibinitperiod},
+           given={Jorge\bibnamedelima M},
+           given_i={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9cc025d47a6793f8c785f1814a914af7}
+      \strng{fullhash}{48090f2f9630ce7ed73c487db8212adc}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biology and Fertility of Soils}
+      \field{number}{5}
+      \field{title}{Manipulating the soil microbiome to increase soil health and plant fertility}
+      \field{volume}{48}
+      \field{year}{2012}
+      \field{pages}{489\bibrangedash 499}
+      \range{pages}{11}
+    \endentry
+    \entry{doran1994defining}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8d89b14639064a7265aa69a47e7c472f}{%
+           family={Doran},
+           family_i={D\bibinitperiod},
+           given={John\bibnamedelima W},
+           given_i={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=c26042f2467981b6b700607939fd5958}{%
+           family={Parkin},
+           family_i={P\bibinitperiod},
+           given={Timothy\bibnamedelima B},
+           given_i={T\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Soil Science Society of America}%
+        {American Society of Agronomy}%
+      }
+      \strng{namehash}{d277e341aeb7d15181e69310d2636f3f}
+      \strng{fullhash}{d277e341aeb7d15181e69310d2636f3f}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Defining soil quality for a sustainable environment}
+      \field{number}{definingsoilqua}
+      \field{title}{Defining and assessing soil quality}
+      \field{year}{1994}
+      \field{pages}{1\bibrangedash 21}
+      \range{pages}{21}
+    \endentry
+    \entry{atkinson2019crop}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0a0f6e6649cdbb105ddbad990a6b0d3f}{%
+           family={Atkinson},
+           family_i={A\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+        {{hash=d18bde455f447b0dc11b160d8f0c9d7b}{%
+           family={Walker},
+           family_i={W\bibinitperiod},
+           given={Robin\bibnamedelima L},
+           given_i={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{1de40a429d68ef92ced22ac23d27f8e1}
+      \strng{fullhash}{1de40a429d68ef92ced22ac23d27f8e1}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Science Beneath Organic Production}
+      \field{title}{Crop Rotations: The Core of Organic Production}
+      \field{year}{2019}
+      \field{pages}{87\bibrangedash 109}
+      \range{pages}{23}
+    \endentry
+    \entry{JM_barcode}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=82e2317a68040dd4647a32956ec89f4c}{%
+           family={Hut},
+           family_i={H\bibinitperiod},
+           given={Pi},
+           given_i={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{82e2317a68040dd4647a32956ec89f4c}
+      \strng{fullhash}{82e2317a68040dd4647a32956ec89f4c}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Accessed: 19 Aug 2019]}
+      \field{title}{Adafruit Barcode Reader/Scanner Module - CCD Camera - USB Interface [ADA1203]}
+      \verb{url}
+      \verb shorturl.at/bkzE0
+      \endverb
+    \endentry
+    \entry{JM_BOM}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f2b21d4ef027b3d2c67839ba4b44f8ea}{%
+           family={Meech},
+           family_i={M\bibinitperiod},
+           given={James\bibnamedelima Timothy},
+           given_i={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f2b21d4ef027b3d2c67839ba4b44f8ea}
+      \strng{fullhash}{f2b21d4ef027b3d2c67839ba4b44f8ea}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Solicamb Bill of Materials}
+      \field{year}{2019}
+      \verb{url}
+      \verb https://octopart.com/bom-tool/TTlpAv4m
+      \endverb
+    \endentry
+    \entry{JM_PCB}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f2b21d4ef027b3d2c67839ba4b44f8ea}{%
+           family={Meech},
+           family_i={M\bibinitperiod},
+           given={James\bibnamedelima Timothy},
+           given_i={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f2b21d4ef027b3d2c67839ba4b44f8ea}
+      \strng{fullhash}{f2b21d4ef027b3d2c67839ba4b44f8ea}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Solicam Revision 4 PCB}
+      \field{year}{2019}
+      \verb{url}
+      \verb https://github.com/solicamb/main/tree/master/Main%5C%20PCB
+      \endverb
+    \endentry
+    \entry{JM_antenna}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d612e4d5aa76c5bfe46c691df5744872}{%
+           family={U-blox},
+           family_i={U\bibinithyphendelim b\bibinitperiod}}}%
+      }
+      \strng{namehash}{d612e4d5aa76c5bfe46c691df5744872}
+      \strng{fullhash}{d612e4d5aa76c5bfe46c691df5744872}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GPS Antennas}
+      \field{year}{2019}
+      \verb{url}
+      \verb https://www.u-blox.com/sites/default/files/products/documents/GPS-Antenna_AppNote_%5C%28GPS-X-08014%5C%29.pdf
+      \endverb
+    \endentry
+    \entry{soilvegetationsystemstrudgill1977}{book}{}
+      \name{author}{1}{}{%
+        {{hash=cf9aacbf1da9ede174402cccb81cf5a3}{%
+           family={Trudgill},
+           family_i={T\bibinitperiod},
+           given={Stephen\bibnamedelima T},
+           given_i={S\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Clarendon Press}%
+      }
+      \strng{namehash}{cf9aacbf1da9ede174402cccb81cf5a3}
+      \strng{fullhash}{cf9aacbf1da9ede174402cccb81cf5a3}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0198740581}
+      \field{title}{Soil and vegetation systems (Contemporary problems in geography)}
+      \field{year}{1977}
+    \endentry
+    \entry{unsaturatedsoilsresearchmancusoetal2012}{book}{}
+      \name{editor}{3}{}{%
+        {{hash=11935e759b613d8f7967ade23a3612ea}{%
+           family={Mancuso},
+           family_i={M\bibinitperiod},
+           given={Claudio},
+           given_i={C\bibinitperiod}}}%
+        {{hash=dce99d9662586b83782b8e0391a5be40}{%
+           family={Jommi},
+           family_i={J\bibinitperiod},
+           given={Cristina},
+           given_i={C\bibinitperiod}}}%
+        {{hash=578943ebda23b3863320c27e17b29083}{%
+           family={D'Onza},
+           family_i={D\bibinitperiod},
+           given={Francesca},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{8db928c7f1ba62b877f5498138ad0c6f}
+      \strng{fullhash}{8db928c7f1ba62b877f5498138ad0c6f}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{title}{Unsaturated Soils: Research and Applications}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1007/978-3-642-31116-1
+      \endverb
+    \endentry
+    \entry{surveymethodssoilschmuggeetal1980}{article}{}
+      \name{author}{3}{}{%
+        {{hash=d3e25c42aaa3e86e2369c2dc4c1da246}{%
+           family={Schmugge},
+           family_i={S\bibinitperiod},
+           given={T.\bibnamedelimi J.},
+           given_i={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=4e494d0dca3d75baf03546cf0e64b120}{%
+           family={Jackson},
+           family_i={J\bibinitperiod},
+           given={T.\bibnamedelimi J.},
+           given_i={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=7d1d0c129ea80c47b9e9304976b9426d}{%
+           family={McKim},
+           family_i={M\bibinitperiod},
+           given={H.\bibnamedelimi L.},
+           given_i={H\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Geophysical Union ({AGU})}%
+      }
+      \strng{namehash}{454e29d4aba9a0af91e4d2881c483680}
+      \strng{fullhash}{454e29d4aba9a0af91e4d2881c483680}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Water Resources Research}
+      \field{number}{6}
+      \field{title}{Survey of methods for soil moisture determination}
+      \field{volume}{16}
+      \field{year}{1980}
+      \field{pages}{961\bibrangedash 979}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1029/wr016i006p00961
+      \endverb
+    \endentry
+    \entry{criticalreviewsoilsushalekshmietal2014}{article}{}
+      \name{author}{3}{}{%
+        {{hash=e905588a4ee3a2b0b6b66489650a3138}{%
+           family={S.U.},
+           family_i={S\bibinitperiod},
+           given={Susha\bibnamedelima Lekshmi},
+           given_i={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=34e5248e6d37ca0c7d563ebdbcc41c3b}{%
+           family={Singh},
+           family_i={S\bibinitperiod},
+           given={D.N.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=a4fda9d9e974a3ea3db1bce21e63b8ce}{%
+           family={Baghini},
+           family_i={B\bibinitperiod},
+           given={Maryam\bibnamedelima Shojaei},
+           given_i={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{88d4819a185faa7e2e8806e28639511e}
+      \strng{fullhash}{88d4819a185faa7e2e8806e28639511e}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Measurement}
+      \field{title}{A critical review of soil moisture measurement}
+      \field{volume}{54}
+      \field{year}{2014}
+      \field{pages}{92\bibrangedash 105}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1016/j.measurement.2014.04.007
+      \endverb
+    \endentry
+    \entry{criteriasoilaggressivenessboothetal1967}{article}{}
+      \name{author}{4}{}{%
+        {{hash=067220ef7307f80438519755e7046565}{%
+           family={Booth},
+           family_i={B\bibinitperiod},
+           given={G.\bibnamedelimi H.},
+           given_i={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=363a2185ad2fef4f2f00409fb6432ebd}{%
+           family={Cooper},
+           family_i={C\bibinitperiod},
+           given={A.\bibnamedelimi W.},
+           given_i={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=197a73f0e39d350a0c92baedd4f71a4d}{%
+           family={Cooper},
+           family_i={C\bibinitperiod},
+           given={Pamela\bibnamedelima M.},
+           given_i={P\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=5fa22cc16327f1319da55f2bf1284fb5}{%
+           family={Wakerley},
+           family_i={W\bibinitperiod},
+           given={D.\bibnamedelimi S.},
+           given_i={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Informa {UK} Limited}%
+      }
+      \strng{namehash}{70e0d8a32820262692f31688952cb719}
+      \strng{fullhash}{63aa357b5cf2a7d6811b7ae0f5c59413}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{British Corrosion Journal}
+      \field{number}{3}
+      \field{title}{Criteria of Soil Aggressiveness Towards Buried Metals. I. Experimental Methods}
+      \field{volume}{2}
+      \field{year}{1967}
+      \field{pages}{104\bibrangedash 108}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1179/000705967798326957
+      \endverb
+    \endentry
+    \entry{coaxialmultiplexertimeevett1998}{article}{}
+      \name{author}{1}{}{%
+        {{hash=77129d720f77c58fcf82c1022b6f4aef}{%
+           family={Evett},
+           family_i={E\bibinitperiod},
+           given={S.\bibnamedelimi R.},
+           given_i={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {American Society of Agricultural}%
+        {Biological Engineers ({ASABE})}%
+      }
+      \strng{namehash}{77129d720f77c58fcf82c1022b6f4aef}
+      \strng{fullhash}{77129d720f77c58fcf82c1022b6f4aef}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the {ASAE}}
+      \field{number}{2}
+      \field{title}{{COAXIAL} {MULTIPLEXER} {FOR} {TIME} {DOMAIN} {REFLECTOMETRY} {MEASUREMENT} {OF} {SOILWATER} {CONTENT} {AND} {BULK} {ELECTRICAL} {CONDUCTIVITY}}
+      \field{volume}{41}
+      \field{year}{1998}
+      \field{pages}{361\bibrangedash 369}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.13031/2013.17186
+      \endverb
+    \endentry
+    \entry{timedomainreflectrometrypettinellietal2002}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e5ce26514e0be449cfecbd1cfb9573c0}{%
+           family={Pettinelli},
+           family_i={P\bibinitperiod},
+           given={Elena},
+           given_i={E\bibinitperiod}}}%
+        {{hash=5496b7586f627b87cc5f94fe94bdc578}{%
+           family={Cereti},
+           family_i={C\bibinitperiod},
+           given={Annamaria},
+           given_i={A\bibinitperiod}}}%
+        {{hash=93e3ffdae0787442514fcde6a88eef3d}{%
+           family={Galli},
+           family_i={G\bibinitperiod},
+           given={Alessandro},
+           given_i={A\bibinitperiod}}}%
+        {{hash=45e08abf0e86b1a079e54e77f4779028}{%
+           family={Bella},
+           family_i={B\bibinitperiod},
+           given={Francesco},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {{AIP} Publishing}%
+      }
+      \strng{namehash}{a9143cf669cd5ca67b267a6a6fef33e0}
+      \strng{fullhash}{00dd516ce66191dc5ad1de92942ac329}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Review of Scientific Instruments}
+      \field{number}{10}
+      \field{title}{Time domain reflectrometry: Calibration techniques for accurate measurement of the dielectric properties of various materials}
+      \field{volume}{73}
+      \field{year}{2002}
+      \field{pages}{3553\bibrangedash 3562}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1063/1.1502015
+      \endverb
+    \endentry
+    \entry{solutetransportwaterperssonetal2000}{article}{}
+      \name{author}{6}{}{%
+        {{hash=e516542ebc51c91d1339ce0ea8166c94}{%
+           family={PERSSON},
+           family_i={P\bibinitperiod},
+           given={MAGNUS},
+           given_i={M\bibinitperiod}}}%
+        {{hash=6a5dc956f8ce740ff17268581ec09d48}{%
+           family={BERNDTSSON},
+           family_i={B\bibinitperiod},
+           given={RONNY},
+           given_i={R\bibinitperiod}}}%
+        {{hash=7a9143a2a5a4c1e1a3026045f9862f94}{%
+           family={NASRI},
+           family_i={N\bibinitperiod},
+           given={SLAH},
+           given_i={S\bibinitperiod}}}%
+        {{hash=99afc96b100c098f955038d8c68ae2d1}{%
+           family={ALBERGEL},
+           family_i={A\bibinitperiod},
+           given={JEAN},
+           given_i={J\bibinitperiod}}}%
+        {{hash=513452b26b038b412db2ac3498ba4b5a}{%
+           family={ZANTE},
+           family_i={Z\bibinitperiod},
+           given={PATRICK},
+           given_i={P\bibinitperiod}}}%
+        {{hash=e9e42a1cfd1abe61f72ebb47548b854b}{%
+           family={YUMEGAKI},
+           family_i={Y\bibinitperiod},
+           given={YUKI},
+           given_i={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Informa {UK} Limited}%
+      }
+      \strng{namehash}{5a7dc41a2e3b68cbd0088cdf09bea7c8}
+      \strng{fullhash}{39a625e93f999f8ca1da4a3c0472df7a}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Hydrological Sciences Journal}
+      \field{number}{6}
+      \field{title}{Solute transport and water content measurements in clay soils using time domain reflectometry}
+      \field{volume}{45}
+      \field{year}{2000}
+      \field{pages}{833\bibrangedash 847}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1080/02626660009492387
+      \endverb
+    \endentry
+    \entry{timedomainreflectrometrynicholetal2003}{article}{}
+      \name{author}{3}{}{%
+        {{hash=acc7455744d4b5748a4ae90538230e8d}{%
+           family={Nichol},
+           family_i={N\bibinitperiod},
+           given={Craig},
+           given_i={C\bibinitperiod}}}%
+        {{hash=2b47d738c0929a790237ca0152f197e4}{%
+           family={Smith},
+           family_i={S\bibinitperiod},
+           given={Leslie},
+           given_i={L\bibinitperiod}}}%
+        {{hash=b4ef1eaec1df863dbb8a07d154b221d4}{%
+           family={Beckie},
+           family_i={B\bibinitperiod},
+           given={Roger},
+           given_i={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Canadian Science Publishing}%
+      }
+      \strng{namehash}{44e5cb7b3451ddd6cf0fe0136dbf8c84}
+      \strng{fullhash}{44e5cb7b3451ddd6cf0fe0136dbf8c84}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Canadian Geotechnical Journal}
+      \field{number}{1}
+      \field{title}{Time domain reflectrometry measurements of water content in coarse waste rock}
+      \field{volume}{40}
+      \field{year}{2003}
+      \field{pages}{137\bibrangedash 148}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1139/t02-097
+      \endverb
+    \endentry
+    \entry{neutronprobesoilhodnett1986}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=c9cf2143c5f6ac9c1186a7c30e521d6f}{%
+           family={Hodnett},
+           family_i={H\bibinitperiod},
+           given={M.\bibnamedelimi G.},
+           given_i={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Netherlands}%
+      }
+      \strng{namehash}{c9cf2143c5f6ac9c1186a7c30e521d6f}
+      \strng{fullhash}{c9cf2143c5f6ac9c1186a7c30e521d6f}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advanced Agricultural Instrumentation}
+      \field{title}{The Neutron Probe for Soil Moisture Measurement}
+      \field{year}{1986}
+      \field{pages}{148\bibrangedash 192}
+      \range{pages}{45}
+      \verb{doi}
+      \verb 10.1007/978-94-009-4404-6_7
+      \endverb
+    \endentry
+    \entry{intraseasonaldynamicssoilhupetetal2002}{article}{}
+      \name{author}{2}{}{%
+        {{hash=11f280a37007bdc506133df9b198507a}{%
+           family={Hupet},
+           family_i={H\bibinitperiod},
+           given={F},
+           given_i={F\bibinitperiod}}}%
+        {{hash=46b65c8e53f3f8807894a0a8f73945fc}{%
+           family={Vanclooster},
+           family_i={V\bibinitperiod},
+           given={M},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{6a14e597fa5551a3a4f3da987a24251f}
+      \strng{fullhash}{6a14e597fa5551a3a4f3da987a24251f}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Hydrology}
+      \field{number}{1-4}
+      \field{title}{Intraseasonal dynamics of soil moisture variability within a small agricultural maize cropped field}
+      \field{volume}{261}
+      \field{year}{2002}
+      \field{pages}{86\bibrangedash 101}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1016/s0022-1694(02)00016-1
+      \endverb
+    \endentry
+    \entry{influenceaccessholeabeele1979}{report}{}
+      \name{author}{1}{}{%
+        {{hash=fe2c96e2225fa447980b8c696bf355c6}{%
+           family={Abeele},
+           family_i={A\bibinitperiod},
+           given={W.V.},
+           given_i={W\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Office of Scientific}%
+        {Technical Information ({OSTI})}%
+      }
+      \strng{namehash}{fe2c96e2225fa447980b8c696bf355c6}
+      \strng{fullhash}{fe2c96e2225fa447980b8c696bf355c6}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Influence of access hole parameters on neutron moisture probe readings}
+      \field{type}{techreport}
+      \field{year}{1979}
+      \verb{doi}
+      \verb 10.2172/5888817
+      \endverb
+    \endentry
+    \entry{soilmoisturevelocityogdenetal2017}{article}{}
+      \name{author}{7}{}{%
+        {{hash=4ae16702ea2a1bfe0cd715a71463ef79}{%
+           family={Ogden},
+           family_i={O\bibinitperiod},
+           given={Fred\bibnamedelima L.},
+           given_i={F\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=a59219c4a3a39d5ab25e13a047c6c3b8}{%
+           family={Allen},
+           family_i={A\bibinitperiod},
+           given={Myron\bibnamedelima B.},
+           given_i={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=4dfe69e382b763a5319f5d403f19bff6}{%
+           family={Lai},
+           family_i={L\bibinitperiod},
+           given={Wencong},
+           given_i={W\bibinitperiod}}}%
+        {{hash=e1f32b1050604e6f31bb8df5451aa92b}{%
+           family={Zhu},
+           family_i={Z\bibinitperiod},
+           given={Jianting},
+           given_i={J\bibinitperiod}}}%
+        {{hash=8239eeeffd1b87b10722b3c206f50484}{%
+           family={Seo},
+           family_i={S\bibinitperiod},
+           given={Mookwon},
+           given_i={M\bibinitperiod}}}%
+        {{hash=faaf557ab91ba7825722d63ee680f97d}{%
+           family={Douglas},
+           family_i={D\bibinitperiod},
+           given={Craig\bibnamedelima C.},
+           given_i={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=b358eb273e457473e6c86dded6e3d8f7}{%
+           family={Talbot},
+           family_i={T\bibinitperiod},
+           given={Cary\bibnamedelima A.},
+           given_i={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Geophysical Union ({AGU})}%
+      }
+      \strng{namehash}{7d38c3447d588f02abc8637e3b828984}
+      \strng{fullhash}{0dfc3f1992ffd059a90c6a2c605268b1}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Advances in Modeling Earth Systems}
+      \field{number}{2}
+      \field{title}{The soil moisture velocity equation}
+      \field{volume}{9}
+      \field{year}{2017}
+      \field{pages}{1473\bibrangedash 1487}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1002/2017ms000931
+      \endverb
+    \endentry
+    \entry{soilwaterretentionbuitenwerfetal2014}{article}{}
+      \name{author}{3}{}{%
+        {{hash=3a3464982116442b5d3af09d23cf2960}{%
+           family={Buitenwerf},
+           family_i={B\bibinitperiod},
+           given={Robert},
+           given_i={R\bibinitperiod}}}%
+        {{hash=123827064caf26b60d93db1b54062f42}{%
+           family={Kulmatiski},
+           family_i={K\bibinitperiod},
+           given={Andrew},
+           given_i={A\bibinitperiod}}}%
+        {{hash=64b2f84378749672263358e29f5b0f94}{%
+           family={Higgins},
+           family_i={H\bibinitperiod},
+           given={Steven\bibnamedelima I.},
+           given_i={S\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {AOSIS}%
+      }
+      \strng{namehash}{125daf8a2fee40f3f99256bd237e5e5e}
+      \strng{fullhash}{125daf8a2fee40f3f99256bd237e5e5e}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Koedoe}
+      \field{number}{1}
+      \field{title}{Soil water retention curves for the major soil types of the Kruger National Park}
+      \field{volume}{56}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.4102/koedoe.v56i1.1228
+      \endverb
+    \endentry
+    \entry{laqua}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f27301f131134557aa3cd0d51a868432}{%
+           family={Horiba},
+           family_i={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Horiba}%
+      }
+      \strng{namehash}{f27301f131134557aa3cd0d51a868432}
+      \strng{fullhash}{f27301f131134557aa3cd0d51a868432}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Horiba}
+      \field{title}{LAQUATwin nitrate meter}
+      \verb{url}
+      \verb www.horiba.com/sg/application/material-property-characterization/water-analysis/water-quality-electrochemistry-instrumentation/compact/details/laquatwin-no3-11c-no3-11s-no3-11-32579/
+      \endverb
+    \endentry
+    \entry{soilph}{article}{}
+      \name{author}{3}{}{%
+        {{hash=414be42cb743910fa20c275d11dbe0d2}{%
+           family={McCauley},
+           family_i={M\bibinitperiod},
+           given={Ann},
+           given_i={A\bibinitperiod}}}%
+        {{hash=5edeb7221bc9f55c39349618d72d673b}{%
+           family={Jones},
+           family_i={J\bibinitperiod},
+           given={Clain},
+           given_i={C\bibinitperiod}}}%
+        {{hash=21a713116960c65d08f4dc78ae56873b}{%
+           family={Olson-Rutz},
+           family_i={O\bibinithyphendelim R\bibinitperiod},
+           given={Kathrin},
+           given_i={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{325b50d0e06c54827cfd53b44fbdc321}
+      \strng{fullhash}{325b50d0e06c54827cfd53b44fbdc321}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Montana University, Nutrient Management}
+      \field{month}{03}
+      \field{title}{Soil pH and Organic Matter}
+      \field{year}{2017}
+    \endentry
+    \entry{hach}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=db9a1e9767dcb6d78574440e0c717371}{%
+           family={HACH},
+           family_i={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {HACH}%
+      }
+      \strng{namehash}{db9a1e9767dcb6d78574440e0c717371}
+      \strng{fullhash}{db9a1e9767dcb6d78574440e0c717371}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{HACH}
+      \field{title}{DR3900 Laboratory VIS Spectrophotometer with RFID Technology}
+      \verb{url}
+      \verb www.hach.com/dr3900-laboratory-vis-spectrophotometer-with-rfid-technology/product?id=7640439026
+      \endverb
+    \endentry
+    \entry{DCSnit}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7294d75a90a531a99406e5ee3fbf6f68}{%
+           family={Products},
+           family_i={P\bibinitperiod},
+           given={DCS},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {DCS Products}%
+      }
+      \strng{namehash}{7294d75a90a531a99406e5ee3fbf6f68}
+      \strng{fullhash}{7294d75a90a531a99406e5ee3fbf6f68}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{DCS Products}
+      \field{title}{Nitrate test strips}
+      \verb{url}
+      \verb http://www.dcsproducts.co.uk/nitrate-test-strips-0-500ppm/
+      \endverb
+    \endentry
+    \entry{ada}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=78db2cd0fa47d855018435abe7d75a26}{%
+           family={TAOS},
+           family_i={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{78db2cd0fa47d855018435abe7d75a26}
+      \strng{fullhash}{78db2cd0fa47d855018435abe7d75a26}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Accessed: 28 Aug 2019]}
+      \field{title}{TCS37425}
+      \verb{url}
+      \verb https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf
+      \endverb
+    \endentry
+    \entry{Shen2012}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f1625e69dd01e4d86402e9815bebb102}{%
+           family={Shen},
+           family_i={S\bibinitperiod},
+           given={Li},
+           given_i={L\bibinitperiod}}}%
+        {{hash=ac135e703dcb90e8e5a81f798d3064bd}{%
+           family={Hagen},
+           family_i={H\bibinitperiod},
+           given={Joshua\bibnamedelima A.},
+           given_i={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=5966ae6d53402d2860dea03e36381617}{%
+           family={Papautsky},
+           family_i={P\bibinitperiod},
+           given={Ian},
+           given_i={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3c2b9adf4b5e304b225c85c7ee1bc17}
+      \strng{fullhash}{b3c2b9adf4b5e304b225c85c7ee1bc17}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Paper-based immunoassays are becoming powerful and low-cost diagnostic tools, especially in resource-limited settings. Inexpensive methods for quantifying these assays have been shown using desktop scanners, which lack portability, and cameras, which suffer from the ever changing ambient light conditions. In this work, we introduce a novel approach of quantifying colors of colorimetric diagnostic assays with a smartphone that allows high accuracy measurements in a wide range of ambient conditions, making it a truly portable system. Instead of directly using the red, green, and blue (RGB) intensities of the color images taken by a smartphone camera, we use chromaticity values to construct calibration curves of analyte concentrations. We demonstrate the high accuracy of this approach in pH measurements with linear response ranges of 1-12. These results are comparable to those reported using a desktop scanner or silicon photodetectors. To make the approach adoptable under different lighting conditions, we developed a calibration technique to compensate for measurement errors due to variability in ambient light. This technique is applicable to a number of common light sources, such as sun light, fluorescent light, or smartphone LED light. Ultimately, the entire approach can be integrated in an "app" to enable one-click reading, making our smartphone based approach operable without any professional training or complex instrumentation.}
+      \field{issn}{14730189}
+      \field{journaltitle}{Lab on a Chip}
+      \field{title}{{Point-of-care colorimetric detection with a smartphone}}
+      \field{volume}{12}
+      \field{year}{2012}
+      \field{pages}{4240\bibrangedash 4243}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1039/c2lc40741h
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/cwc53/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Shen, Hagen, Papautsky - 2012 - Point-of-care colorimetric detection with a smartphone.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Mitchell2013}{report}{}
+      \name{author}{20}{}{%
+        {{hash=14abf917e03066c80213d0421840679d}{%
+           family={Mitchell},
+           family_i={M\bibinitperiod},
+           given={R.J.},
+           given_i={R\bibinitperiod}}}%
+        {{hash=8154880f2336e08975bf682d4bb0d7aa}{%
+           family={Beesley},
+           family_i={B\bibinitperiod},
+           given={L.},
+           given_i={L\bibinitperiod}}}%
+        {{hash=de1294452cd6ad9c7556720b5d61d4b9}{%
+           family={Briggs},
+           family_i={B\bibinitperiod},
+           given={R.},
+           given_i={R\bibinitperiod}}}%
+        {{hash=c67eba52fa9756b295d6f0b21e5fc5db}{%
+           family={Cuthbert},
+           family_i={C\bibinitperiod},
+           given={A.},
+           given_i={A\bibinitperiod}}}%
+        {{hash=fa0044435dd66cbe0757affcb1331db0}{%
+           family={Dawson},
+           family_i={D\bibinitperiod},
+           given={J.J.C.},
+           given_i={J\bibinitperiod}}}%
+        {{hash=2d1e7ffb1228d23a7a421fafc11b317c}{%
+           family={Helliwell},
+           family_i={H\bibinitperiod},
+           given={R.C.},
+           given_i={R\bibinitperiod}}}%
+        {{hash=1c3728d7e121bea567bbd1c681f8bb87}{%
+           family={Hewison},
+           family_i={H\bibinitperiod},
+           given={R.L.},
+           given_i={R\bibinitperiod}}}%
+        {{hash=3ada87a252b82a5717dd280f8c9cb442}{%
+           family={Kerr},
+           family_i={K\bibinitperiod},
+           given={C.},
+           given_i={C\bibinitperiod}}}%
+        {{hash=ec4ae4619a0af776770c28b004cc5f2a}{%
+           family={Leith},
+           family_i={L\bibinitperiod},
+           given={I.D.},
+           given_i={I\bibinitperiod}}}%
+        {{hash=7338558331cdd9f44a1714694d5d88a0}{%
+           family={Owen},
+           family_i={O\bibinitperiod},
+           given={I.J.},
+           given_i={I\bibinitperiod}}}%
+        {{hash=ead856c8bcc6bcd1a340f57bc821068f}{%
+           family={Potts},
+           family_i={P\bibinitperiod},
+           given={J.M.},
+           given_i={J\bibinitperiod}}}%
+        {{hash=72db75dfa8fc8c6b1861830e6bec85c5}{%
+           family={Newman},
+           family_i={N\bibinitperiod},
+           given={G.},
+           given_i={G\bibinitperiod}}}%
+        {{hash=c8eb1ee3b94eb95313e6b20d5ea408b0}{%
+           family={Smith},
+           family_i={S\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=94599af626327b3e3cede3a13c6ace88}{%
+           family={Shephard},
+           family_i={S\bibinitperiod},
+           given={L.J.},
+           given_i={L\bibinitperiod}}}%
+        {{hash=5342ea9930d56225b7440eca811fdc17}{%
+           family={Sturgeon},
+           family_i={S\bibinitperiod},
+           given={F.},
+           given_i={F\bibinitperiod}}}%
+        {{hash=55f4253fe83681723e7ed0ddcb8d8940}{%
+           family={Taylor},
+           family_i={T\bibinitperiod},
+           given={A.F.S.},
+           given_i={A\bibinitperiod}}}%
+        {{hash=de4763c97304ca36fb2449fd83812b4b}{%
+           family={White},
+           family_i={W\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=96aa1ca6416af544b8a8eb60577f14ef}{%
+           family={Williams},
+           family_i={W\bibinitperiod},
+           given={A.},
+           given_i={A\bibinitperiod}}}%
+        {{hash=83c365a22f0b5432a2837ca43f018395}{%
+           family={Williams},
+           family_i={W\bibinitperiod},
+           given={E},
+           given_i={E\bibinitperiod}}}%
+        {{hash=bdc10e650c92c929882904a411af9307}{%
+           family={Black},
+           family_i={B\bibinitperiod},
+           given={H.I.J.},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Scottish Evironment Protection Agency}%
+      }
+      \list{location}{1}{%
+        {Stirling}%
+      }
+      \strng{namehash}{1bb6b016027900aa88832bf4ebac0e99}
+      \strng{fullhash}{a7afbae5b76c7bf993288542f2af54de}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Testing soil quality indicators (Commissioned Report No. HP1108)}}
+      \field{type}{techreport}
+      \field{year}{2013}
+      \field{pages}{1\bibrangedash 102}
+      \range{pages}{102}
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/Downloads/sepa{\_}soil{\_}indicators{\_}final.pdf:pdf
+      \endverb
+    \endentry
+    \entry{NaturalResourcesConservationService}{report}{}
+      \name{author}{1}{}{%
+        {{hash=e25b6facd3b991475e609c19ecda0722}{%
+           family={{Natural Resources Conservation Service}},
+           family_i={N\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {United States Department of Agriculture}%
+      }
+      \strng{namehash}{e25b6facd3b991475e609c19ecda0722}
+      \strng{fullhash}{e25b6facd3b991475e609c19ecda0722}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Taking a good nitrate soil sample}}
+      \field{type}{techreport}
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/Downloads/taking a Good Nitrate Soil Sample.pdf:pdf
+      \endverb
+    \endentry
+    \entry{ASTM1993}{book}{}
+      \name{author}{1}{}{%
+        {{hash=bc09365a5b595844b2fb72fc97cb7ae7}{%
+           family={ASTM},
+           family_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {American Society for Testing}%
+        {Materials}%
+      }
+      \strng{namehash}{bc09365a5b595844b2fb72fc97cb7ae7}
+      \strng{fullhash}{bc09365a5b595844b2fb72fc97cb7ae7}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Annual book of ASTM standards: Construction}
+      \field{year}{1993}
+    \endentry
+    \entry{Schmidhalter2005}{article}{}
+      \name{author}{1}{}{%
+        {{hash=72290cb0d87ee1343d73f1eff4315362}{%
+           family={Schmidhalter},
+           family_i={S\bibinitperiod},
+           given={Urs},
+           given_i={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{72290cb0d87ee1343d73f1eff4315362}
+      \strng{fullhash}{72290cb0d87ee1343d73f1eff4315362}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Crop management can be optimized and nitrogen (N) losses can be reduced with a better knowledge of soil-nitrogen availability, especially if this information becomes directly available on-site in a fast and cost-effective way. In this paper, simple on-farm methods to determine nitrate-N in field-moist soil samples immediately after sampling are described. The procedures include volumetric soil sampling, extraction based on manual shaking with tap water as universally available extractant, filtering soil/extractant mixtures on-site, on-site determination of the soil water content, and reflectometric nitrate measurements based on test strips. Using correction factors can compensate the impact of the temperature during the final nitrate measurement. An excellent agreement was found between the developed quick-test procedures and the standard laboratory procedure. The proposed quick-test has great potential to enable economical savings for farmers as well as benefiting the environment.}
+      \field{issn}{14368730}
+      \field{journaltitle}{Journal of Plant Nutrition and Soil Science}
+      \field{number}{4}
+      \field{title}{{Development of a quick on-farm test to determine nitrate levels in soil}}
+      \field{volume}{168}
+      \field{year}{2005}
+      \field{pages}{432\bibrangedash 438}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1002/jpln.200520521
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/Downloads/Schmidhalter-2005-Journal{\_}of{\_}Plant{\_}Nutrition{\_}and{\_}Soil{\_}Science.pdf:pdf
+      \endverb
+      \keyw{Nitrate,Nitrogen availability,On-farm test,Reflectometer,Soil,Soil water content}
+    \endentry
+    \entry{Byagathvalli2019}{article}{}
+      \name{author}{5}{}{%
+        {{hash=b57d065c24f1bd963db3bfd94ef9882d}{%
+           family={Byagathvalli},
+           family_i={B\bibinitperiod},
+           given={Gaurav},
+           given_i={G\bibinitperiod}}}%
+        {{hash=1d2ed90f4d76579b75e29455d66e40a2}{%
+           family={Pomerantz},
+           family_i={P\bibinitperiod},
+           given={Aaron},
+           given_i={A\bibinitperiod}}}%
+        {{hash=a05eaec4fa7811ddb6cd37c2f50a3652}{%
+           family={Sinha},
+           family_i={S\bibinitperiod},
+           given={Soham},
+           given_i={S\bibinitperiod}}}%
+        {{hash=533654dd009805af84b8b2478a17d980}{%
+           family={Standeven},
+           family_i={S\bibinitperiod},
+           given={Janet},
+           given_i={J\bibinitperiod}}}%
+        {{hash=6bac4aa9563c603ea7160a28e7a7e8ef}{%
+           family={Bhamla},
+           family_i={B\bibinitperiod},
+           given={M.\bibnamedelimi Saad},
+           given_i={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{b15a33ac0323bdd8a71903c52f1a0f18}
+      \strng{fullhash}{576b6eb9ec103281bef5bf306be75604}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The centrifuge is an essential tool for many aspects of research and medical diagnostics. However, conventional centrifuges are often inaccessible outside of standard laboratory settings, such as remote field sites, because they require a constant external power source and can be prohibitively costly in resource-limited settings and Science, technology, engineering, and mathematics (STEM)-focused programs. Here we present the 3D-Fuge, a 3D-printed hand-powered centrifuge, as a novel alternative to standard benchtop centrifuges. Based on the design principles of a paper-based centrifuge, this 3D-printed instrument increases the volume capacity to 2 mL and can reach hand-powered centrifugation speeds up to 6,000 rpm. The 3D-Fuge devices presented here are capable of centrifugation of a wide variety of different solutions such as spinning down samples for biomarker applications and performing nucleotide extractions as part of a portable molecular lab setup. We introduce the design and proof-of-principle trials that demonstrate the utility of low-cost 3D-printed centrifuges for use in remote field biology and educational settings.}
+      \field{issn}{1545-7885}
+      \field{journaltitle}{PLOS Biology}
+      \field{number}{5}
+      \field{title}{{A 3D-printed hand-powered centrifuge for molecular biology}}
+      \field{volume}{17}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1371/journal.pbio.3000251
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Byagathvalli et al. - 2019 - A 3D-printed hand-powered centrifuge for molecular biology.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.plos.org/10.1371/journal.pbio.3000251
+      \endverb
+    \endentry
+    \entry{VanLierop1981}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f152b2e6725ead17a22fbff9cb298ee9}{%
+           family={{Van Lierop}},
+           family_i={V\bibinitperiod},
+           given={W.},
+           given_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{f152b2e6725ead17a22fbff9cb298ee9}
+      \strng{fullhash}{f152b2e6725ead17a22fbff9cb298ee9}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Can. J. Soil Sci.}
+      \field{title}{{Conversion of organic soil pH values measured in water, 0.01M CaCl2 or 1N KCl}}
+      \field{volume}{61}
+      \field{year}{1981}
+      \field{pages}{577\bibrangedash 579}
+      \range{pages}{3}
+      \verb{file}
+      \verb :C$\backslash$:/Users/cwc53/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Unknown - Unknown - CONVERSION OF ORGANIC SOIL pH VALUES MEASURED.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb www.nrcresearchpress.com
+      \endverb
+    \endentry
+    \entry{Pare1995}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a8ce8aee404cccef2f9e167611973a3d}{%
+           family={Pare},
+           family_i={P\bibinitperiod},
+           given={T.},
+           given_i={T\bibinitperiod}}}%
+        {{hash=6a2b67f0915ca6f301a1ddc5577ca608}{%
+           family={Gregorich},
+           family_i={G\bibinitperiod},
+           given={E.\bibnamedelimi G.},
+           given_i={E\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=9713195db9714703f9de5a13a3858ba7}{%
+           family={Ellert},
+           family_i={E\bibinitperiod},
+           given={B.\bibnamedelimi H.},
+           given_i={B\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor {\&} Francis Group}%
+      }
+      \strng{namehash}{407ae804fdf90bccc20cf3b43e4fdf06}
+      \strng{fullhash}{407ae804fdf90bccc20cf3b43e4fdf06}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract The 2M potassium chloride (KCl) extraction method used to measure soil nitrate (NO3 ‐‐N) concentrations in soils may introduce some artifacts caused by soil sampling, processing, and handl...}
+      \field{issn}{0010-3624}
+      \field{journaltitle}{Communications in Soil Science and Plant Analysis}
+      \field{number}{5-6}
+      \field{title}{{Comparison of soil nitrate extracted by potassium chloride and adsorbed on an anion exchange membrane {<}i{>}in situ{<}/i{>}}}
+      \field{volume}{26}
+      \field{year}{1995}
+      \field{pages}{883\bibrangedash 898}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1080/00103629509369341
+      \endverb
+      \verb{url}
+      \verb https://www.tandfonline.com/doi/full/10.1080/00103629509369341
+      \endverb
+    \endentry
+    \entry{Pattison2010}{report}{}
+      \name{author}{3}{}{%
+        {{hash=e39c5c9cf727e47bcd54ea2f2bc3df2c}{%
+           family={Pattison},
+           family_i={P\bibinitperiod},
+           given={T},
+           given_i={T\bibinitperiod}}}%
+        {{hash=d9b6f187f938c25ddce5e6d4cc1acd59}{%
+           family={Moody},
+           family_i={M\bibinitperiod},
+           given={P},
+           given_i={P\bibinitperiod}}}%
+        {{hash=42d48ef37e226ad8b7c5b28d3aedafc5}{%
+           family={Bagshaw},
+           family_i={B\bibinitperiod},
+           given={J},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Queensland Government}%
+      }
+      \list{location}{1}{%
+        {Brisbane}%
+      }
+      \strng{namehash}{630154231df46d7a443a6ec989dea5e9}
+      \strng{fullhash}{630154231df46d7a443a6ec989dea5e9}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Soil health for vegetable production in Australia - Part 4: Measuring soil health}}
+      \field{type}{techreport}
+      \field{year}{2010}
+      \field{pages}{23\bibrangedash 37}
+      \range{pages}{15}
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Department of Agriculture and Fisheries - 2018 - Soil health for vegetable production in Australia - Part 4 Measuring soil health.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://www.daf.qld.gov.au/%7B%5C_%7D%7B%5C_%7Ddata/assets/pdf%7B%5C_%7Dfile/0011/77519/Soil-health-vegetable-production-Part%7B%5C_%7D3a.pdf
+      \endverb
+      \keyw{agriculture,horticulture,primary production,soil,soil health,vegetable}
+    \endentry
+    \entry{ISO2006}{report}{}
+      \list{institution}{1}{%
+        {ISO}%
+      }
+      \list{location}{1}{%
+        {Geneva}%
+      }
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{title}{{Soil quality: Pretreatment to physico-chemical analysis (ISO11464:2006)}}
+      \field{type}{techreport}
+      \field{year}{2006}
+      \field{pages}{11}
+      \range{pages}{1}
+      \verb{url}
+      \verb https://www.iso.org/standard/37718.html
+      \endverb
+    \endentry
+    \entry{Farr1972}{article}{}
+      \name{author}{1}{}{%
+        {{hash=86dc9e0d27c722e1c53c3c77eda2afac}{%
+           family={Farr},
+           family_i={F\bibinitperiod},
+           given={E.},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{86dc9e0d27c722e1c53c3c77eda2afac}
+      \strng{fullhash}{86dc9e0d27c722e1c53c3c77eda2afac}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{10970010}
+      \field{journaltitle}{J. Sci. Fd Agric.}
+      \field{number}{9}
+      \field{title}{{An investigation on laboratory and field methods of determining the pH of soil suspensions}}
+      \field{volume}{23}
+      \field{year}{1972}
+      \field{pages}{1089\bibrangedash 1097}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1002/jsfa.2740230906
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/Downloads/An Investigation on Laboratory and Field Methods of Determining the pH of Soil Suspensions.pdf:pdf
+      \endverb
+    \endentry
+    \entry{qgis}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{title}{QGIS}
+      \verb{url}
+      \verb https://qgis.org/
+      \endverb
+    \endentry
+    \entry{taylor_silver_2019}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=562754dc354e8f79cfd088d7d0fe9b70}{%
+           family={Taylor},
+           family_i={T\bibinitperiod},
+           given={Kyle},
+           given_i={K\bibinitperiod}}}%
+        {{hash=15ac47a3b1b25981a03bb23a94f224a8}{%
+           family={Silver},
+           family_i={S\bibinitperiod},
+           given={Laura},
+           given_i={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{f551e701726f5429c3b7595cac6d319b}
+      \strng{fullhash}{f551e701726f5429c3b7595cac6d319b}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pew Research Center's Global Attitudes Project}
+      \field{title}{Smartphone Ownership Is Growing Rapidly Around the World, but Not Always Equally}
+      \field{year}{2019}
+      \verb{url}
+      \verb https://www.pewresearch.org/global/2019/02/05/smartphone-ownership-is-growing-rapidly-around-the-world-but-not-always-equally/
+      \endverb
+    \endentry
+    \entry{apple}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f508f8ff22f456b2c8cef697136c83a9}{%
+           family={Inc},
+           family_i={I\bibinitperiod},
+           given={Apple},
+           given_i={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f508f8ff22f456b2c8cef697136c83a9}
+      \strng{fullhash}{f508f8ff22f456b2c8cef697136c83a9}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Choosing a Membership - Apple Developer Program}
+      \verb{url}
+      \verb https://developer.apple.com/support/compare-memberships/
+      \endverb
+    \endentry
+    \entry{Public_engagement_definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=46c25b281a9f67950e0491612f193b66}{%
+           prefix={coordinating\bibnamedelimb centre\bibnamedelimb for\bibnamedelima public},
+           prefix_i={c\bibinitperiod\bibinitdelim c\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim p\bibinitperiod},
+           family={engagement},
+           family_i={e\bibinitperiod},
+           given={National},
+           given_i={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nudge Digital}%
+      }
+      \strng{namehash}{46c25b281a9f67950e0491612f193b66}
+      \strng{fullhash}{46c25b281a9f67950e0491612f193b66}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is public engagement?}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://www.publicengagement.ac.uk/about-engagement/what-public-engagement
+      \endverb
+    \endentry
+    \entry{heigl2019opinion}{article}{}
+      \name{author}{5}{}{%
+        {{hash=7a883768c441f995bc403d180f5cc06f}{%
+           family={Heigl},
+           family_i={H\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=6398e0eb47c27fa63aa55caf5541fcd4}{%
+           family={Kieslinger},
+           family_i={K\bibinitperiod},
+           given={Barbara},
+           given_i={B\bibinitperiod}}}%
+        {{hash=8b1dd910972488fb5302c6cfcc127d91}{%
+           family={Paul},
+           family_i={P\bibinitperiod},
+           given={Katharina\bibnamedelima T},
+           given_i={K\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=e4acdde701029b9eabdc24c6fa2086d5}{%
+           family={Uhlik},
+           family_i={U\bibinitperiod},
+           given={Julia},
+           given_i={J\bibinitperiod}}}%
+        {{hash=20f48ce64863a7cbc1f27ea9609b1377}{%
+           family={Dörler},
+           family_i={D\bibinitperiod},
+           given={Daniel},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {National Acad Sciences}%
+      }
+      \strng{namehash}{566c4dbccab186a44e65522f7135952d}
+      \strng{fullhash}{f912457ee26c0da1775190c7d278ffa6}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{17}
+      \field{title}{Opinion: Toward an international definition of citizen science}
+      \field{volume}{116}
+      \field{year}{2019}
+      \field{pages}{8089\bibrangedash 8092}
+      \range{pages}{4}
+    \endentry
+    \entry{manca2016facebook}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a34a0dc01fe487c6214ff7cb128051a1}{%
+           family={Manca},
+           family_i={M\bibinitperiod},
+           given={Stefania},
+           given_i={S\bibinitperiod}}}%
+        {{hash=84663ba045bdecc892aa23caf2cb079a}{%
+           family={Ranieri},
+           family_i={R\bibinitperiod},
+           given={Maria},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{05fb471835efe66fa72aa454651a30c5}
+      \strng{fullhash}{05fb471835efe66fa72aa454651a30c5}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Education}
+      \field{title}{Facebook and the others. Potentials and obstacles of social media for teaching in higher education}
+      \field{volume}{95}
+      \field{year}{2016}
+      \field{pages}{216\bibrangedash 230}
+      \range{pages}{15}
+    \endentry
+    \entry{tess2013role}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d2df5570c7d83038b8959fecdbdd1c60}{%
+           family={Tess},
+           family_i={T\bibinitperiod},
+           given={Paul\bibnamedelima A},
+           given_i={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{d2df5570c7d83038b8959fecdbdd1c60}
+      \strng{fullhash}{d2df5570c7d83038b8959fecdbdd1c60}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers in human behavior}
+      \field{number}{5}
+      \field{title}{The role of social media in higher education classes (real and virtual)--A literature review}
+      \field{volume}{29}
+      \field{year}{2013}
+      \field{pages}{A60\bibrangedash A68}
+      \range{pages}{-1}
+    \endentry
+    \entry{investopedia}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=97a5609cf550c615732dfffc984fdd00}{%
+           family={Walton},
+           family_i={W\bibinitperiod},
+           given={Justin},
+           given_i={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{97a5609cf550c615732dfffc984fdd00}
+      \strng{fullhash}{97a5609cf550c615732dfffc984fdd00}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Twitter vs. Facebook vs. Instagram: An Overview}
+      \field{title}{Twitter vs. Facebook: What's the Difference}
+      \verb{url}
+      \verb https://www.investopedia.com/articles/markets/100215/twitter-vs-facebook-vs-instagram-who-target-audience.asp
+      \endverb
+    \endentry
+    \entry{guardian}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=6102a30d31566cbdb3c614552a7ea1e8}{%
+           family={Toussaint-Strauss},
+           family_i={T\bibinithyphendelim S\bibinitperiod},
+           given={Josh},
+           given_i={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{6102a30d31566cbdb3c614552a7ea1e8}
+      \strng{fullhash}{6102a30d31566cbdb3c614552a7ea1e8}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Guardian}
+      \field{title}{Not another climate horror story}
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=BSHR4sUZpcw&feature=share&fbclid=IwAR0FCKNbuSye8JFBKSql1Ne9TV8aoJIQpOadbWKYko4atQlDvzHmnfLicAc
+      \endverb
+    \endentry
+    \entry{user_session_stats}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=75e7f1f2e76041999805605feeda03fa}{%
+           family={Albright},
+           family_i={A\bibinitperiod},
+           given={Dann},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {databox}%
+      }
+      \strng{namehash}{75e7f1f2e76041999805605feeda03fa}
+      \strng{fullhash}{75e7f1f2e76041999805605feeda03fa}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Benchmarking Average Session Duration: What it Means and How to Improve It}
+      \field{year}{2019}
+      \verb{url}
+      \verb https://databox.com/average-session-duration-benchmark/
+      \endverb
+    \endentry
+    \entry{user_session_stats1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=75e7f1f2e76041999805605feeda03fa}{%
+           family={Albright},
+           family_i={A\bibinitperiod},
+           given={Dann},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Spinutech}%
+      }
+      \strng{namehash}{75e7f1f2e76041999805605feeda03fa}
+      \strng{fullhash}{75e7f1f2e76041999805605feeda03fa}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{7 Website Analytics That Matter Most}
+      \field{year}{Spinutech}
+      \verb{url}
+      \verb https://www.spinutech.com/digital-marketing/analytics/analysis/7-website-analytics-that-matter-most/
+      \endverb
+    \endentry
+    \entry{Keesstra2016}{article}{}
+      \name{author}{15}{}{%
+        {{hash=06a9985acfe0edb4be67b71ed46ce601}{%
+           family={Keesstra},
+           family_i={K\bibinitperiod},
+           given={Saskia\bibnamedelima D.},
+           given_i={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=5872c09eddcd0c9afc949633bde49cc9}{%
+           family={Bouma},
+           family_i={B\bibinitperiod},
+           given={Johan},
+           given_i={J\bibinitperiod}}}%
+        {{hash=f2a094ce9f44fddc71de48a1def1e46d}{%
+           family={Wallinga},
+           family_i={W\bibinitperiod},
+           given={Jakob},
+           given_i={J\bibinitperiod}}}%
+        {{hash=d9e50fafd29240caa85e2a9bb1999251}{%
+           family={Tittonell},
+           family_i={T\bibinitperiod},
+           given={Pablo},
+           given_i={P\bibinitperiod}}}%
+        {{hash=7820adb1d0e47286fa0fc571b8f5cd76}{%
+           family={Smith},
+           family_i={S\bibinitperiod},
+           given={Pete},
+           given_i={P\bibinitperiod}}}%
+        {{hash=1684eddbf353f3f08bd5aa2e7b97c509}{%
+           family={Cerdà},
+           family_i={C\bibinitperiod},
+           given={Artemi},
+           given_i={A\bibinitperiod}}}%
+        {{hash=a2baed04df480850093e0da50ddefc25}{%
+           family={Montanarella},
+           family_i={M\bibinitperiod},
+           given={Luca},
+           given_i={L\bibinitperiod}}}%
+        {{hash=993db21ad82a8bdb808cb8ec678c7254}{%
+           family={Quinton},
+           family_i={Q\bibinitperiod},
+           given={John\bibnamedelima N.},
+           given_i={J\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=e87ea0396f011d5a2dbf19a603cd764f}{%
+           family={Pachepsky},
+           family_i={P\bibinitperiod},
+           given={Yakov},
+           given_i={Y\bibinitperiod}}}%
+        {{hash=969bc730ad951053dffa61f718b164a5}{%
+           family={{Van Der Putten}},
+           family_i={V\bibinitperiod},
+           given={Wim\bibnamedelima H.},
+           given_i={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=1bcb10ae8c0cfd2bf35c4c3ec381d0d2}{%
+           family={Bardgett},
+           family_i={B\bibinitperiod},
+           given={Richard\bibnamedelima D.},
+           given_i={R\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=efb817fbed77eb3c0bb504c2c39f31e1}{%
+           family={Moolenaar},
+           family_i={M\bibinitperiod},
+           given={Simon},
+           given_i={S\bibinitperiod}}}%
+        {{hash=fb5b731a706b16bc6b7fdd182c4206ec}{%
+           family={Mol},
+           family_i={M\bibinitperiod},
+           given={Gerben},
+           given_i={G\bibinitperiod}}}%
+        {{hash=fa5b5bf9d97e54576c02af6b42c11911}{%
+           family={Jansen},
+           family_i={J\bibinitperiod},
+           given={Boris},
+           given_i={B\bibinitperiod}}}%
+        {{hash=9d290bed2ee219049e389b0659b493d7}{%
+           family={Fresco},
+           family_i={F\bibinitperiod},
+           given={Louise\bibnamedelima O.},
+           given_i={L\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9a8062b576158248c98117e272fc07b}
+      \strng{fullhash}{1ffc3fc9f5cdafe91455cb22ade12436}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this FORUM paper we discuss how soil scientists can help to reach the recently adopted UN Sustainable Development Goals in the most effective manner. Soil science, as a land-related discipline has important links to several of the SDGs which are demonstrated through the functions of soils and the ecosystem services that are linked to those functions. We explore and discuss how soil scientists can rise to the challenge both internally, in terms of our procedures and practices, and externally in terms of our relations with colleague scientists in other disciplines, diverse groups of stakeholders and the policy arena. To meet these goals we recommend the following steps to be taken by the soil science community as a whole: (i) Embrace the UN Sustainable Development Goals, as they provide a platform that allows soil science to demonstrate its relevance for realizing a sustainable society by 2030. (ii) Show the specific value of soil science: Research should explicitly show how using modern soil information can improve the results of inter- and trans-disciplinary studies on SDGs related to food security, water scarcity, climate change, biodiversity loss and health threats. (iii) Given the integrative nature of soils, soil scientists are in a unique position to take leadership in overarching systems-analyses of ecosystems; (iii) Raise awareness of soil organic matter as a key attribute of soils to illustrate its importance for soil functions and ecosystem services; (iv) Improve the transfer of knowledge through knowledge brokers with a soil background; (v) Start at the basis: educational programs are needed at all levels, starting in primary schools, and emphasizing practical, down-to-earth examples; (vi) Facilitate communication with the policy arena by framing research in terms that resonate with politicians in terms of the policy cycle or by considering drivers, pressures and responses affecting impacts of land use change; and finally (vii) all this is only possible if researchers, with soil scientists in the frontlines, look over the hedge towards other disciplines, to the world-at-large and to the policy arena, reaching over to listen first, as a basis for genuine collaboration.}
+      \field{issn}{2199398X}
+      \field{journaltitle}{Soil}
+      \field{number}{2}
+      \field{title}{{The significance of soils and soil science towards realization of the United Nations sustainable development goals}}
+      \field{volume}{2}
+      \field{year}{2016}
+      \field{pages}{111\bibrangedash 128}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.5194/soil-2-111-2016
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/Downloads/The{\_}significance{\_}of{\_}soils{\_}and{\_}soil{\_}science{\_}towards{\_}realization{\_}of{\_}the{\_}United{\_}Nations{\_}Sustainable{\_}Development{\_}Goals.pdf:pdf
+      \endverb
+    \endentry
+    \entry{moisturenitrate}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f06fd0807ca1aeb604dffa02aa582036}{%
+           family={Hartz},
+           family_i={H\bibinitperiod},
+           given={T.K.},
+           given_i={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f06fd0807ca1aeb604dffa02aa582036}
+      \strng{fullhash}{f06fd0807ca1aeb604dffa02aa582036}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{University of California, VEGETABLE Research \& Information Center}
+      \field{month}{04}
+      \field{title}{Using the Pre-Sidedressing Soil Nitrate ‘Quick Test’ to Guide N Fertilizer Management}
+      \field{year}{2010}
+    \endentry
+    \entry{Hartz1994}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5a404fcafdfff5bcc76f153c5a4af079}{%
+           family={Hartz},
+           family_i={H\bibinitperiod},
+           given={T.\bibnamedelimi K.},
+           given_i={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor {\&} Francis Group}%
+      }
+      \strng{namehash}{5a404fcafdfff5bcc76f153c5a4af079}
+      \strng{fullhash}{5a404fcafdfff5bcc76f153c5a4af079}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract A procedure for extraction and measurement of nitrate‐nitrogen (NO3‐N) in soil is described. Extracting solution [0.025M Al2(SO4)3] and field‐moist soil are measured volumetrically, with N...}
+      \field{issn}{0010-3624}
+      \field{journaltitle}{Communications in Soil Science and Plant Analysis}
+      \field{number}{5-6}
+      \field{title}{{A quick test procedure for soil nitrate‐nitrogen}}
+      \field{volume}{25}
+      \field{year}{1994}
+      \field{pages}{511\bibrangedash 515}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1080/00103629409369058
+      \endverb
+      \verb{url}
+      \verb https://www.tandfonline.com/doi/full/10.1080/00103629409369058
+      \endverb
+    \endentry
+    \entry{Hartz2010}{report}{}
+      \name{author}{1}{}{%
+        {{hash=cfb7cac9600023d09bf7439aec7d4737}{%
+           family={Hartz},
+           family_i={H\bibinitperiod},
+           given={T\bibnamedelima K},
+           given_i={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {University of California}%
+      }
+      \list{location}{1}{%
+        {Davis}%
+      }
+      \strng{namehash}{cfb7cac9600023d09bf7439aec7d4737}
+      \strng{fullhash}{cfb7cac9600023d09bf7439aec7d4737}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In California vegetable fields nitrate-form nitrogen (NO 3 -N) can build up to levels high enough to supply crop nitrogen demand for an extended period. Sampling the root zone soil for NO 3 -N concentration before sidedressing can identify fields in which N application can be delayed or reduced without affecting crop productivity. Collection of a composite soil sample representative of the entire field is necessary to make an accurate determination of soil nitrate status. Eight to 12 soil cores from throughout the field is usually adequate. Sample depth should cover the active root zone, which for most vegetable crops is the top foot of soil. Collect the soil cores starting in a plant row and angling the core toward the bed center. Be sure not to sample the zone where a fertilizer band has been recently applied. Thoroughly blend the soil cores together. Laboratory analysis is the most accurate method of soil nitrate determination, but a semi-quantitative estimate of soil nitrate concentration can be made using the following on-farm 'quick test' procedure. The advantages of this procedure are a) results can be obtained in less than an hour for most soils, and b) no weighing or drying of soil is required, although you do need to estimate the soil texture and moisture content.}
+      \field{title}{{Using the Pre-Sidedressing Soil Nitrate 'Quick Test' to Guide N Fertilizer Management}}
+      \field{type}{techreport}
+      \field{year}{2010}
+      \field{pages}{1\bibrangedash 2}
+      \range{pages}{2}
+      \verb{file}
+      \verb :C$\backslash$:/Users/C W Chung/Downloads/soil-nitrate-quick-test.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Gregorich}{article}{}
+      \name{author}{5}{}{%
+        {{hash=6a2b67f0915ca6f301a1ddc5577ca608}{%
+           family={Gregorich},
+           family_i={G\bibinitperiod},
+           given={E.\bibnamedelimi G.},
+           given_i={E\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=95df2cb30814fecf283ed1048c6d68e3}{%
+           family={Carter},
+           family_i={C\bibinitperiod},
+           given={M.\bibnamedelimi R.},
+           given_i={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=da3b6b96c0331f5cc9807c36c6d5f337}{%
+           family={Angers},
+           family_i={A\bibinitperiod},
+           given={D.\bibnamedelimi A.},
+           given_i={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=a99cd58220d97e67819b9a9d288f3d8d}{%
+           family={Monreal},
+           family_i={M\bibinitperiod},
+           given={C.\bibnamedelimi M.},
+           given_i={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=9713195db9714703f9de5a13a3858ba7}{%
+           family={Ellert},
+           family_i={E\bibinitperiod},
+           given={B.\bibnamedelimi H.},
+           given_i={B\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{dcf4c412a41b5daaa5f9bb9fc399a37d}
+      \strng{fullhash}{7e30646f980a205799ec3aad4581e7fb}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Canadian Journal of Soil Science}
+      \field{number}{4}
+      \field{title}{Towards a minimum data set to assess soil organic matter quality in agricultural soils}
+      \field{volume}{74}
+      \field{year}{1994}
+      \field{pages}{367\bibrangedash 385}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.4141/cjss94-051
+      \endverb
+    \endentry
+    \entry{Haynes}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1efef1f39058e340c7ced3485d53327a}{%
+           family={Haynes},
+           family_i={H\bibinitperiod},
+           given={R},
+           given_i={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{1efef1f39058e340c7ced3485d53327a}
+      \strng{fullhash}{1efef1f39058e340c7ced3485d53327a}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Agronomy}
+      \field{month}{12}
+      \field{title}{Labile Organic Matter Fractions as Central Components of the Quality of Agricultural Soils: An Overview}
+      \field{volume}{85}
+      \field{year}{2005}
+      \field{pages}{221\bibrangedash 268}
+      \range{pages}{48}
+      \verb{doi}
+      \verb 10.1016/S0065-2113(04)85005-3
+      \endverb
+    \endentry
+    \entry{WanderDrinkwater}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6596f3c4a29837b68b530986de3a2ad1}{%
+           family={Wander},
+           family_i={W\bibinitperiod},
+           given={Michelle},
+           given_i={M\bibinitperiod}}}%
+        {{hash=3372c761370ddaae319b77dcb7608b4a}{%
+           family={Drinkwater},
+           family_i={D\bibinitperiod},
+           given={Laurie},
+           given_i={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a808ebd027ef3278e2295be3e6b7a3b}
+      \strng{fullhash}{8a808ebd027ef3278e2295be3e6b7a3b}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Soil Ecology}
+      \field{month}{08}
+      \field{title}{Fostering soil stewardship through soil quality assessment}
+      \field{volume}{15}
+      \field{year}{2000}
+      \field{pages}{61\bibrangedash 73}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/S0929-1393(00)00072-X
+      \endverb
+    \endentry
+    \entry{Chatterjee2009}{article}{}
+      \name{author}{5}{}{%
+        {{hash=b53c0e9d0820eb9984f66d92524a8406}{%
+           family={Chatterjee},
+           family_i={C\bibinitperiod},
+           given={A.},
+           given_i={A\bibinitperiod}}}%
+        {{hash=0a988f717f5c957a4c9e465a2e38206f}{%
+           family={Lal},
+           family_i={L\bibinitperiod},
+           given={R.},
+           given_i={R\bibinitperiod}}}%
+        {{hash=f40e38ba47a4d41b363a7c2a02aba781}{%
+           family={Wielopolski},
+           family_i={W\bibinitperiod},
+           given={L.},
+           given_i={L\bibinitperiod}}}%
+        {{hash=0d0e11b76767c3deb1755caf4a190042}{%
+           family={Martin},
+           family_i={M\bibinitperiod},
+           given={M.\bibnamedelimi Z.},
+           given_i={M\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+        {{hash=073e9fe2e5c53998b12b3ea11661fcba}{%
+           family={Ebinger},
+           family_i={E\bibinitperiod},
+           given={M.\bibnamedelimi H.},
+           given_i={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{63021f3cb813b08bff31e6db242068dd}
+      \strng{fullhash}{f6a9080d0f681341381961c0bf2714ce}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Determining soil carbon (C) with high precision is an essential requisite for the success of the terrestrial C sequestration program. The informed choice of management practices for different terrestrial ecosystems rests upon accurately measuring the potential for C sequestration. Numerous methods are available for assessing soil C. Chemical analysis of field-collected samples using a dry combustion method is regarded as the standard method. However, conventional sampling of soil and their subsequent chemical analysis is expensive and time consuming. Furthermore, these methods are not sufficiently sensitive to identify small changes over time in response to alterations in management practices or changes in land use. Presently, several different in situ analytic methods are being developed purportedly offering increased accuracy, precision and cost-effectiveness over traditional ex situ methods. We consider that, at this stage, a comparative discussion of different soil C determination methods will improve the understanding needed to develop a standard protocol.}
+      \field{issn}{07352689}
+      \field{journaltitle}{Critical Reviews in Plant Sciences}
+      \field{number}{3}
+      \field{title}{{Evaluation of different soil carbon determination methods}}
+      \field{volume}{28}
+      \field{year}{2009}
+      \field{pages}{164\bibrangedash 178}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1080/07352680902776556
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/HP/Desktop/Team project/Soil references/Evaluation of Different Soil Carbon Determination Methods.pdf:pdf
+      \endverb
+      \keyw{Dry combustion,Inelastic neutron scattering,Laser induced breakdown spectroscopy,Remote sensing,Soil carbon,Wet oxidation}
+    \endentry
+    \entry{Bellon-Maurel2011}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3ce3b1be0d8771140a0dd9a53d382203}{%
+           family={Bellon-Maurel},
+           family_i={B\bibinithyphendelim M\bibinitperiod},
+           given={Véronique},
+           given_i={V\bibinitperiod}}}%
+        {{hash=da10603d920e0fb5c90c8f65d8821879}{%
+           family={McBratney},
+           family_i={M\bibinitperiod},
+           given={Alex},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Ltd}%
+      }
+      \strng{namehash}{f67e5318aef1eda69b3e390d65f05588}
+      \strng{fullhash}{f67e5318aef1eda69b3e390d65f05588}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper is an extensive review of the research that has been undertaken on near-infrared (NIR) and mid-infrared (MIR) spectroscopy applied to soil particularly for determining carbon (C) content. The objective is to determine which acquisition method (NIR, MIR, in the field or in the laboratory) might be recommended for the purpose of C stock measurement with a particular interest in carbon credit trading. For this purpose, an optimal method has to satisfy the dual constraints of low-cost and high throughput analysis. The various methods proposed in the literature are compared. In order to make comparisons as reliable as possible, special attention has been paid to the conditions of data acquisition (sample preparation), and to calibration and validation procedures. In particular, whether the validation has been carried out on fully independent samples or on samples similar to the ones of the calibration set greatly influences the results. Also, for C stock measurement, it is absolutely necessary to measure the bias of the prediction in order to be conclusive about the feasibility of the method. However, only few researchers provide this parameter and we recommend including it as a matter of course in future reports. Finally, although MIR on dried and ground samples is the most accurate method, on-the-go and in-field sensors provide predictions accurate enough to show promise in being a valuable component of technologies that would be used for C-credit purposes. But in order to meet the cost/accuracy trade-off, the main issue using such field sensors is to be able to simultaneously measure the bulk density or, better, to directly measure the volumetric concentration of C in soil. This circumvents the costs of field extraction and laboratory analysis. This is the next great challenge to be met by soil scientists. {©} 2011 Elsevier Ltd.}
+      \field{issn}{00380717}
+      \field{journaltitle}{Soil Biology and Biochemistry}
+      \field{number}{7}
+      \field{title}{{Near-infrared (NIR) and mid-infrared (MIR) spectroscopic techniques for assessing the amount of carbon stock in soils - Critical review and research perspectives}}
+      \field{volume}{43}
+      \field{year}{2011}
+      \field{pages}{1398\bibrangedash 1410}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.soilbio.2011.02.019
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/HP/Desktop/Team project/Soil references/Near-infrared (NIR) and mid-infrared (MIR) spectroscopic techniques for assessing the amount of carbon stock in soils e Critical review and research perspectives.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.soilbio.2011.02.019
+      \endverb
+      \keyw{Carbon,Infrared,MIR,NIR,Near-infrared,Spectrometry}
+    \endentry
+    \entry{ViscarraRossel2015}{article}{}
+      \name{author}{2}{}{%
+        {{hash=089418749e841d8bd877c185889066d6}{%
+           family={{Viscarra Rossel}},
+           family_i={V\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           given_i={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=6f2fd4ad31654f7f81876749b676b770}{%
+           family={Hicks},
+           family_i={H\bibinitperiod},
+           given={W.\bibnamedelimi S.},
+           given_i={W\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{54ca84b9391d9449dfcf51c334413a0a}
+      \strng{fullhash}{54ca84b9391d9449dfcf51c334413a0a}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Summary: The capture and storage of soil organic carbon (OC) should improve the soil's quality and function and help to offset the emissions of greenhouse gases. However, to measure, model or monitor changes in OC caused by changes in land use, land management or climate, we need cheaper and more practical methods to measure it and its composition. Conventional methods are complex and prohibitively expensive. Spectroscopy in the visible and near infrared (vis-NIR) is a practical and affordable alternative. We used samples from Australia's Soil Carbon Research Program (SCaRP) to create a vis-NIR database with accompanying data on soil OC and its composition, expressed as the particulate, humic and resistant organic carbon fractions, POC, HOC and ROC, respectively. Using this database, we derived vis-NIR transfer functions with a decision-tree algorithm to predict the total soil OC and carbon fractions, which we modelled in units that describe their concentrations and stocks (or densities). Predictions of both carbon concentrations and stocks were reliable and unbiased with imprecision being the main contributor to the models' errors. We could predict the stocks because of the correlation between OC and bulk density. Generally, the uncertainty in the estimates of the carbon concentrations was smaller than, but not significantly different to, that of the stocks. Approximately half of the discriminating wavelengths were in the visible region, and those in the near infrared could be attributed to functional groups that occur in each of the different fractions. Visible-NIR spectroscopy with decision-tree modelling can fairly accurately, and with small to moderate uncertainty, predict soil OC, POC, HOC and ROC. The consistency between the decision tree's use of wavelengths that characterize absorptions due to the chemistry of soil OC and the different fractions provides confidence that the approach is feasible. Measurement in the vis-NIR range needs little sample preparation and so is rapid, practical and cheap. A further advantage is that the technique can be used directly in the field.}
+      \field{issn}{13652389}
+      \field{journaltitle}{European Journal of Soil Science}
+      \field{number}{3}
+      \field{title}{{Soil organic carbon and its fractions estimated by visible-near infrared transfer functions}}
+      \field{volume}{66}
+      \field{year}{2015}
+      \field{pages}{438\bibrangedash 450}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1111/ejss.12237
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/HP/Desktop/Team project/Soil references/Soil organic carbon and its fractions estimated by visible–near infrared transfer functions.pdf:pdf
+      \endverb
+    \endentry
+    \entry{oursci_blog}{online}{}
+      \name{author}{1}{}{%
+        {{hash=79b465f1beb698af5311b30c1af06bc8}{%
+           family={Dan\bibnamedelima Teravest},
+           family_i={D\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={our-sci.net},
+           given_i={o\bibinithyphendelim s\bibinitperiod}}}%
+      }
+      \strng{namehash}{79b465f1beb698af5311b30c1af06bc8}
+      \strng{fullhash}{79b465f1beb698af5311b30c1af06bc8}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Open Strategy to build Soil Carbon part 2}
+      \field{urlday}{20}
+      \field{urlmonth}{08}
+      \field{urlyear}{2019}
+      \verb{url}
+      \verb http://blog.our-sci.net/2019/01/15/an-open-strategy-to-build-soil-carbon-part-2/
+      \endverb
+    \endentry
+    \entry{Russel2003}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8e92a1c55d881bc91f4780d7b51a212d}{%
+           family={Russell},
+           family_i={R\bibinitperiod},
+           given={C\bibnamedelima A},
+           given_i={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor {\&} Francis}%
+      }
+      \strng{namehash}{8e92a1c55d881bc91f4780d7b51a212d}
+      \strng{fullhash}{8e92a1c55d881bc91f4780d7b51a212d}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications in Soil Science and Plant Analysis}
+      \field{number}{11-12}
+      \field{title}{{Sample Preparation and Prediction of Soil Organic Matter Properties by Near Infra-red Reflectance Spectroscopy}}
+      \field{volume}{34}
+      \field{year}{2003}
+      \field{pages}{1557\bibrangedash 1572}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1081/CSS-120021297
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1081/CSS-120021297
+      \endverb
+    \endentry
+    \entry{Wander04}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6596f3c4a29837b68b530986de3a2ad1}{%
+           family={Wander},
+           family_i={W\bibinitperiod},
+           given={Michelle},
+           given_i={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6596f3c4a29837b68b530986de3a2ad1}
+      \strng{fullhash}{6596f3c4a29837b68b530986de3a2ad1}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{3 Soil Organic Matter Fractions and Their Relevance to Soil Function}
+      \field{year}{2004}
+      \verb{doi}
+      \verb 10.1201/9780203496374.ch3
+      \endverb
+    \endentry
+    \entry{Lewis}{article}{}
+      \name{author}{4}{}{%
+        {{hash=987abb6adca7047e7c1fbaecfa4ef1af}{%
+           family={Lewis},
+           family_i={L\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+        {{hash=528aa169ad35e3bb8fd969174279e7f6}{%
+           family={P.\bibnamedelimi Kaye},
+           family_i={P\bibinitperiod\bibinitdelim K\bibinitperiod},
+           given={Jason},
+           given_i={J\bibinitperiod}}}%
+        {{hash=7cad703795429c230caa73cb921dfa60}{%
+           family={Jabbour},
+           family_i={J\bibinitperiod},
+           given={Randa},
+           given_i={R\bibinitperiod}}}%
+        {{hash=b24a7a49df2a7b708a0c20f352b43980}{%
+           family={Barbercheck},
+           family_i={B\bibinitperiod},
+           given={Mary},
+           given_i={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{feaae3f3ac46089e57b5bc56be6657e1}
+      \strng{fullhash}{f1ff22e52992b72fa1daf4c7f537a341}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Renewable Agriculture and Food Systems}
+      \field{month}{12}
+      \field{title}{Labile carbon and other soil quality indicators in two tillage systems during transition to organic agriculture}
+      \field{volume}{26}
+      \field{year}{2011}
+      \field{pages}{342\bibrangedash 353}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1017/S1742170511000147
+      \endverb
+    \endentry
+    \entry{HurissoCulman}{article}{}
+      \name{author}{12}{}{%
+        {{hash=d04e73e5b1a8c46c978016f0d423ddcd}{%
+           family={T.\bibnamedelimi Hurisso},
+           family_i={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Tunsisa},
+           given_i={T\bibinitperiod}}}%
+        {{hash=437eddee7a3ec319287b32b944e69a94}{%
+           family={Culman},
+           family_i={C\bibinitperiod},
+           given={Steve},
+           given_i={S\bibinitperiod}}}%
+        {{hash=e5f7b5292fb260d5c84f6e20f9a09696}{%
+           family={Horwath},
+           family_i={H\bibinitperiod},
+           given={William},
+           given_i={W\bibinitperiod}}}%
+        {{hash=df0a7d854bedad2cb7cfdbaa5b765f43}{%
+           family={Wade},
+           family_i={W\bibinitperiod},
+           given={Jordon},
+           given_i={J\bibinitperiod}}}%
+        {{hash=a2d3155183d8f8a5c0c75c9deeb98503}{%
+           family={Cass},
+           family_i={C\bibinitperiod},
+           given={Deandra},
+           given_i={D\bibinitperiod}}}%
+        {{hash=b45857cf07b96c36d0b1395fa8177426}{%
+           family={W.\bibnamedelimi Beniston},
+           family_i={W\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Joshua},
+           given_i={J\bibinitperiod}}}%
+        {{hash=57fdbe59af73bd438566b89a35aa74d7}{%
+           family={Bowles},
+           family_i={B\bibinitperiod},
+           given={Timothy},
+           given_i={T\bibinitperiod}}}%
+        {{hash=5b6dd5b8fc2ccad4724fd4e86b46d076}{%
+           family={Grandy},
+           family_i={G\bibinitperiod},
+           given={Stuart},
+           given_i={S\bibinitperiod}}}%
+        {{hash=08428e4149b5e9f1042cffa125120bad}{%
+           family={Franzluebbers},
+           family_i={F\bibinitperiod},
+           given={Alan},
+           given_i={A\bibinitperiod}}}%
+        {{hash=172b2aa696c60501fe3e220ab4ee50e7}{%
+           family={Schipanski},
+           family_i={S\bibinitperiod},
+           given={Meagan},
+           given_i={M\bibinitperiod}}}%
+        {{hash=9914d40a9878fd195ba1631d5ed22ff3}{%
+           family={Lucas},
+           family_i={L\bibinitperiod},
+           given={Shawn},
+           given_i={S\bibinitperiod}}}%
+        {{hash=8b3ecf7e90de21cc448a8f1698fd911c}{%
+           family={Ugarte},
+           family_i={U\bibinitperiod},
+           given={Carmen},
+           given_i={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{adaa02d6b7b77609f3e170dfa6ace5b7}
+      \strng{fullhash}{f7395a38d57eccd4332bc2148936de0e}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Soil Science Society of America Journal}
+      \field{month}{10}
+      \field{title}{Comparison of Permanganate-Oxidizable Carbon and Mineralizable Carbon for Assessment of Organic Matter Stabilization and Mineralization}
+      \field{volume}{80}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.2136/sssaj2016.04.0106
+      \endverb
+    \endentry
+    \entry{JM_batTestSetup}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5b7cebd92f48f197e31d10ea605e9ba4}{%
+           family={Tektronix},
+           family_i={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{5b7cebd92f48f197e31d10ea605e9ba4}
+      \strng{fullhash}{5b7cebd92f48f197e31d10ea605e9ba4}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Accessed: 19 Aug 2019]}
+      \field{title}{Power Consumption Profiling and Battery Life Analysis Techniques for Portable, Low-Power Devices}
+      \verb{url}
+      \verb https://www.tek.com/document/application-overview/power-consumption-profiling-and-battery-life-analysis-techniques-porta
+      \endverb
+    \endentry
+    \entry{JM_2450SMU}{misc}{}
+      \list{publisher}{1}{%
+        {Keithley}%
+      }
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{title}{2450 SourceMeter SMU Instrument Datasheet}
+      \field{year}{2019}
+      \verb{url}
+      \verb https://www.tek.com/sites/default/files/media/media/resources/1KW-60904-0_2450_DataSheet_0.pdf
+      \endverb
+    \endentry
+    \entry{JM_2281}{misc}{}
+      \list{publisher}{1}{%
+        {Keithley}%
+      }
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{title}{Series 2281S Battery Simulator and Precision DC Power Supply}
+      \field{year}{2019}
+      \verb{url}
+      \verb https://uk.tek.com/datasheet/2281s-datasheet
+      \endverb
+    \endentry
+    \entry{JM_burden}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8750de455db07f852baaf01129222344}{%
+           family={Keysight},
+           family_i={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{8750de455db07f852baaf01129222344}
+      \strng{fullhash}{8750de455db07f852baaf01129222344}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Accessed: 19 Aug 2019]}
+      \field{title}{Burden Voltage}
+      \verb{url}
+      \verb https://www.keysight.com/main/editorial.jspx?cc=GB&lc=eng&ckey=1000000977:epsg:faq&nid=-32453.753268&id=1000000977:epsg:faq
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

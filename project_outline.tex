@@ -1,0 +1,193 @@
+\section{Motivations and aims}\index{Motivations and aims}
+
+Under the remit of the Team Challenge 2019, there were two fundamental aspects of this project. First was to design, build and validate a sensor system capable of measuring specific parameters linked to soil health. This arose from a collaboration with the \gls{CGE} and the \gls{UCPP} in South Africa. This municipality has a history of soil erosion and degradation of soil health, from over-exploitation of the land in conjunction with the introduction of non-native plant species. UCPP has been in place for 6 years working on implementing new management strategies and stewardship programmes to mitigate the consequences of this previously unsustainable approach. Whilst this has been underway for some time, methods to determine the extent of soil erosion are qualitative only and require expert understanding of soil science for the interpretation of the results. This hinders the ability, at a local level, to rapidly instil management practices that improve soil health. To this end, SoliCamb sought to develop methods to track the erosion and quality of soil and thus provide an evaluation framework for their conservation practices. 
+
+Simultaneous to sensor development, SoliCamb applied itself to public engagement, outreach and advertisement. A fundamental challenge was to understand problems concerning soil health and requirements to facilitate soil health management. Therefore, at the initiation of the project it was crucial to decide on a subset of soil health parameters that were feasible to build, and relevant to the UK, within the allotted time frame and budget. Outreach was the primary mechanism for finding this information and was used to direct the design of this sensor system towards sensing chemical properties of the soil such as pH and nutrients (\cref{Collaborators}). Effective communication was key and intended as an iterative process continuing throughout the 12 weeks. Public engagement, for a range of audiences, focused on obtaining information for design decisions as well as generating validation data for the nutrient sensing unit (\cref{Citizen engagement}). %Engagement events were proposed for a range of audiences and required thorough understanding and definition of the desired outcome. %These events were a key resource that this project sought to engage especially that involving Cambridge Makespace and local engineering experts.
+Advertisement through social media and local press releases were proposed as the best way to achieve collaborations (\cref{Social media}). %with a significant workforce tasked with coordinating time frames and contributed to by making SoliCamb apparent within local networks. 
+
+Bridging the two seemingly diverse focus points of the project outlined above, was the second aim of the team challenge. The impetus was to incorporate citizen science at the heart of the design and defining the value of the sensing system. The technology and the outreach aspects are joint through their symbiotic relationship with the end user. In practice, this means that at early stages of the development, outreach facilitates the information transfer from citizen scientist to the hardware while detailing the prerequisites and refining the prototyping sequence. Although over time information flows in the returning direction as the citizen scientist then relies on SoliCamb's outreach to stay updated with development, user protocols and translation of the expert science into the ``need to know'' manuals. %Therefore, building a valuable sensor is defined through the conversations guided by outreach and public engagement.
+The sensor proposed in this work required a complementary method for data storage and visualisation, forming a link between data collected in-field and any additional data for which laboratory testing was more appropriate. %An RFID tagging system, used in combination with the web application, combines all measurements taken and therefore gives the user a holistic overview of their soil health. 
+
+%\todo{ shifted this section and integrate it in User requirements, paragraph starting with: In the UK...}
+
+%------------------------------------------------
+\subsection{Soil health}\index{Soil health}
+%Define soil health and explain its importance - looks good 
+%Check to add moisture retention 
+%Add a sentence on erosion
+Life could not exist without soil; it provides the food, structure, nutrients, and habitat for the all ecosystems that depend on it.
+%Soil is at the basis of living, encompassing food, fibre, habitat, shelter, clean air and water. 
+Therefore, it can be described as a multi-component and multi-functional system, with definable parameters and diverse properties \cite{kibblewhite2007soil}. Soil health is defined not only by its physical characteristics, e.g. water retention and porosity, but also by certain chemical and biological parameters (e.g. the content of bacteria, fungi, earthworms, insects), that are essential for balanced ecosystems.
+%it does not only consist of the physical constituent that it itself is made of, e.g. water retention and porosity, but also includes both different chemical and biological parts (e.g. bacteria, fungi, earthworms, insects).
+For instance, soil microbes drive several crucial %soil
+processes, such as nutrient recycling, storage, and release -- for plants' sustenance, as well as decomposition of organic matter, carbon sequestration, and nitrogen fixation \cite{chaparro2012manipulating}. 
+Thereby, the continuous capacity of soil to function as a vital living ecosystem that sustains plants, animals, and humans (i.e. soil health), needs to be preserved.  %\cite{moebius2016comprehensive}.
+By definition, a healthy and well-aggregated soil should be capable of sustaining productivity, within ecosystems, maintaining environmental quality, and promoting plant and animal health \cite{doran1994defining}. Moreover, healthy soil is significantly more resistant to adverse natural events, such as soil erosion (i.e. the displacement of topsoil caused by wind and rain), excess rainfall, and extreme drought. To date, several conservation practices are being employed to combat soil degradation, such as no-till planting, cover cropping, or crop rotation \cite{atkinson2019crop}. Although global efforts for soil health management are increasingly expanding into %the
+traditional agriculture, conservation of the ecosystem while optimising agricultural yields remains a major challenge \cite{kibblewhite2007soil}. 
+
+
+
+%------------------------------------------------
+\subsection{User requirements}\index{User requirements}
+%Soil health is an all encompassing term that perhaps glances over the intricate complexities that require thorough understanding of the physical nature of soil, in addition to understanding the wealth of interlinked chemistry and biology of soil. 
+%It is not unreasonable to expect that production of a complete guide to all aspects of soil health was ambitious for a project of this scale. Therefore 
+
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth, trim={0 0 0 2cm},clip]{Pictures/Project_outline/solibridge.png}
+    \captionsetup{justification = centering}
+    \caption{Graphical representation of where SoliCamb aimed to position itself between the two extremes of existing soil health sensors: conventional field testing and laboratory standards. The objective was to bridge the gap and provide a solution that was the optimal compromise defined by the user requirements. }
+    \label{fig:solibridge}
+\end{figure}
+
+It was important to define end users and project requirements prior to project initiation. 
+
+Aligned with the \gls{UCPP} mission statement, a portable and low-cost ($<$\textsterling{100}) sensor capable of measuring soil nutrient level, soil pH, and moisture retention, a key indicating factor of the extent of erosion, was proposed. SoliCamb's technology  bridges the gap between existing low-cost but inaccurate field sensors and laboratory gold-standards, by exploiting the advantages of both extremes.  The device together with the data storage and visualisation system should be accessible to citizen scientists in South Africa.
+
+ The end user in the UK was identified as a citizen scientist --- a person with enthusiasm for engineering and/or concern for soil health (e.g allotment holders, subsistence farmers, or engineering enthusiasts). %These were the intended end users in the UK that SoliCamb sought to target, where outreach efforts concluded that soil nutrient and moisture retention measurements were the parameters of interest.  
+
+Through literature research, as well as input from experts in the field, the importance of \gls{SOC} content, as well as the lack of an in-field \gls{SOC} content sensor was realised.  However, due to the project constraints (Appendix \cref{SOC_feasibility}), \gls{SOC} monitoring was instead investigated in conjunction with sample tracking (\gls{rfid} labelling). This would permit lab-based \gls{SOC} measurements, e.g. \gls{LOI} results, to be cross-referenced with the data collected from the in-field soil sampling sites. 
+
+% criteria outlined by the UCPP, in addition to the limitations of portable \gls{SOC} sensors favoured a 
+ %This should form a modular system that could be tailored to the user requirements. %These requirements may also be applied to other developing countries. 
+
+
+
+
+%open source and modular aims to be easily accessible and have the possibility of modifying the users chosen measurement parameters
+
+% \begin{table}[h!]
+ %   \centering
+  %    %\resizebox{\textwidth}{!}{
+   % \begin{tabular}{@{}lllll@{}}
+    %\toprule
+    %\textbf{User Requirement} &\ %\textbf{UCPP} &\ \textbf{UK} &\ %\textbf{SoliCamb} & \\
+    %\midrule
+    %\textbf{Robustness} &  High & Medium & High  \\
+%    \textbf{Affordability} & High & Medium & High  \\
+ %   \textbf{Portability} & High & Low & High  \\
+  %  \textbf{Accuracy} & Medium & High & Medium  \\
+   % \textbf{Ease of use} & High & Medium & High  \\
+    %\bottomrule
+    %\end{tabular}
+    %    \caption{List of device requirements as specified by the two key end user groups in comparison to what SoliCamb aimed to provide. Priority of each requirement was categorised as high, medium or low.}
+       % \label{tab:user}
+        %}
+        %\end{table}
+
+
+
+
+%As aforementioned, Solicamb's partners within the CGE and UCPP who detailed an end user as a citizen scientist or subsistence farmer interested in soil erosion mitigation, and detailed issues that prevented continual and remote monitoring. 
+
+% A high SOC indicates a better water holding capacity of the soil and hence will improve resistance to erosion. Therefore \gls{SOC} was the initial target as it ties together %the two aspects of 
+%soil erosion management with the fundamental and wide ranging requirement of soil health monitoring. %Hence, determination of SOC was the initial target. 
+%There was good evidence in the literature that supported the proposed value of developing a \gls{SOC} sensor
+%Primary evidence in the literature had also been promising. 
+%However, critical assessment of the feasibility of developing this, %idea, especially 
+%considering the time constraint of this project, %proved otherwise
+%meant that the capability for measuring \gls{SOC} was investigated in conjunction with labelling methods to allow lab based measurement if required. Comparison of different SOC %estimation 
+%measurement techniques and reasons for not pursuing any of those avenues is explained in the Appendix \Cref{SOC_feasibility}.
+
+%Instead it was decided to build p Encompassed within sensor design and development there was a desire to apply the sensor to local needs. %Once valuable data is acquired, it needs to be stored and represented intuitively for insightful analysis.
+%The extremely complex nature of soil also forecasts that measuring each and every relevant parameter in the field is an impossibility. %This being said, measuring moisture retention property of soil or its pH and nitrate content is too little information to gain a comprehensive knowledge of soil health. 
+%Again, few laboratory-based tests, for example, \gls{LOI} tests for SOC, are too inexpensive and standard to be replaced by in-field sensors. Hence, sending off soil samples for laboratory analysis is often the wisest choice. 
+ 
+
+%------------------------------------------------
+\section{Project management}\index{Project management}
+
+Instead of going for a more conservative autocratic management system, the team has agreed to develop a variation of the scrum project management framework. It allowed the team to focus on the product to be delivered by the end of the project. Three work-streams emerged based on the specifications of the project: hardware (with three sub-work-streams: base unit, moisture retention probe, and C-3NpH), software, and outreach. A backlog\footnote{Backlog -- in scrum project management, a list of goals for the project: most often it is a list of features that the product must have. An important part of managing backlog is prioritising the most valuable features first.} was created together with the leaders from each of the work-streams for the whole duration of the project. Based on the backlog a list of tasks to be accomplished was created, and a board was set up to visualise the project progression (\cref{fig:board}). 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{Pictures/Project_outline/board.jpg}
+    \captionsetup{justification=centering}
+    \caption{A picture of the board prepared for effective project management, split into separate work-streams, and four columns: to do, doing, done, blocked. In each work-stream, groups of tasks were created (groups can be seen on pink post-it notes, and the tasks on blue post-it notes).}
+    \label{fig:board}
+\end{figure}
+
+
+%------------------------------------------------
+\clearpage
+\subsection{Allocation of tasks }\label{sec:Task_allocation}
+\Cref{tab:tasks} shows the team structure and team members' involvement in various parts of the project.\\
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{\begin{tabular}{l l c c c c c c c c c c c c c c c}
+\toprule 
+ & & \rotatebox[origin=c]{90}{\small Ben} & \rotatebox[origin=c]{90}{\small Chiara} & \rotatebox[origin=c]{90}{\small Chyi} & \rotatebox[origin=c]{90}{\small Douglas} & \rotatebox[origin=c]{90}{\small Elena} & \rotatebox[origin=c]{90}{\small Erika} & \rotatebox[origin=c]{90}{\small James} & \rotatebox[origin=c]{90}{\small Jan} & \rotatebox[origin=c]{90}{\small Katie} & \rotatebox[origin=c]{90}{\small Sagnik} & \rotatebox[origin=c]{90}{\small Sarah} & \rotatebox[origin=c]{90}{\small Suraj} & \rotatebox[origin=c]{90}{\small Theo} & \rotatebox[origin=c]{90}{\small Xianglong} & \rotatebox[origin=c]{90}{\small Yafan} \\
+\midrule
+ \includegraphics[height=1em]{Pictures/Project_outline/pm.png}
+  &\small Project management & & & & & \cellcolor{blue!25} &\cellcolor{blue!25} & \cellcolor{blue!25} & & \cellcolor{blue!25} & & & & \cellcolor{blue!25} & & \\
+\midrule
+
+\includegraphics[height=1em]{Pictures/Project_outline/hw.png} & \small \small Base unit & \cellcolor{teal!25} & & & \cellcolor{teal!25} & & & \cellcolor{teal!25} & \cellcolor{teal!25} & & \cellcolor{teal!25} & & & & & \\
+
+& \small Moisture retention probe & \cellcolor{teal!25} & & & \cellcolor{teal!25} & & & \cellcolor{teal!25} & \cellcolor{teal!25} & & \cellcolor{teal!25} & & & \cellcolor{teal!25} & & \\
+
+& \small C-3NpH & & & \cellcolor{teal!25} & \cellcolor{teal!25} & & & \cellcolor{teal!25} & & \cellcolor{teal!25} & \cellcolor{teal!25} & & \cellcolor{teal!25} & & \cellcolor{teal!25} & \\
+
+& \small Whirligig & & \cellcolor{teal!25} & \cellcolor{teal!25} & \cellcolor{teal!25} & & & & & \cellcolor{teal!25} & & & \cellcolor{teal!25} & & & \\
+
+& \small Field testing & \cellcolor{teal!25} & \cellcolor{teal!25} & \cellcolor{teal!25} & & & & & & \cellcolor{teal!25} & & \cellcolor{teal!25} & \cellcolor{teal!25} & \cellcolor{teal!25} & & \\
+
+& \small Feasibility studies & \cellcolor{teal!25} & & & & \cellcolor{teal!25} & & & \cellcolor{teal!25} & & \cellcolor{teal!25} & & & \cellcolor{teal!25} & & \\
+\midrule
+
+\includegraphics[height=1em]{Pictures/Project_outline/sw.png} & \small Logo design & & & \cellcolor{cyan!25}& &\cellcolor{cyan!25} & \cellcolor{cyan!25}  & & & & & & & & & \\
+& \small Web application & & & & & & \cellcolor{cyan!25}  & & & & & & & & & \\
+\midrule
+
+\includegraphics[height=1em]{Pictures/Project_outline/sm.png} & \small Newsletter & \cellcolor{olive!25} & & & & & & & & & & \cellcolor{olive!25} & & & & \\
+
+& \small Setting up collaborations & \cellcolor{olive!25} &  \cellcolor{olive!25} & & & \cellcolor{olive!25}  & & &  \cellcolor{olive!25} & & & & \cellcolor{olive!25} &  \cellcolor{olive!25} & &  \\
+
+& \small Social media & & \cellcolor{olive!25} & & & & & & & & & & & & &  \\
+
+& \small Traditional advertisements & & & \cellcolor{olive!25} & & \cellcolor{olive!25} & & & & & & \cellcolor{olive!25} & & & &  \\
+
+& \small Videos & & & \cellcolor{olive!25} & & \cellcolor{olive!25} & & & & \cellcolor{olive!25} & & \cellcolor{olive!25} & & & &  \\
+
+& \small Website & & & & & & & & & & & \cellcolor{olive!25} & & \cellcolor{olive!25} & &  \\
+\midrule
+
+\includegraphics[height=1em]{Pictures/Project_outline/ma.png} & \small BBC Cambridge & & \cellcolor{lime!25} & & & & \cellcolor{lime!25} & & & & & & & & &  \\
+& \small Cambridge 105 & & & & & & & & & \cellcolor{lime!25} & & & & \cellcolor{lime!25} & &  \\
+& \small Cambridge Independent & & \cellcolor{lime!25} & & & & & & & \cellcolor{lime!25} & & & & & &  \\
+& \small \small That's TV Cambridge & & & & & & & \cellcolor{lime!25} & & \cellcolor{lime!25} & & \cellcolor{lime!25} & & & &  \\
+
+\midrule
+\includegraphics[height=1em]{Pictures/Project_outline/events.png} & \small Agri-Tech Hack-a-thon & & & & \cellcolor{green!25}& \cellcolor{green!25} & & & \cellcolor{green!25} & & & & & \cellcolor{green!25} & & \cellcolor{green!25} \\
+& \small Immerse Cambridge & \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} & & \cellcolor{green!25} & & & \cellcolor{green!25} & \cellcolor{green!25} & & & & & & \\
+& \small Makespace Make-a-thon & & \cellcolor{green!25} & & \cellcolor{green!25} & & \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} & & \cellcolor{green!25} & & & & & \\
+\bottomrule
+\end{tabular}
+}
+\caption{Contributions of the team members to the project.}
+\label{tab:tasks}
+\end{table}
+
+
+ %\begin{figure}[htb!]
+%            \centering
+%            \includegraphics[width=0.8\linewidth]{Pictures/Project_outline/Teamstructure.png}
+%            \caption{Team roles}
+%        \label{fig:team_roles}
+%\end{figure}
+
+
+%------------------------------------------------
+\clearpage
+\subsection{Project progression}\index{Project progression}\label{project_progression}
+A Gantt chart demonstrating the project progression can be seen in \cref{fig:gantt}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth, trim={1.5cm 2.5cm 1.5cm 1.5cm},clip]{Pictures/Project_outline/Gantt_chart.pdf}
+    \captionsetup{justification=centering}
+    \caption{A Gantt chart showing the tasks within each work-stream and the completion timeline.}
+    \label{fig:gantt}
+\end{figure}
+

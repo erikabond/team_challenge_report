@@ -1,0 +1,160 @@
+\tocless \subsection{C-3NpH} 
+\label{C3nph_meth}
+
+%\subsubsection{Evaluation of different test strips for C-3NpH} \label{c3nph:teststrips}
+
+
+\subsubsection{Note on data analysis}
+For all graphs, standard error was calculated by $\sigma/\sqrt{S}$, where $\sigma$ is standard deviation and $S$ is sample number. It was based on a minimum of 3 strips in 3 replicate samples. 
+
+\subsubsection{Nitrates} \label{Nitrateproto}
+
+\paragraph{\gls{PR} model construction based on standard solutions} 
+%\begin{itemize}[leftmargin=*,label={}]
+\subparagraph{Preparing nitrate standard solutions}
+\noindent A 1000 ppm nitrate stock solution was made by dissolving %13.7 mg% 
+sodium nitrate (NaNO$_3$, Merck, USA) in %10 \\ml% 
+\acrshort{UHP}; this was subsequently diluted into desired concentrations by addition of %more
+\acrshort{UHP} to %create 
+afford standard solutions. Concentrations used in the final calibration model were: 10, 15, 25, 40, 50, 75, 100, 150, 200 and \SI{250}{ppm}. Triplicate nitrate strips (DCS Products, UK) were dipped in each respective standard solution for \SI{2}{s}, and left to develop for \SI{3}{\\minuteute} before insertion into C-3NpH. %The colours of the strips darken with time; hence drying time was optimised to ensure that accurate all readings collected were reliable. Fig.\ref{subfig:no3_1} depicts the gradient observed in the colour strips, at different nitrate concentrations.  
+\subparagraph{PR model} \label{ratio}
+\noindent For each nitrates standard solution, triplicate C-3NpH readings were collected. Due the fluctuation in raw RGB output from C-3NpH, a ratio between the red and green channels ($\frac{R}{R+G}$) was adopted for analysis instead of the raw RGB values to give more robust prediction. %Collected
+Data was separated into training set (66\%) and validation set (33\%). Using the \textit{Numpy} package in Python, different degrees of the polynomial model was applied on the training set; model performance was then evaluated on the validation set. Results showed that a third degree polynomial model gave the best performance. 
+%\end{itemize}
+
+\paragraph{In laboratory testing with soil}
+%\begin{itemize}[leftmargin=*,label={}]
+
+\subparagraph{Testing of different solvents on Wolfson College soil} 
+%\item\textit{\textbf{{Testing of different solvents on Wolfson College soil}}}
+\noindent Field-moist soil from Wolfson College and a given solvent were added to a falcon tube in equivalent weights. Two solvents, \SI{2}{M} KCl (industrial standard) and \SI{2}{M} NaCl were tested. The falcon tube was shaken manually for two minutes, before leaving to settle. Settling to give a clear, %dippable
+supernatant occurred after \SI{15}-\SI{45}{\minute}. \SI{0.5}{\ml} of the supernatant was siphoned into an eppendorf,% to allow for strip dipping to be read by
+a strip was dipped then inserted into C-3NpH (in accordance to the protocol given in Section \ref{Nitrateproto}). For testing in the HACH spectrophotometer, \SI{2}{\ml} was first extracted into a chloride-elimination syringe (LCW925, HACH, USA), as chloride interferes with the final colorimetric reading. \SI{1}{\ml} of the filtered supernatant was then added to a nitrates test cuvette (LCK339, HACH, USA) along with \SI{0.2}{\ml} of nitrate-reducing solvent, 2,6-dimethylphenol. The cuvette was shaken to ensure equal dispersion of liquid and left to develop for \SI{2}{\minute}, before the cuvette was inserted into the spectrophotometer (DR3900, HACH, USA). 
+
+
+\subparagraph{C-3NpH precision test}
+\noindent This was conducted on Wolfson Soil with 2M KCl by dipping 10 nitrate strips in each of three sample preparations following the aforementioned procedure.
+
+\subparagraph{Testing on different soils and compost}
+
+\noindent Further soil samples were collected from Cherry Hinton and Churchill College; these were tested alongside two compost samples. Protocol follows that given in the above, using only \SI{2}{M} NaCl used.  HACH spectrophotometer measurements were performed for soil samples only, and not compost. 
+%\end{itemize}
+
+\paragraph{Field testing}
+C-3NpH was used to test for soil nitrates in Radwell Grange Farm and Anglesey Abbey, alongside the Moisture Retention Probe. An instructional video can be found at \href{https://universityofcambridgecloud-my.sharepoint.com/:v:/g/personal/eb729_cam_ac_uk/EUzpSPU2YTRGkFbAFTVqIYkBwqILsmehg1pN4DrM1jGbfg?e=8rYsFH}{online by clicking here}.
+
+
+\subsubsection{pH Testing}
+\paragraph{\textit{k-NN model construction based on pH solutions}} \label{phproto}
+%\begin{itemize}[leftmargin=*,label={}]
+
+\subparagraph{Preparing pH solutions} 
+
+%\item\textit{\textbf{{Preparing pH solutions}}}
+\noindent Solutions of a range of pH (pH 4.8, 5.4, 5.7, 6.2, 6.4, 7.2, 8.4, 9.1) were created by diluting Tris buffer (0.05 M, pH 9.1, Merck, USA) with %supermarket-bought
+distilled vinegar (pH 2.4). A hand-held pH meter (HI 98107, HANNA Instruments) was used to measure solution pH, adding vinegar until the desired pH. pH strips (Hydrion, pH 1-14, Cole-Parmer) were dipped in triplicate in each standard solution for two seconds, and inserted immediately into C-3NpH.
+
+\subparagraph{\gls{KNN} model} 
+
+%\item\textit{\textbf{{\acrshort{KNN} model}}}
+\noindent For the training set, RGB values and their corresponding pH values were stored. The distance between the input and training set data was calculated in Euclidean distance, and each value of the k nearest neighbour weighted by its distance from the input. Upon optimisation, $k = 3$ was selected, therefore, the prediction was based on the weighted average value of the three nearest data points in the training set. 
+
+
+%\end{itemize}
+
+\paragraph{In laboratory testing of soil}
+%\begin{itemize}[leftmargin=*,label={}]
+
+
+\subparagraph{Precision test of C-3NpH}
+
+%\noindent Brown soil from Madingley Mulch and 0.01M CaCl$_2$ solvent were added to a falcon tube in equivalent weights. The falcon tube was hand shaken for 2 \minute, before leaving to settle; the latter occurring at 15-45 \minute. 0.5 \ml of the supernatant was siphoned into an eppendorf, to allow for strip dipping to be read by C-3NpH (in accordance to the protocol given in Section \ref{phproto}). To test the precision of C-3NpH, samples of the same soil was prepared thrice into separate falcon tubes and 10 strips were dipped into each eppendorf. 
+
+%\todo{Chyi - speak with Katie}
+
+% normally in chemistry Id write experimental like this: 
+To \SI{1}{g} of Brown Soil (Madingley Mulch), an equivalent volume of CaCl$_2$ (0.01 M, \SI{9}{\ml}). This was manually shaken (\SI{2}{\minute}) before leaving to settle for 15-\SI{45}{\minute}. The resultant supernatant ($\sim$\SI{0.5}{\ml}) was transferred to an eppendorf and the pH strip dipped. Once dipped, the strip was inserted into C-3NpH and the pH measured as previously described (\ref{phproto}). Measurement precision was evaluated using three sample preparations as just described and 10 replicate strip measurements per sample.
+
+%	\item\textit{\textbf{{Soil spiking experiment}}}
+
+\subparagraph{Spiking experiment}
+\noindent Spiking solutions were prepared for pH 4-9, intervals of pH 1, by adding \acrshort{UHP} water to Tris buffer (\SI{0.05}{M}, pH 9.1). %The same 
+Madingley Mulch brown soil was prepared %in the manner of 
+as for the precision test above. However, % again id write the rest as follows: 
+to the supernatatnt (\SI{0.5}{\ml}) was added an equivalent volume of spiking solution (\SI{0.5}{\ml}) before the solution was shaken manually to mix and strips dipped in triplicate. 
+%0.5 \\ml of spiking solution was added to the same volume of supernatant, separately for each different pH, before strip dipping.  
+
+%\end{itemize}
+
+\paragraph{Cambridge Immerse Summer School} \label{Summer_C-3NpH}
+Summer school students were divided into four groups, %each in possession of a
+and given a C-3NpH prototype. Users were instructed to assemble C-3NpH from its 3D printed components, and test the pH models on different household solutions. Instructions given to the user are summarised in the worksheet provided \href{https://universityofcambridgecloud-my.sharepoint.com/:f:/g/personal/eb729_cam_ac_uk/EtEn0MBg-2ZIjL1_mABHpa4BmyKOBFYg7WaYXhi8zPZieQ?e=zcijNp}{online by clicking here}.
+
+\subsubsection{Soil separation methods}
+\paragraph{Separation methods}
+%Initial experiments focused on the separation efficiency of the WG in comparison to either bench-top centrifugation or settling. Additional experiments to decide solvent choice, centrifuge speed, WG time, WG/settling/bench-top centrifuge and mixing time were carried out as described in the following typical protocol.
+
+For each of the qualitative experiments a general protocol was followed and outlined below. Deviations from the general procedure have been detailed in results and discussion, highlighting the variable of interest.
+
+Soil for testing separation methods was obtained from Grange Farm, Lolworth. %, on the 27th June 2019. 
+The collected soil was stored at room temperature in plastic sample bags provided on site. Soil as collected was mixed with the desired volume of extraction solvent (0.5 M NaCl, 2 M NaCl, KCl or CaCl$_2$) in either a 1:1, 1:4 or 1:9 soil-solvent ratio, and shaken by hand for a minimum of \SI{2}{\minute}. For WG separation, an aliquot ($\sim$\SI{1}{\ml}) of the mixed soil sample was transferred to an eppendorf (\SI{1.5}{\ml}) and placed in the WG which was then manually spun at maximum speed for \SI{2}{\minute}. A colour strip was then dipped in the resultant supernatant and read by C-3NpH after the allotted development time as indicated in previous sections. Settled samples were mixed as before, except the aliquot was left to stand until an appreciable volume of supernatant separated from sediment such as to allow a strip to be dipped (typically $<$\SI{30}{\minute}). Samples separated on the \acrfull{BC} were, unless otherwise specified, spun at a speed of 2000 rpm for \SI{20}{s} and the supernatant tested as before.
+
+\paragraph{Time-course experiment} \label{c3nph:mixing}
+
+Advice from industrial protocols described a mixing time of between \SI{15}{\minute} and \SI{24}{hours} and therefore time course experiments were conducted, using both the WG and bench-top centrifuge. Sample preparation proceeded as above except that mixing times were extended to \SI{15}{\minute}, \SI{30}{\minute} and \SI{24}{hours}, after manual shaking. At each time point, an aliquot was taken and either WG or centrifuged as before.
+
+\paragraph{Comparison to industrial standards} \label{c3nph:nacl}
+\Cref{subfig:solventind_1to9} shows that \SI{0.5}{M} NaCl read by C-3NpH at a dilution of 1:9 soil-solvent ratio best agreed with visual assignment of pH using two alternative brands of narrow range strips (i.e. Cole-Parmer, USA and Johnson, UK). This was surprising given the industrial preference for CaCl$_2$. However, the correlation of NaCl with CaCl$_2$ is expected to differ for different soil types, hence will have to be considered for the future development of this project. However, it needs to be considered that the strips may not be representative of the true pH if their chemistry was designed to read pH in water and not salt solution. Therefore, this is another avenue that requires further exploration. 
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{\linewidth} 
+		\centering
+		\includegraphics[width=12cm]{Pictures/C-3NpH/solventindustrial_1to4.png}
+		\caption{}
+		\label{subfig:solventind_1to4}
+	\end{subfigure}
+	%\vfill
+	\begin{subfigure}[b]{\linewidth}
+	\centering
+		\includegraphics[width=12cm]{Pictures/C-3NpH/solventindustrial_1to9.png}
+		\caption{}
+		\label{subfig:solventind_1to9}
+	\end{subfigure}
+	\caption{Comparison of the separation ability and pH by eye of three solvents, i.e. \gls{UHP} (green), \SI{0.01}{M} CaCl$_2$ (red) and \SI{0.5}{M} NaCl (yellow). Samples were prepared in either (a) 1:4 or (b) 1:9 soil-solvent ratio.}
+\label{fig:solventindustrial}
+\end{figure}   	
+
+% To address separation efficiency and the potential 'brownness' effect, centrifuge speed and the subsequent influence on the pH of supernatant was explored as proxy for 'brownness' on the pH reading by the C-3NpH.
+
+\paragraph{Validating soil sampling with the BC}
+It was of interest to see if BC speed impacted the value of pH recorded by C-3NpH. \cref{subfig:speed} illustrates four eppendorfs (prepared with \SI{0.5}{M} NaCl, 1:9 ratio) spun by a \gls{BC} at velocities ranging between 2000-6000rpm (i.e. to the maximum reported speed of the 3D-fuge \cite{Byagathvalli2019}). There was no apparent difference visually with the supernatant colour; and a speed of \SI{2000}{rpm} appeared sufficient to achieve the desired colourless supernatant. All speeds gave a consistent pH reading when measured with duplicate strips in C-3NpH. At \SI{6000}{rpm}, NaCl was shown to form a pellet at \SI{15}{s}, but the equivalent with \gls{UHP} required \SI{1}{\\minuteute} (\cref{subfig:WGBC}). This provided impetus to chose NaCl as the extractant.
+
+\paragraph{Proposed alterations} \label{appen:alter}
+
+%Clearly across climates and daily weather conditions, according to Schmidhalter, calibration and correcting factors should be incorporated before reporting final nitrate concentrations. The final point to consider from Schmidhalter's work is the use of a gravimetric measuring method to measure soil water content negating the need for drying should be incorporated into the recommended protocol for future use of C-3NpH.
+In this work, qualitative assessment of separation efficiency has been conducted, and provided the foundations for future development. However,it is acknowledged that soil drying and sieving prior to analysis will impact results. These two variables were not tested in this work, leaving scope for future testing. This is in particular to comparing impact of soil preparation on the ability of C-3NpH to reproduce reliable results based on supernatant colour. At this stage, the range of solvents and conditions explored were insufficient to properly extract exchangeable protons from soil samples. Therefore, pH measured each time was a representation of the baseline solvent pH. This was confirmed visually, when strips dipped in pure solvent produced indistinguishable colour changes to that dipped in extracted soil supernatant. 
+
+
+\newpage
+\subsubsection{ChemTest results} \label{Chemtest}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=14cm]{Pictures/C-3NpH/chemtest1.png}
+	\end{figure}
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=14cm]{Pictures/C-3NpH/chemtest2.png}
+	\end{figure}
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=14cm]{Pictures/C-3NpH/chemtest3.png}
+	\end{figure}
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=14cm]{Pictures/C-3NpH/chemtest4.png}
+	\end{figure}   
+	
+	
+	
+	\clearpage

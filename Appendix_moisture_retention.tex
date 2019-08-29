@@ -1,0 +1,150 @@
+\tocless \subsection{Moisture Retention Probe}
+\subsubsection{Design Evolution of the Moisture Retention Probe}
+\label{smrdesignevolution}
+As seen in \cref{fdesignevolution}, the design process of the moisture retention probe was one of iterative improvements that can be likened to \emph{rapid prototyping}. Each of the probes shown there was field-tested to identify its strengths and weaknesses.
+
+The first test on the left-most side was done with a commercial moisture sensing PCB for the maker community. Its sensing elements are imprinted as traces on the PCB, making the unit self-contained. They are not intended to be embedded into the ground, as the top part containing the readout electronics are fully exposed to the elements (the design is mostly used with potted plants as a drought alarm, and only partially inserted). Hence, to run a full field test, the electronic components were encased in two-component epoxy, taking care to cover the sensing elements with only a thin film, and a long, robust cable was soldered on. This was used to proof-of-concept whether manual irrigation through tens of centimetres of soil would lead to significant signal change, which was confirmed with signal changes above \SI{30}{\percent} with modest (dL) irrigation volumes.
+
+Next, the design moved to a cylindrical design with coiled wires at several different depths, which would remain as the main design form factor. Each pair of wires was soldered onto a commercial moisture sensing PCB which was cut to keep only the part containing the readout electronics. Magnet wire was used initially as it is easy to coil, and therefore can give strong signal with many windings. Downsides of this approach were the low robustness of this small wire, and the difficulty in fixing the wire to the rod. Superglue was found to not adhere strongly enough; two-component epoxy was difficult to apply evenly and thinly enough so as to not shield the sensing elements too much; and gaffa tape or heat shrink was found to wick in moisture.
+
+Note that these earliest designs use serological pipettes merely for their geometry of a hollow rod (for routing the wires above ground) with a conical tip (to drive them into the ground). The reason for this was simply that they were easily available from CEB stores in a variety of diameters. Serological pipettes were found to fail mechanically during field testing. In dry soil especially, the stress applied when removing the probe led to the device breaking apart.  They were thus replaced by commercially available polyethylene barrier pipes. Silicone sealant and epoxy were used to waterproof the final device especially with regards to the holes made to pass the wires through. 
+
+In early designs the coils of paired wires were placed with random spacing and inevitably came in close contact with each other. Cylindrical wire holders with holes both at the top and the bottom were 3D printed to allow for controlled and reproducible placement of the wires on the probe. Several spacing parameters were explored both between the holders themselves and for the coil tracks on the holders. However it was found that constant spacing between the wires provided the most reliable results. The 3D holders can easily be slipped onto the pipe and then fixed at the desired position with two part epoxy. The length of wire placed in the tracks of the 3D holders was stripped of its insulating layer and glued in place. This led to a significant improvement in the sensitivity and signal to noise ratio of the probes. The rest of the wire was kept insulated and placed the connection to the moisture sensor peripheral was protected with heat shrink. 
+
+
+Apart from the probe inserted into the ground, the readout electronics were evolved from hand-soldering on a strip-board to a custom PCB. The PCB was sized such that it slots into one of the cooling fins of the aluminium enclosure used to provide a sturdy case to interface with the base unit.
+
+\subsubsection{Instruction Protocol}
+\label{smrinstructionprotocol}
+
+\textbf{Base unit (main box with touch buttons):  }
+
+\textit{To charge the base unit plug the USB into the top socket. The device should be switched off whilst charging. The other end of the USB can go into any device to charge  (i.e: a PC). Red LEDs indicate charging and blue LEDs indicate that the device is fully charged. Charge after around 2 days of use.} 
+
+\textit{Only use the blue USB cable}  
+
+
+\textbf{Moisture retention probe (black box with capacitive probe)} 
+
+\todo{jh2109 I suggest to change all messages displayed on the screen to texttt, as I did for one below}
+\begin{itemize}
+\item Plug the blue USB cable into the black box of the moisture retention probe gently.
+\item Switch on the main box (base unit) 
+\item Once the main menu is displayed, plug in the other end of the blue USB cable into the lower USB port of the base unit.  
+\item Select the “Water Ret.” option. By touching the left most button
+\item If it shows “check connection” keep everything plugged in. Switch off and switch on the main box again    
+\item Display should show \texttt{Moisture probe found. Serial no. 1}
+\item Make a hole the size of the probe in the soil using a metal rod or any suitable instrument 
+\item Gently push the probe down the hole until all 3 sensors are covered 
+\item Make a secondary hole circa. \SI{5}{cm} deep, circa. \SI{5}{cm} wide and \SI{3}{cm} to \SI{5}{cm} away from the probe 
+\item Ensure water cannot wick vertically along the probe 
+\item The display shows “Insert probe Press Select”. Once the probe is inserted into the soil, touch SELECT button (left button).  
+\item Next, soil wetness values are displayed. This display waits for \SI{5}{seconds}
+\item Next, the display shows “Irrigate Probe. Measurement in progress”. Now fill the secondary hole with water keeping it topped up regularly. Keep on doing this until values are displayed 
+\item Water retention scores are displayed. The display waits for \SI{5}{seconds} 
+\item Data is logged to SD card. 
+\end{itemize}
+
+%\subsection{Extracting Soil Parameters from Probe Output} %Author: Doug
+
+
+\subsubsection{Extracting Soil Parameters from Probe Output}
+\label{sec:Extracting_Soil_params}
+The measurement enacted by the moisture probe is rich in information; presented here are methods to extract the infiltration rates and the Hydraulic Conductivity of the upper-most layer of soil.
+\newline
+A simplified model for the infiltration of water into the soil from the water reservoir is that of radial dispersion under the influence of diffusion and gravity. This model is illustrated by \cref{fig:moisture_retention_sketch} and assumes the soil to be homogeneous. By considering the sensors and the reservoir to each be point elements in space, as illustrated in \cref{fig:moisture_retention_schematic}, it becomes clear that the volume of water which causes the primary deflection in each sensor must travel along some radial path with path length $\Delta r_i$ over the time interval $\Delta t_i$. The task is thus to derive the vertical infiltration velocity, $\frac{dy}{dt} \equiv \dot{y}$ as seen by each sensor. The argument follows thusly:
+
+%\begin{gather}
+\begin{align}
+    y_i &= r_i\cdot sin\theta_i \\
+    \implies \frac{dy_i}{dt_i} &= \big(\frac{dr_i}{dt_i}\big)\cdot sin\theta_i \\
+    \intertext{But,} 
+    \frac{dr_i}{dt_i} &\approx \frac{\Delta r_i}{\Delta t_i} \\
+    \implies \dot{y}_i &\equiv \frac{dy_i}{dt_i} \approx \frac{\Delta r_i  \cdot sin\theta_i}{\Delta t_i}\\
+    \intertext{Where,}
+    \Delta t_i &= x_{sw} \cdot cos\theta_i \\
+    \theta_i &= tan^{-1}\big(\frac{y_i}{x_{sw}}\big)\\
+    \implies \dot{y}_i &\approx \frac{x_{sw} \cdot sin\theta_i\cdot cos\theta_i}{\Delta t_i}\\
+    \intertext{But,}
+    sin\theta_i \cdot cos\theta_i
+    &= \frac{tan\theta_i}{1+tan^2\theta_i}\\
+    &= \frac{y_i/x_{sw}}{1+(y_i/x_{sw})^2}\\
+    &= \frac{y_i\cdot x_{sw}}{x^2_{sw}+y^2_i}\\
+    \implies \dot{y}_i &\approx \frac{y_i\cdot x^2_{sw}}{\Delta t_i\cdot(x^2_{sw}+y^2_i)} \qed
+\end{align}
+%\end{gather}
+
+\begin{figure*}[h!]
+\begin{subfigure}[b]{.75\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{Pictures/moisture_retention/Moisture_probe_sketch.png}
+  \caption{Stylised sketch of the moisture retention probe and water reservoir with radial infiltration of water from reservoir into soil.}
+  \label{fig:moisture_retention_sketch}
+\end{subfigure}%
+\vspace{10mm}
+\begin{subfigure}[b]{.75\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{Pictures/moisture_retention/Moisture_probe_Schematic.png}
+  \caption{Schematic illustrating the geometric relationships between the sensors and water reservoir, all modelled as point entities.}
+  \label{fig:moisture_retention_schematic}
+\end{subfigure}
+\caption{Figures illustrating the simplified radial infiltration model.}
+\label{fig:Moiture_retention_Radial_infiltration}
+\end{figure*}
+
+Now, a comprehensive equation describing the vertical infiltration rate has been proposed by Ogden~\textit{et al.}~\cite{soilmoisturevelocityogdenetal2017} and is given as:
+\begin{equation}
+    \frac{dy}{dt} = -K\cdot \bigg[\frac{\partial \Psi}{\partial y}-1\bigg] - D\cdot \bigg[\frac{\partial^2\Psi/\partial y^2}{\partial\Psi/\partial y}\bigg]
+    \label{eqn:Soil_moisture_velocity_eqn}
+\end{equation}
+where:
+\begin{conditions}
+ K     &  Unsaturated Hydraulic Conductivity $[m/s]$ \\
+ \Psi  &  Capillary Pressure Head $[m]$\\   
+ D     &  Soil Water Diffusivity $[m^2/s]$
+\end{conditions}
+A parameter of interest is the hydraulic conductivity as it measures the ease with which water percolates through the soil and is therefore a reflection of the soil porosity and interconnectedness. 
+\newline
+Now, in the context of rough estimates, the second term in \cref{eqn:Soil_moisture_velocity_eqn}, which describes the diffusion like behaviour of the water, can be regarded as negligible relative to the first term, which describes the advection-like behaviour and encapsulates the effect of porosity and gravity~\cite{soilmoisturevelocityogdenetal2017}.Thus,
+
+\begin{align}
+    \frac{dy}{dt} &\approx -K\cdot \bigg[\frac{\partial \Psi}{\partial y}-1\bigg]\\
+    &= -K\cdot \frac{\partial \Psi}{\partial y} + K
+\end{align}
+
+Assume that water infiltrates radially, thus, by the Inverse Square Law:
+
+\begin{gather}
+    \Psi = \Psi(y) \propto \frac{1}{y^2}\\
+    \implies \frac{\partial \Psi}{\partial y} \propto -\frac{1}{y} \\
+    \implies \dot{y} \propto -K \cdot \big(-\frac{1}{y}\big) + K\\
+    \implies \dot{y} \approx -C\cdot \frac{K}{y} + K \quad\text{Where C is a constant}\label{eqn:Approx_y_dot_Append}\\
+    \intertext{Thus, from \ref{eqn:Approx_y_dot_Append}}
+    \dot{y} \to K \quad\text{where}\quad y \gg 1\\
+    \implies K_{Average} \approx \dot{y}_3\\
+    \intertext{And, from \ref{eqn:Approx_y_dot_Append}}
+    C \approx -(\dot{y}-K)\cdot\frac{y}{K}\\
+    \implies C_{Approx} \approx -(\dot{y}_2 - K_{Average})\frac{y_2}{K_{Average}}\\
+    \intertext{Finally, from \ref{eqn:Approx_y_dot_Append}}
+     K \approx \frac{\dot{y}}{\bigg(\frac{C}{y}-1\bigg)}\\
+    \implies K_1 \approx \frac{\dot{y}_1}{\bigg(\frac{C_{Approx}}{y_1}-1\bigg)}
+\end{gather}
+
+Which gives the Hydraulic Conductivity of the Top Soil layer, $K_1$, by using the deep sensors to estimate the interim parameters. It must, however, be noted, that the capillary head, hydraulic conductivity and diffusivity are all non-linear functions of the volumetric water content of the soil. Given that the magnitude of the signal generated by the sensors is correlated to this parameter, adjustments to the measuring procedure using different volumes of water could be used to generate the appropriate functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 

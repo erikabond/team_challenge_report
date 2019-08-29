@@ -1,0 +1,58 @@
+\subsubsection{\gls{CO2} sensor -- PhotosynQ}\label{CO2sensor}
+After several feasibility studies (\cref{SOC_feasibility}), SoliCamb decided that developing a reliable sensor for \gls{SOC} would be dependent on a vast amount of research and developing steps which would not be feasible within the time frame or the budget available for the project. Due to multiple collaborators as well as experts and academics in the field expressing high interest and elucidating the demand for a soil organic carbon sensor we have tried to find a suited but existing technology that could be integrated into the SoliCamb sensor platform rather than developing our own sensor. \\
+A collaboration with PhotosynQ, an open source project originating in the USA, who are working on providing a platform to create, share and analyse plant health information was initiated. In order to link soil properties to plant health, they have developed the SoilspeQ, which allows the measurement of carbon mineralisation within soil. The measurement provides information on the active pool of the total organic carbon which consists of rapidly cycling organic material (5-20 \% of \gls{SOC}) \cite{Gregorich,Wander04} and is a good indicator for short term nutrient availability \cite{Haynes, Lewis, Wander04}. Beyond this, carbon mineralisation allows the prediction of crop yield and total above ground biomass. PhotosynQ has been developing the device for quite some time and has successfully utilised it in remote areas in Australia and Malawi.\\
+PhotosynQ’s SoilspeQ measures carbon mineralisation from a 24 hour burst aerobic incubation using a setup which includes a Teensy microcontroller and a IRGA K30 \gls{CO2} sensor. 
+For a valid measurement, soil needs to be air dried for 48 hours before 25 grams are transferred to an air tight container of known volume. The soil is re-wetted uniformly in a 5:1 ratio using water. The lid of the container is to be prepared with an airtight seal which allows the extraction of 30 ml of air from the jar after a 24 hours incubation at room temperature, using a syringe and needle. The air in the syringe is then applied to the \gls{CO2} sensor in a uniform, smooth movement. Subsequently, the \gls{CO2}  measurement is used as a proxy and converted to determine the rate of organic matter mineralisation which is interlinked with short term soil nutrient availability. \cite{HurissoCulman}.\\
+To circumvent using the PhotosynQ WebApp and allowing the potential integration of the device in the SoliCamb sensor platform, we have extracted the information of how to convert the \gls{CO2} to a carbon mineralisation from their firmware (\cref{fig:conversion-code}), allowing an instantaneous readout with our device. This will also facilitate the creation of the final \gls{csv} file. Instead of a Teensy board, we are yet using an Arduino, due to compatibility between the IDE of the Arduino and the Blue Pill microcontroller, which is used in our base unit(see \cref{fig:SetupDetailled},\cref{fig:CO2_setup}). 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = 6in]{Pictures/CO2/Conversion-code.png} 
+\caption{Code describing the conversion step from \gls{CO2} to amount of carbon per kg of soil, extracted from the PhotosynQ firmware and re-purposed for the SoilCamb device.}
+\label{fig:conversion-code}
+\end{figure}
+
+Preliminary experiments have been performed with soil provided by Madingley Mulch and allotments at King's College. Experiments have been run in triplicates and results have been compared to the result of the \gls{LOI} test of the same batch of soil. The \gls{LOI} test was carried out in the Department of Plant Sciences under the supervision of Dr. Yi Zhang (see \cref{StandardmethodsLOI} for \gls{LOI} protocol).
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}        %% or \columnwidth
+        \centering
+        \includegraphics[width=\linewidth]{Pictures/CO2/CO2scale.jpg}
+        \caption{The equipment used for soil preparation and the 24 h burst test using air tight containers.}
+        \label{fig:SetupA}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.48\linewidth}        %% or \columnwidth
+        \centering
+        \includegraphics[width=\linewidth]{Pictures/CO2/CO2sensor.jpg}
+        \caption{showing the setup of the \gls{CO2} sensor using an Arduino Uno}
+        \label{fig:SetupB}
+    \end{subfigure}
+    \caption{A detailled overview of the components of the \gls{CO2} sensor setup.}
+    \label{fig:SetupDetailled}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width = 6in]{Pictures/CO2/CO2setupf.jpg} 
+\caption{Preliminary setup of the rebuilt \gls{CO2} sensor developed by PhotosynQ using a 500 mL Schott Pryex flask, a 60 mL syringe and an Arduino Uno microcontroller.}
+\label{fig:CO2_setup}
+\end{figure}
+
+The results of both tests  shown in \cref{fig:CO2_LOI} show the same trend for four different soil samples from different soil types. 
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics{Pictures/CO2/CO2_LOI.png}
+    \caption{Comparison of results from the \gls{CO2} sensor to \gls{LOI} for different soils. \small[N.B. Error bars are based on standard deviation.]}
+    \label{fig:CO2_LOI}
+\end{figure}
+
+%% (\cref{fig:CO2_LOI}) picture reference for you Elena
+
+The \gls{LOI} test result represent the percentage of \gls{SOC} content of the soil samples, whereas the results from the \gls{CO2} sensor, represent the amount of active organic carbon of the soil only. These experiments were to test if the carbon mineralisation data can be used as a proxy for \gls{SOC} or if the results are a measure of biological activity and nutrient availability only. This would affect the role its role, if integrated in the SoliCamb platform. The test has been run using various soil types, and we can conclude that the method, unlike other methods, is independent of the type of soil that is to be analysed. The variability of the results is low, but there are a number of steps where errors could be introduced by the user. 
+
+So far, the test has only been carried out with air dried soil. We are interested to test the influence of temperature and water content on the respiration rate measured. Beyond that, we have received interesting input from collaboration partners at the Oxford Ecosystems Lab on how to potentially speed up the process of carbon mineralisation. This has not yet been tested by PhotosynQ, and we are planning on investigating this in future. Furthermore we want to understand the link of the measurements with nutrient availability, but running more tests focusing on nitrate availability in the soil. We are working on further validating the system, and adjusting the setup and handling of the single components in order to decrease the possibility for user errors. So far, we can conclude that the device shows high potential and is most likely to be integrated into the SoliCamb sensor platform. 
+
